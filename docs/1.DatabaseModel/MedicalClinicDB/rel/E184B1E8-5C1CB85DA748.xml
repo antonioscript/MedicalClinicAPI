@@ -1,0 +1,9 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<relationalModel class="oracle.dbtools.crest.model.design.relational.RelationalDesign" name="MedicalClinicDB" id="E184B1E8-C9B9-58E8-1885-5C1CB85DA748" mainViewID="809169D5-8806-804B-C404-F21BF6B14C19">
+<createdBy>Antônio Rocha</createdBy>
+<createdTime>2023-07-26 00:38:08 UTC</createdTime>
+<comment><![CDATA[This database stores all the relevant information for managing a medical clinic]]></comment>
+<ownerDesignName>MedicalClinicDB</ownerDesignName>
+<shouldBeOpen>false</shouldBeOpen>
+<selectedRDBMSSite>22943E51-0387-1F2A-CED9-5FB738BA5A0C</selectedRDBMSSite>
+</relationalModel>

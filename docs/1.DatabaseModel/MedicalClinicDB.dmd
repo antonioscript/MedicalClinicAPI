@@ -1,0 +1,8 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<OSDM_Design class="oracle.dbtools.crest.model.design.Design" name="MedicalClinicDB" id="BCB9B8E8-700A-AE65-D037-340691A452C6" version="3.5">
+<createdBy>Antônio Rocha</createdBy>
+<createdTime>2023-07-26 00:38:08 UTC</createdTime>
+<ownerDesignName>MedicalClinicDB</ownerDesignName>
+<capitalNames>false</capitalNames>
+<designId>BCB9B8E8-700A-AE65-D037-340691A452C6</designId>
+</OSDM_Design>

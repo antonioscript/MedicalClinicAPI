@@ -1,0 +1,22 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Diagram class="oracle.dbtools.crest.swingui.relational.DPVRelational" name="MedicalClinicDB" id="809169D5-8806-804B-C404-F21BF6B14C19">
+<createdBy>Antônio Rocha</createdBy>
+<modifiedBy>Antônio Rocha</modifiedBy>
+<createdTime>2023-07-26 00:38:28 UTC</createdTime>
+<autoRoute>false</autoRoute>
+<boxInbox>true</boxInbox>
+<showLegend>false</showLegend>
+<showLabels>false</showLabels>
+<showRelAttributes>false</showRelAttributes>
+<gridEnabled>false</gridEnabled>
+<showGrid>false</showGrid>
+<diagramColor>-1</diagramColor>
+<display>false</display>
+<notation>1</notation>
+<objectViews>
+<OView class="oracle.dbtools.crest.swingui.relational.TVTable" oid="B02A4EE6-2507-C233-5ED3-3AB545527308" otype="Table" vid="C1A63BCD-24C3-403C-E34D-178052707D6A">
+<hideElementsInCurrentOnly>false</hideElementsInCurrentOnly>
+<bounds x="452" y="221" width="238" height="192"/>
+</OView>
+</objectViews>
+</Diagram>
