@@ -1,0 +1,106 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="496775D9-AA41-1F21-491E-22A71E9E3FC7" schemaObject="6B374BDA-32BE-BB34-9CFF-AFA5E6292D1F" name="Specialties">
+<createdBy>Antônio Rocha</createdBy>
+<createdTime>2023-07-26 23:15:38 UTC</createdTime>
+<notes><![CDATA[Stores information about medical specialties.]]></notes>
+<ownerDesignName>MedicalClinicDB</ownerDesignName>
+<ordsAlias>table_3</ordsAlias>
+<beforeCreate><![CDATA[GO
+IF EXISTS(SELECT * FROM sys.sysobjects WHERE NAME = '{table}' AND xtype = 'U')
+BEGIN
+	DROP TABLE {schema}.{table};
+END
+GO]]></beforeCreate>
+<shouldGeneratescript>true</shouldGeneratescript>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="SpecialtyId" id="816D6846-EB29-CE29-F98A-CD594E8548E4">
+<createdBy>Antônio Rocha</createdBy>
+<createdTime>2023-07-26 23:17:43 UTC</createdTime>
+<commentInRDBMS><![CDATA[Unique identifier for each medical specialty]]></commentInRDBMS>
+<ownerDesignName>MedicalClinicDB</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<identityColumn>true</identityColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Name" id="B2BB6CE3-E295-45A4-9A9D-CB0D49B80403">
+<createdBy>Antônio Rocha</createdBy>
+<createdTime>2023-07-26 23:18:30 UTC</createdTime>
+<commentInRDBMS><![CDATA[The name of the medical specialty]]></commentInRDBMS>
+<ownerDesignName>MedicalClinicDB</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>60</dataTypeSize>
+<ownDataTypeParameters>60,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Description" id="7A22189B-E6E8-D7F7-6717-F34CAB8D5133">
+<createdBy>Antônio Rocha</createdBy>
+<createdTime>2023-07-26 23:18:59 UTC</createdTime>
+<commentInRDBMS><![CDATA[escription of the medical specialty]]></commentInRDBMS>
+<ownerDesignName>MedicalClinicDB</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>250</dataTypeSize>
+<ownDataTypeParameters>250,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ConsultationValue" id="3A98ABBA-9ADB-D69D-779F-C70B1306173B">
+<createdBy>Antônio Rocha</createdBy>
+<createdTime>2023-07-27 01:50:56 UTC</createdTime>
+<commentInRDBMS><![CDATA[Value of Consultation ]]></commentInRDBMS>
+<ownerDesignName>MedicalClinicDB</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT026</logicalDatatype>
+<dataTypePrecision>18</dataTypePrecision>
+<dataTypeScale>6</dataTypeScale>
+<ownDataTypeParameters>,18,6</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="IsEnabled " id="4E7AB2C2-3935-89B7-4E39-18446E924053">
+<createdBy>Antônio Rocha</createdBy>
+<createdTime>2023-07-26 23:21:28 UTC</createdTime>
+<commentInRDBMS><![CDATA[Indicates if the record  is currently active in the system]]></commentInRDBMS>
+<ownerDesignName>MedicalClinicDB</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT034</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DeletedAt" id="601FE6BE-6FD3-A1C6-7FA4-F14B868E3F04">
+<createdBy>Antônio Rocha</createdBy>
+<createdTime>2023-07-26 23:21:28 UTC</createdTime>
+<commentInRDBMS><![CDATA[The date when the record  was logically deleted from the system]]></commentInRDBMS>
+<ownerDesignName>MedicalClinicDB</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT008</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="89E21D40-4FB2-919D-7197-515CD1AB23A9" name="PK_Specialties">
+<createdBy>Antônio Rocha</createdBy>
+<createdTime>2023-07-26 23:17:43 UTC</createdTime>
+<ownerDesignName>MedicalClinicDB</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="816D6846-EB29-CE29-F98A-CD594E8548E4"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

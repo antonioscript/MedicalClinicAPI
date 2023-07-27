@@ -1,0 +1,133 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="3239037A-ED60-1D53-D983-40D472351AFA" schemaObject="6B374BDA-32BE-BB34-9CFF-AFA5E6292D1F" name="Insurance">
+<createdBy>Antônio Rocha</createdBy>
+<createdTime>2023-07-26 23:58:32 UTC</createdTime>
+<commentInRDBMS><![CDATA[Stores information about health insurance plans or medical health plans]]></commentInRDBMS>
+<ownerDesignName>MedicalClinicDB</ownerDesignName>
+<ordsAlias>table_4</ordsAlias>
+<beforeCreate><![CDATA[GO
+IF EXISTS(SELECT * FROM sys.sysobjects WHERE NAME = '{table}' AND xtype = 'U')
+BEGIN
+	DROP TABLE {schema}.{table};
+END
+GO]]></beforeCreate>
+<shouldGeneratescript>true</shouldGeneratescript>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="InsuranceId" id="375225A3-3B19-DD9E-A4AA-AC6B1B1C9B0D">
+<createdBy>Antônio Rocha</createdBy>
+<createdTime>2023-07-26 23:59:46 UTC</createdTime>
+<commentInRDBMS><![CDATA[nique identifier for each health insurance plan]]></commentInRDBMS>
+<ownerDesignName>MedicalClinicDB</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<identityColumn>true</identityColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Name" id="54FB0773-96F5-C7C0-00FF-49143143565B">
+<createdBy>Antônio Rocha</createdBy>
+<createdTime>2023-07-27 00:00:44 UTC</createdTime>
+<commentInRDBMS><![CDATA[The name of the health insurance plan]]></commentInRDBMS>
+<ownerDesignName>MedicalClinicDB</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Description" id="BE62BD57-B671-87E1-F95C-BDD09CA4DF3B">
+<createdBy>Antônio Rocha</createdBy>
+<createdTime>2023-07-27 00:01:10 UTC</createdTime>
+<commentInRDBMS><![CDATA[Description of the health insurance plan]]></commentInRDBMS>
+<ownerDesignName>MedicalClinicDB</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>250</dataTypeSize>
+<ownDataTypeParameters>250,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PercentageTypeOne" id="F565E37D-1071-961D-DA39-82F3E72B5118">
+<createdBy>Antônio Rocha</createdBy>
+<createdTime>2023-07-27 00:03:49 UTC</createdTime>
+<commentInRDBMS><![CDATA[A percentage value related to the health insurance plan]]></commentInRDBMS>
+<ownerDesignName>MedicalClinicDB</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT026</logicalDatatype>
+<dataTypePrecision>18</dataTypePrecision>
+<dataTypeScale>6</dataTypeScale>
+<ownDataTypeParameters>,18,6</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PercentageTypeTwo" id="589CA942-42AA-6D1A-FAF0-62D7105341A3">
+<createdBy>Antônio Rocha</createdBy>
+<createdTime>2023-07-27 00:04:26 UTC</createdTime>
+<commentInRDBMS><![CDATA[Another percentage value related to the health insurance plan]]></commentInRDBMS>
+<ownerDesignName>MedicalClinicDB</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT026</logicalDatatype>
+<dataTypePrecision>18</dataTypePrecision>
+<dataTypeScale>6</dataTypeScale>
+<ownDataTypeParameters>,18,6</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PercentageTypeThree" id="FC7170F9-CC3B-622F-58F1-115446D4D453">
+<createdBy>Antônio Rocha</createdBy>
+<createdTime>2023-07-27 00:04:42 UTC</createdTime>
+<commentInRDBMS><![CDATA[Another percentage value related to the health insurance plan]]></commentInRDBMS>
+<ownerDesignName>MedicalClinicDB</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT026</logicalDatatype>
+<dataTypePrecision>18</dataTypePrecision>
+<dataTypeScale>6</dataTypeScale>
+<ownDataTypeParameters>,18,6</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="IsEnabled " id="546033F2-363D-4B3A-463A-537B73A89E14">
+<createdBy>Antônio Rocha</createdBy>
+<createdTime>2023-07-27 00:03:49 UTC</createdTime>
+<commentInRDBMS><![CDATA[Indicates if the record  is currently active in the system]]></commentInRDBMS>
+<ownerDesignName>MedicalClinicDB</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT034</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DeletedAt" id="79448F05-A471-8873-1768-C991E4124DA3">
+<createdBy>Antônio Rocha</createdBy>
+<createdTime>2023-07-27 00:03:49 UTC</createdTime>
+<commentInRDBMS><![CDATA[The date when the record  was logically deleted from the system]]></commentInRDBMS>
+<ownerDesignName>MedicalClinicDB</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT008</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="80DE3F4F-F163-6F21-6BD8-C34A3F1DB4CF" name="PK_Insurance">
+<createdBy>Antônio Rocha</createdBy>
+<createdTime>2023-07-26 23:59:46 UTC</createdTime>
+<ownerDesignName>MedicalClinicDB</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="375225A3-3B19-DD9E-A4AA-AC6B1B1C9B0D"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

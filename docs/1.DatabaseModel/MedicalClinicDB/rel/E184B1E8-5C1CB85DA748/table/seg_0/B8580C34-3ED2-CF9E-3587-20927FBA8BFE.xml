@@ -1,8 +1,8 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="B02A4EE6-2507-C233-5ED3-3AB545527308" schemaObject="6B374BDA-32BE-BB34-9CFF-AFA5E6292D1F" name="Patients">
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="B8580C34-3ED2-CF9E-3587-20927FBA8BFE" schemaObject="6B374BDA-32BE-BB34-9CFF-AFA5E6292D1F" name="Doctors">
 <createdBy>Antônio Rocha</createdBy>
-<createdTime>2023-07-26 00:42:07 UTC</createdTime>
-<commentInRDBMS><![CDATA[Stores information about patients and their medical records.]]></commentInRDBMS>
+<createdTime>2023-07-26 23:02:16 UTC</createdTime>
+<commentInRDBMS><![CDATA[Stores information about medical doctors, their specialties, and contact details.]]></commentInRDBMS>
 <ownerDesignName>MedicalClinicDB</ownerDesignName>
 <ordsAlias>table_2</ordsAlias>
 <beforeCreate><![CDATA[GO
@@ -11,14 +11,15 @@ BEGIN
 	DROP TABLE {schema}.{table};
 END
 GO]]></beforeCreate>
+<shouldGeneratescript>true</shouldGeneratescript>
 <allowColumnReorder>false</allowColumnReorder>
 <existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
 <parsed>true</parsed>
 <columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
-<Column name="PatientId" id="9C12CCFE-AFF5-45D0-2211-9A3107C8F67E">
+<Column name="DoctorId" id="9D721544-EA0B-6805-5DF8-141F5316177B">
 <createdBy>Antônio Rocha</createdBy>
-<createdTime>2023-07-26 00:48:42 UTC</createdTime>
-<commentInRDBMS><![CDATA[Patients table unique identifier]]></commentInRDBMS>
+<createdTime>2023-07-26 23:02:35 UTC</createdTime>
+<commentInRDBMS><![CDATA[Unique identifier for each doctor in the system]]></commentInRDBMS>
 <ownerDesignName>MedicalClinicDB</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
@@ -28,59 +29,25 @@ GO]]></beforeCreate>
 <identityColumn>true</identityColumn>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="FirstName" id="75B1ED28-D442-7560-E557-7F1539078DBD">
+<Column name="SpecialtyId" id="CF66FFC0-57E7-3A49-2ADE-1C6A263AD440">
 <createdBy>Antônio Rocha</createdBy>
-<createdTime>2023-07-26 00:57:15 UTC</createdTime>
-<commentInRDBMS><![CDATA[The  name of the patient]]></commentInRDBMS>
+<createdTime>2023-07-27 02:01:14 UTC</createdTime>
+<commentInRDBMS><![CDATA[Unique identifier for each medical specialty]]></commentInRDBMS>
 <ownerDesignName>MedicalClinicDB</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
-<logicalDatatype>LOGDT024</logicalDatatype>
-<dataTypeSize>50</dataTypeSize>
-<ownDataTypeParameters>50,,</ownDataTypeParameters>
-<autoIncrementCycle>false</autoIncrementCycle>
-</Column>
-<Column name="LastName" id="34AF4A1F-4DC5-0899-B8B8-2406A2BDEFB1">
-<createdBy>Antônio Rocha</createdBy>
-<createdTime>2023-07-26 00:57:49 UTC</createdTime>
-<commentInRDBMS><![CDATA[The last name  of the patient]]></commentInRDBMS>
-<ownerDesignName>MedicalClinicDB</ownerDesignName>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT024</logicalDatatype>
-<dataTypeSize>50</dataTypeSize>
-<ownDataTypeParameters>50,,</ownDataTypeParameters>
-<autoIncrementCycle>false</autoIncrementCycle>
-</Column>
-<Column name="DateOfBirth " id="4312A778-070F-6186-7256-C573A2C6E5D5">
-<createdBy>Antônio Rocha</createdBy>
-<createdTime>2023-07-26 00:58:47 UTC</createdTime>
-<commentInRDBMS><![CDATA[The date of birth of the patient]]></commentInRDBMS>
-<ownerDesignName>MedicalClinicDB</ownerDesignName>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT008</logicalDatatype>
+<logicalDatatype>LOGDT011</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
 <autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="88D84F47-366B-BD43-C384-BCD62F274F8F" referredColumn="816D6846-EB29-CE29-F98A-CD594E8548E4"/>
+</associations>
 </Column>
-<Column name="Gender" id="90E9FACF-C80C-077B-525B-ABE9E328CD65">
+<Column name="Crm" id="B00EB8F9-E7AD-3950-EDE0-129D50EAD8C9">
 <createdBy>Antônio Rocha</createdBy>
-<createdTime>2023-07-26 01:04:56 UTC</createdTime>
-<commentInRDBMS><![CDATA[The gender of the patient
-0: Male, 
-1: Female,
-2: NonBinary]]></commentInRDBMS>
-<ownerDesignName>MedicalClinicDB</ownerDesignName>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT042</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-<autoIncrementCycle>false</autoIncrementCycle>
-</Column>
-<Column name="PhoneOne" id="916438A8-18E6-1009-7F50-E13ACFC2DAA1">
-<createdBy>Antônio Rocha</createdBy>
-<createdTime>2023-07-26 01:07:16 UTC</createdTime>
-<commentInRDBMS><![CDATA[The phone one  number of the patient.]]></commentInRDBMS>
+<createdTime>2023-07-26 23:07:45 UTC</createdTime>
+<commentInRDBMS><![CDATA[The CRM (Conselho Regional de Medicina) number of the doctor]]></commentInRDBMS>
 <ownerDesignName>MedicalClinicDB</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
@@ -89,12 +56,35 @@ GO]]></beforeCreate>
 <ownDataTypeParameters>20,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="PhoneTwo" id="4FA1EDDD-35D7-4616-4911-4182CFBA02CB">
+<Column name="FirstName" id="67FA3D54-DF9A-30FD-5C24-25139D0C22E7">
 <createdBy>Antônio Rocha</createdBy>
-<createdTime>2023-07-26 01:07:30 UTC</createdTime>
-<commentInRDBMS><![CDATA[The phone two  number of the patient.]]></commentInRDBMS>
+<createdTime>2023-07-26 23:04:16 UTC</createdTime>
+<commentInRDBMS><![CDATA[The first name of the doctor.]]></commentInRDBMS>
 <ownerDesignName>MedicalClinicDB</ownerDesignName>
-<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="LastName" id="B93D0FD6-BC32-56BD-A3DF-78B4C7D2B101">
+<createdBy>Antônio Rocha</createdBy>
+<createdTime>2023-07-26 23:05:26 UTC</createdTime>
+<commentInRDBMS><![CDATA[ The last name or surname of the doctor]]></commentInRDBMS>
+<ownerDesignName>MedicalClinicDB</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Phone" id="6FF926EC-A1F5-E4EF-5BA5-7B6E5D28EA1F">
+<createdBy>Antônio Rocha</createdBy>
+<createdTime>2023-07-26 23:06:18 UTC</createdTime>
+<commentInRDBMS><![CDATA[The phone number of the doctor.]]></commentInRDBMS>
+<ownerDesignName>MedicalClinicDB</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT024</logicalDatatype>
@@ -102,10 +92,10 @@ GO]]></beforeCreate>
 <ownDataTypeParameters>20,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="Email" id="8EB4C965-5AD3-8D95-DD40-B4BFF1D87427">
+<Column name="Email" id="2589B12B-3D04-7D30-AA95-D7E900B0C661">
 <createdBy>Antônio Rocha</createdBy>
-<createdTime>2023-07-26 01:08:07 UTC</createdTime>
-<commentInRDBMS><![CDATA[The email address of the patient.]]></commentInRDBMS>
+<createdTime>2023-07-26 23:06:18 UTC</createdTime>
+<commentInRDBMS><![CDATA[The email address of the doctor.]]></commentInRDBMS>
 <ownerDesignName>MedicalClinicDB</ownerDesignName>
 <nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
@@ -115,10 +105,10 @@ GO]]></beforeCreate>
 <ownDataTypeParameters>50,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="AddressLineOne" id="89A34E1F-1EB4-B689-3789-08381E6D4FCF">
+<Column name="AddressLineOne" id="527D60FC-D67F-1A73-9FBD-7DE310F8F987">
 <createdBy>Antônio Rocha</createdBy>
-<createdTime>2023-07-26 01:08:07 UTC</createdTime>
-<commentInRDBMS><![CDATA[The address line one of the patient.]]></commentInRDBMS>
+<createdTime>2023-07-26 23:06:18 UTC</createdTime>
+<commentInRDBMS><![CDATA[The address of the doctor]]></commentInRDBMS>
 <ownerDesignName>MedicalClinicDB</ownerDesignName>
 <nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
@@ -127,10 +117,10 @@ GO]]></beforeCreate>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="AddressLineTwo" id="8CD7EE42-A949-CB40-00CE-9BE89F06372C">
+<Column name="AddressLineTwo" id="0824A471-8C7B-61F3-7898-51578318E456">
 <createdBy>Antônio Rocha</createdBy>
-<createdTime>2023-07-26 01:08:51 UTC</createdTime>
-<commentInRDBMS><![CDATA[The address line two of the patient.]]></commentInRDBMS>
+<createdTime>2023-07-26 23:06:18 UTC</createdTime>
+<commentInRDBMS><![CDATA[The address of the doctor]]></commentInRDBMS>
 <ownerDesignName>MedicalClinicDB</ownerDesignName>
 <nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
@@ -139,21 +129,9 @@ GO]]></beforeCreate>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="InsuranceType" id="D8F98A0A-AD0D-B3C7-895A-3763291A9836">
+<Column name="IsEnabled " id="F5B00860-1953-88E1-778D-D68288799808">
 <createdBy>Antônio Rocha</createdBy>
-<createdTime>2023-07-27 00:06:37 UTC</createdTime>
-<commentInRDBMS><![CDATA[Type of Insurance]]></commentInRDBMS>
-<ownerDesignName>MedicalClinicDB</ownerDesignName>
-<nullsAllowed>true</nullsAllowed>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT042</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-<autoIncrementCycle>false</autoIncrementCycle>
-</Column>
-<Column name="IsEnabled " id="6FD9DD32-BBBC-F580-2A7E-09FD4116503D">
-<createdBy>Antônio Rocha</createdBy>
-<createdTime>2023-07-26 23:21:36 UTC</createdTime>
+<createdTime>2023-07-26 23:11:09 UTC</createdTime>
 <commentInRDBMS><![CDATA[Indicates if the record  is currently active in the system]]></commentInRDBMS>
 <ownerDesignName>MedicalClinicDB</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
@@ -162,9 +140,9 @@ GO]]></beforeCreate>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="DeletedAt" id="49DAC6BA-FF60-D886-8B81-864C5AEE85F1">
+<Column name="DeletedAt" id="61D5EE18-F4E1-E09E-61C9-8957FC54A4A8">
 <createdBy>Antônio Rocha</createdBy>
-<createdTime>2023-07-26 23:21:36 UTC</createdTime>
+<createdTime>2023-07-26 23:14:38 UTC</createdTime>
 <commentInRDBMS><![CDATA[The date when the record  was logically deleted from the system]]></commentInRDBMS>
 <ownerDesignName>MedicalClinicDB</ownerDesignName>
 <nullsAllowed>true</nullsAllowed>
@@ -176,15 +154,25 @@ GO]]></beforeCreate>
 </Column>
 </columns>
 <indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
-<ind_PK_UK id="A8140917-7A8B-D1C6-5EEB-2643B2F21D26" name="PK_Patients">
+<ind_PK_UK id="5455383F-27ED-2A28-8F04-15A6DB4F2FB8" name="PK_Doctors">
 <createdBy>Antônio Rocha</createdBy>
-<createdTime>2023-07-26 00:54:30 UTC</createdTime>
+<createdTime>2023-07-26 23:03:00 UTC</createdTime>
 <ownerDesignName>MedicalClinicDB</ownerDesignName>
 <pk>true</pk>
 <indexState>Primary Constraint</indexState>
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
-<colUsage columnID="9C12CCFE-AFF5-45D0-2211-9A3107C8F67E"/>
+<colUsage columnID="9D721544-EA0B-6805-5DF8-141F5316177B"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="6A176A50-3DDB-2E67-52E3-9E64A70BA984" name="Doctors_Specialties_FK">
+<createdBy>Antônio Rocha</createdBy>
+<createdTime>2023-07-27 02:01:14 UTC</createdTime>
+<ownerDesignName>MedicalClinicDB</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="CF66FFC0-57E7-3A49-2ADE-1C6A263AD440"/>
 </indexColumnUsage>
 </ind_PK_UK>
 </indexes>
