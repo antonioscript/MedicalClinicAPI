@@ -11,6 +11,18 @@ BEGIN
 	DROP TABLE {schema}.{table};
 END
 GO]]></beforeCreate>
+<endOfScript><![CDATA[SET IDENTITY_INSERT dbo.Patients ON;
+
+INSERT INTO dbo.Patients (PatientId, InsuranceId, InsuranceType, FirstName, LastName, Document, DateOfBirth, Gender, PhoneOne, PhoneTwo, Email, AddressLineOne, AddressLineTwo, IsEnabled, DeletedAt)
+VALUES
+(1, 1, 1, 'John', 'Doe', '123456789', '1990-05-15 00:00:00', 1, '+1 (123) 456-7890', '+1 (987) 654-3210', 'john.doe@email.com', '123 Main Street', 'Apt 4B', 1, NULL),
+(2, 2, 2, 'Jane', 'Smith', '987654321', '1985-08-25 00:00:00', 2, '+1 (555) 123-4567', NULL, 'jane.smith@email.com', '456 Oak Avenue', NULL, 1, NULL),
+(3, 3, 1, 'Michael', 'Johnson', '456789123', '1995-02-10 00:00:00', 1, '+1 (777) 888-9999', '+1 (444) 555-6666', 'michael.johnson@email.com', '789 Maple Lane', 'Suite 202', 1, NULL),
+(4, 4, 2, 'Sophia', 'Williams', '789123456', '1980-11-05 00:00:00', 2, '+1 (222) 333-4444', NULL, 'sophia.williams@email.com', '456 Pine Road', NULL, 1, NULL);
+
+SET IDENTITY_INSERT dbo.Patients OFF;
+]]></endOfScript>
+<shouldGeneratescript>true</shouldGeneratescript>
 <allowColumnReorder>false</allowColumnReorder>
 <existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
 <parsed>true</parsed>
@@ -26,6 +38,34 @@ GO]]></beforeCreate>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 <autoIncrementColumn>true</autoIncrementColumn>
 <identityColumn>true</identityColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="InsuranceId" id="BF9C0AEF-B7C4-5833-2722-FFCCB07D85C9">
+<createdBy>Antônio Rocha</createdBy>
+<createdTime>2023-07-29 02:40:23 UTC</createdTime>
+<commentInRDBMS><![CDATA[Foreign key referencing the unique identifier of the insurance plan associated with the procedure]]></commentInRDBMS>
+<ownerDesignName>MedicalClinicDB</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="D19D29FA-D759-9636-49DF-B9D32D8B268B" referredColumn="375225A3-3B19-DD9E-A4AA-AC6B1B1C9B0D"/>
+</associations>
+</Column>
+<Column name="InsuranceType" id="D8F98A0A-AD0D-B3C7-895A-3763291A9836">
+<createdBy>Antônio Rocha</createdBy>
+<createdTime>2023-07-27 00:06:37 UTC</createdTime>
+<commentInRDBMS><![CDATA[Type of Insurance]]></commentInRDBMS>
+<ownerDesignName>MedicalClinicDB</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT042</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
 <Column name="FirstName" id="75B1ED28-D442-7560-E557-7F1539078DBD">
@@ -50,6 +90,18 @@ GO]]></beforeCreate>
 <logicalDatatype>LOGDT024</logicalDatatype>
 <dataTypeSize>50</dataTypeSize>
 <ownDataTypeParameters>50,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Document" id="3DEE5877-45F5-CE72-3E65-A8EA32AA784B">
+<createdBy>Antônio Rocha</createdBy>
+<createdTime>2023-08-02 00:50:04 UTC</createdTime>
+<commentInRDBMS><![CDATA[Document of Patient]]></commentInRDBMS>
+<ownerDesignName>MedicalClinicDB</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
 <Column name="DateOfBirth " id="4312A778-070F-6186-7256-C573A2C6E5D5">
@@ -124,7 +176,8 @@ GO]]></beforeCreate>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT024</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
+<dataTypeSize>100</dataTypeSize>
+<ownDataTypeParameters>100,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
 <Column name="AddressLineTwo" id="8CD7EE42-A949-CB40-00CE-9BE89F06372C">
@@ -136,19 +189,8 @@ GO]]></beforeCreate>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT024</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-<autoIncrementCycle>false</autoIncrementCycle>
-</Column>
-<Column name="InsuranceType" id="D8F98A0A-AD0D-B3C7-895A-3763291A9836">
-<createdBy>Antônio Rocha</createdBy>
-<createdTime>2023-07-27 00:06:37 UTC</createdTime>
-<commentInRDBMS><![CDATA[Type of Insurance]]></commentInRDBMS>
-<ownerDesignName>MedicalClinicDB</ownerDesignName>
-<nullsAllowed>true</nullsAllowed>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT042</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
+<dataTypeSize>100</dataTypeSize>
+<ownDataTypeParameters>100,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
 <Column name="IsEnabled " id="6FD9DD32-BBBC-F580-2A7E-09FD4116503D">
@@ -185,6 +227,27 @@ GO]]></beforeCreate>
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
 <colUsage columnID="9C12CCFE-AFF5-45D0-2211-9A3107C8F67E"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="F0E0DD5E-1096-7A4F-142D-D3658DDCCB01" name="UK_Patient_Document_DeletedAt">
+<createdBy>Antônio Rocha</createdBy>
+<createdTime>2023-08-02 00:59:11 UTC</createdTime>
+<ownerDesignName>MedicalClinicDB</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="3DEE5877-45F5-CE72-3E65-A8EA32AA784B"/>
+<colUsage columnID="49DAC6BA-FF60-D886-8B81-864C5AEE85F1"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="FA4B1985-6201-A1A2-51CC-F6DB6709F7C5" name="FK_Patients_Insurance">
+<createdBy>Antônio Rocha</createdBy>
+<createdTime>2023-07-29 02:40:23 UTC</createdTime>
+<ownerDesignName>MedicalClinicDB</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="BF9C0AEF-B7C4-5833-2722-FFCCB07D85C9"/>
 </indexColumnUsage>
 </ind_PK_UK>
 </indexes>

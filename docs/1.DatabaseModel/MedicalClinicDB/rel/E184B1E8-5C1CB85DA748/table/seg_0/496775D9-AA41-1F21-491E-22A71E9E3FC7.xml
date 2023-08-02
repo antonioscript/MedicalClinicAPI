@@ -2,6 +2,7 @@
 <Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="496775D9-AA41-1F21-491E-22A71E9E3FC7" schemaObject="6B374BDA-32BE-BB34-9CFF-AFA5E6292D1F" name="Specialties">
 <createdBy>Antônio Rocha</createdBy>
 <createdTime>2023-07-26 23:15:38 UTC</createdTime>
+<commentInRDBMS><![CDATA[Stores information about medical specialties]]></commentInRDBMS>
 <notes><![CDATA[Stores information about medical specialties.]]></notes>
 <ownerDesignName>MedicalClinicDB</ownerDesignName>
 <ordsAlias>table_3</ordsAlias>
@@ -11,6 +12,17 @@ BEGIN
 	DROP TABLE {schema}.{table};
 END
 GO]]></beforeCreate>
+<endOfScript><![CDATA[SET IDENTITY_INSERT dbo.Specialties ON;
+
+INSERT INTO dbo.Specialties (SpecialtyId, Name, Description, ConsultationValue, IsEnabled, DeletedAt)
+VALUES
+(1, 'Cardiology', 'Deals with disorders of the heart and blood vessels.', 250.00, 1, NULL),
+(2, 'Pediatrics', 'Focuses on medical care for infants, children, and adolescents.', 200.00, 1, NULL),
+(3, 'Dermatology', 'Specializes in the treatment of skin, hair, and nail conditions.', 180.00, 1, NULL),
+(4, 'Orthopedics', 'Deals with the musculoskeletal system and related injuries.', 300.00, 1, NULL);
+
+SET IDENTITY_INSERT dbo.Specialties OFF;
+]]></endOfScript>
 <shouldGeneratescript>true</shouldGeneratescript>
 <allowColumnReorder>false</allowColumnReorder>
 <existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
@@ -100,6 +112,17 @@ GO]]></beforeCreate>
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
 <colUsage columnID="816D6846-EB29-CE29-F98A-CD594E8548E4"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="3823F789-9257-9464-2CCF-4030556DFC4F" name="UK_Speciality_Name_DeletedAt">
+<createdBy>Antônio Rocha</createdBy>
+<createdTime>2023-08-02 00:57:05 UTC</createdTime>
+<ownerDesignName>MedicalClinicDB</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="B2BB6CE3-E295-45A4-9A9D-CB0D49B80403"/>
+<colUsage columnID="601FE6BE-6FD3-A1C6-7FA4-F14B868E3F04"/>
 </indexColumnUsage>
 </ind_PK_UK>
 </indexes>

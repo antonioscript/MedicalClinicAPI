@@ -11,6 +11,17 @@ BEGIN
 	DROP TABLE {schema}.{table};
 END
 GO]]></beforeCreate>
+<endOfScript><![CDATA[SET IDENTITY_INSERT dbo.Doctors ON;
+
+INSERT INTO dbo.Doctors (DoctorId, SpecialtyId, Crm, FirstName, LastName, Phone, Email, AddressLineOne, AddressLineTwo, IsEnabled, DeletedAt)
+VALUES
+(1, 1, '12345', 'John', 'Smith', '+1 (123) 456-7890', 'john.smith@email.com', '123 Main Street', 'Apt 4B', 1, NULL),
+(2, 2, '67890', 'Emily', 'Johnson', '+1 (987) 654-3210', 'emily.johnson@email.com', '456 Oak Avenue', NULL, 1, NULL),
+(3, 3, '54321', 'Michael', 'Brown', '+1 (555) 123-4567', 'michael.brown@email.com', '789 Maple Lane', 'Suite 202', 1, NULL),
+(4, 4, '98765', 'Sophia', 'Williams', '+1 (777) 888-9999', 'sophia.williams@email.com', '456 Pine Road', NULL, 1, NULL);
+
+SET IDENTITY_INSERT dbo.Doctors OFF;
+]]></endOfScript>
 <shouldGeneratescript>true</shouldGeneratescript>
 <allowColumnReorder>false</allowColumnReorder>
 <existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
@@ -114,7 +125,8 @@ GO]]></beforeCreate>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT024</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
+<dataTypeSize>100</dataTypeSize>
+<ownDataTypeParameters>100,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
 <Column name="AddressLineTwo" id="0824A471-8C7B-61F3-7898-51578318E456">
@@ -126,7 +138,8 @@ GO]]></beforeCreate>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT024</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
+<dataTypeSize>100</dataTypeSize>
+<ownDataTypeParameters>100,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
 <Column name="IsEnabled " id="F5B00860-1953-88E1-778D-D68288799808">
@@ -165,7 +178,18 @@ GO]]></beforeCreate>
 <colUsage columnID="9D721544-EA0B-6805-5DF8-141F5316177B"/>
 </indexColumnUsage>
 </ind_PK_UK>
-<ind_PK_UK id="6A176A50-3DDB-2E67-52E3-9E64A70BA984" name="Doctors_Specialties_FK">
+<ind_PK_UK id="E5A3C204-0388-2BB4-7E5E-00EF0718FA20" name="UK_Doctor_Crm_DeletedAt">
+<createdBy>Antônio Rocha</createdBy>
+<createdTime>2023-08-02 00:57:43 UTC</createdTime>
+<ownerDesignName>MedicalClinicDB</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="B00EB8F9-E7AD-3950-EDE0-129D50EAD8C9"/>
+<colUsage columnID="61D5EE18-F4E1-E09E-61C9-8957FC54A4A8"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="6A176A50-3DDB-2E67-52E3-9E64A70BA984" name="FK_Doctors_Specialties">
 <createdBy>Antônio Rocha</createdBy>
 <createdTime>2023-07-27 02:01:14 UTC</createdTime>
 <ownerDesignName>MedicalClinicDB</ownerDesignName>

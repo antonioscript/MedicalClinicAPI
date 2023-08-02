@@ -1,0 +1,195 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="1287F307-6891-DEF2-9531-689DC46074D9" schemaObject="6B374BDA-32BE-BB34-9CFF-AFA5E6292D1F" name="Procedures">
+<createdBy>Antônio Rocha</createdBy>
+<createdTime>2023-07-29 02:30:43 UTC</createdTime>
+<commentInRDBMS><![CDATA[Stores information about medical procedures and exams performed on patients]]></commentInRDBMS>
+<ownerDesignName>MedicalClinicDB</ownerDesignName>
+<ordsAlias>table_8</ordsAlias>
+<beforeCreate><![CDATA[GO
+IF EXISTS(SELECT * FROM sys.sysobjects WHERE NAME = '{table}' AND xtype = 'U')
+BEGIN
+	DROP TABLE {schema}.{table};
+END
+GO]]></beforeCreate>
+<endOfScript><![CDATA[SET IDENTITY_INSERT dbo.Procedures ON;
+
+INSERT INTO dbo.Procedures (ProcedureId, PatientId, TechnicianId, ExamId, Observation, IsEnabled, DeletedAt)
+VALUES
+(1, 1, 1, 1, 'Routine blood test', 1, NULL),
+(2, 2, 2, 2, 'Chest X-ray', 1, NULL),
+(3, 3, 3, 3, 'MRI Scan', 1, NULL),
+(4, 4, 4, 4, 'Abdominal Ultrasound', 1, NULL);
+
+SET IDENTITY_INSERT dbo.Procedures OFF;
+]]></endOfScript>
+<shouldGeneratescript>true</shouldGeneratescript>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ProcedureId" id="2FAF2F46-D4B2-C94B-BC78-FBCAC560C6F5">
+<createdBy>Antônio Rocha</createdBy>
+<createdTime>2023-07-29 02:31:25 UTC</createdTime>
+<commentInRDBMS><![CDATA[Unique identifier for each medical procedure]]></commentInRDBMS>
+<ownerDesignName>MedicalClinicDB</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<identityColumn>true</identityColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PatientId" id="E7351E24-AC5F-31AF-A653-611A5BD4D4B5">
+<createdBy>Antônio Rocha</createdBy>
+<createdTime>2023-07-29 02:33:29 UTC</createdTime>
+<commentInRDBMS><![CDATA[Foreign key referencing the unique identifier of the patient associated with the procedure]]></commentInRDBMS>
+<ownerDesignName>MedicalClinicDB</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="0DF6AC72-8AF1-6DE3-F407-F1F85E248DE1" referredColumn="9C12CCFE-AFF5-45D0-2211-9A3107C8F67E"/>
+</associations>
+</Column>
+<Column name="TechnicianId" id="7BD13EE0-FEC9-D902-7D0F-FC7CD776A8F4">
+<createdBy>Antônio Rocha</createdBy>
+<createdTime>2023-07-29 02:32:44 UTC</createdTime>
+<commentInRDBMS><![CDATA[Foreign key referencing the unique identifier of the technician performing the procedure]]></commentInRDBMS>
+<ownerDesignName>MedicalClinicDB</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="19C65F92-F268-FE6D-7613-D7016D5AADFE" referredColumn="DF661DF4-1C73-D89A-2C96-7C7F38DDB719"/>
+</associations>
+</Column>
+<Column name="ExamId" id="8D5FFEAB-440B-A0F8-5F60-DBB65A80F3E3">
+<createdBy>Antônio Rocha</createdBy>
+<createdTime>2023-07-29 02:32:51 UTC</createdTime>
+<commentInRDBMS><![CDATA[Foreign key referencing the unique identifier of the exam associated with the procedure]]></commentInRDBMS>
+<ownerDesignName>MedicalClinicDB</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="51FD05A4-CAB1-3D68-98CB-F43FEB273A9C" referredColumn="6A80C18E-06E6-B340-A141-E3BDFBC73A3C"/>
+</associations>
+</Column>
+<Column name="Observation" id="2E567443-7747-3976-AFAB-847B528A61D3">
+<createdBy>Antônio Rocha</createdBy>
+<createdTime>2023-07-29 02:36:23 UTC</createdTime>
+<commentInRDBMS><![CDATA[Additional observation or notes related to the procedure]]></commentInRDBMS>
+<ownerDesignName>MedicalClinicDB</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>200</dataTypeSize>
+<ownDataTypeParameters>200,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="IsEnabled " id="974E3D9D-120B-CDB3-E1A2-CED0B0CFAD39">
+<createdBy>Antônio Rocha</createdBy>
+<createdTime>2023-07-29 02:36:47 UTC</createdTime>
+<commentInRDBMS><![CDATA[Indicates if the record  is currently active in the system]]></commentInRDBMS>
+<ownerDesignName>MedicalClinicDB</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT034</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DeletedAt" id="6D51004D-9FA4-F74A-9791-683E444590EB">
+<createdBy>Antônio Rocha</createdBy>
+<createdTime>2023-07-29 02:36:47 UTC</createdTime>
+<commentInRDBMS><![CDATA[The date when the record  was logically deleted from the system]]></commentInRDBMS>
+<ownerDesignName>MedicalClinicDB</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT008</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="07FDBB3C-7CE3-D88C-2F6C-A9C5649E90BC" name="PK_Procedures">
+<createdBy>Antônio Rocha</createdBy>
+<createdTime>2023-07-29 02:32:05 UTC</createdTime>
+<ownerDesignName>MedicalClinicDB</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="2FAF2F46-D4B2-C94B-BC78-FBCAC560C6F5"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="DBF5A745-7BED-01F2-50F4-DC26109481CC" name="IX_Procedures_PatientId">
+<createdBy>Antônio Rocha</createdBy>
+<createdTime>2023-07-29 02:35:19 UTC</createdTime>
+<ownerDesignName>MedicalClinicDB</ownerDesignName>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="E7351E24-AC5F-31AF-A653-611A5BD4D4B5"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="8163EFF3-7E64-A2FB-E76B-058B34983B9D" name="IX_Procedures_TechnicianId">
+<createdBy>Antônio Rocha</createdBy>
+<createdTime>2023-07-29 02:35:36 UTC</createdTime>
+<ownerDesignName>MedicalClinicDB</ownerDesignName>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="7BD13EE0-FEC9-D902-7D0F-FC7CD776A8F4"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="082FCF54-F82E-E693-7E02-F34E97C37FF0" name="IX_Procedures_ExamId">
+<createdBy>Antônio Rocha</createdBy>
+<createdTime>2023-07-29 02:35:52 UTC</createdTime>
+<ownerDesignName>MedicalClinicDB</ownerDesignName>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="8D5FFEAB-440B-A0F8-5F60-DBB65A80F3E3"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="B3170CF3-DD18-674C-BCDB-CDC406D26B93" name="FK_Procedures_Technicians">
+<createdBy>Antônio Rocha</createdBy>
+<createdTime>2023-07-29 02:32:44 UTC</createdTime>
+<ownerDesignName>MedicalClinicDB</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="7BD13EE0-FEC9-D902-7D0F-FC7CD776A8F4"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="03CFE80A-6032-ED86-6DD9-C11ACE8A4109" name="FK_Procedures_Exams">
+<createdBy>Antônio Rocha</createdBy>
+<createdTime>2023-07-29 02:32:51 UTC</createdTime>
+<ownerDesignName>MedicalClinicDB</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="8D5FFEAB-440B-A0F8-5F60-DBB65A80F3E3"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="B2E4DE16-235D-E530-E5A9-AB09E19445ED" name="FK_Procedures_Patients">
+<createdBy>Antônio Rocha</createdBy>
+<createdTime>2023-07-29 02:33:29 UTC</createdTime>
+<ownerDesignName>MedicalClinicDB</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="E7351E24-AC5F-31AF-A653-611A5BD4D4B5"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

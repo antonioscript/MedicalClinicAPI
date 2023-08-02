@@ -5,6 +5,24 @@
 <commentInRDBMS><![CDATA[Stores information about technicians or technical staff]]></commentInRDBMS>
 <ownerDesignName>MedicalClinicDB</ownerDesignName>
 <ordsAlias>table_5</ordsAlias>
+<beforeCreate><![CDATA[GO
+IF EXISTS(SELECT * FROM sys.sysobjects WHERE NAME = '{table}' AND xtype = 'U')
+BEGIN
+	DROP TABLE {schema}.{table};
+END
+GO]]></beforeCreate>
+<endOfScript><![CDATA[SET IDENTITY_INSERT dbo.Technicians ON;
+
+INSERT INTO dbo.Technicians (TechnicianId, FirstName, LastName, Email, Phone, AddressLineOne, AddressLineTwo, InsuranceType, IsEnabled, DeletedAt)
+VALUES
+(1, 'Robert', 'Johnson', 'robert.johnson@example.com', '+1 (123) 456-7890', '123 Main Street', 'Apt 4B', 1, 1, NULL),
+(2, 'Olivia', 'Smith', 'olivia.smith@example.com', '+1 (555) 123-4567', '456 Oak Avenue', NULL, 2, 1, NULL),
+(3, 'William', 'Doe', 'william.doe@example.com', '+1 (777) 888-9999', '789 Maple Lane', 'Suite 202', 1, 1, NULL),
+(4, 'Sophie', 'Williams', 'sophie.williams@example.com', '+1 (222) 333-4444', '456 Pine Road', NULL, 2, 1, NULL);
+
+SET IDENTITY_INSERT dbo.Technicians OFF;
+]]></endOfScript>
+<shouldGeneratescript>true</shouldGeneratescript>
 <allowColumnReorder>false</allowColumnReorder>
 <existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
 <parsed>true</parsed>
@@ -80,7 +98,8 @@
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT024</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
+<dataTypeSize>100</dataTypeSize>
+<ownDataTypeParameters>100,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
 <Column name="AddressLineTwo" id="C208C68F-2D77-FB7B-DB48-A7302699CD6C">
@@ -92,7 +111,8 @@
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT024</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
+<dataTypeSize>100</dataTypeSize>
+<ownDataTypeParameters>100,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
 <Column name="InsuranceType" id="C14F4388-E7B7-1504-E29F-8CBF7ED7657A">

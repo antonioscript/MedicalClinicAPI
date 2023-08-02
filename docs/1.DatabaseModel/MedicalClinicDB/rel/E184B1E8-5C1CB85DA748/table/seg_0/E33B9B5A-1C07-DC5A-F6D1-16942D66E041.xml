@@ -1,0 +1,154 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="E33B9B5A-1C07-DC5A-F6D1-16942D66E041" schemaObject="6B374BDA-32BE-BB34-9CFF-AFA5E6292D1F" name="Availability">
+<createdBy>Antônio Rocha</createdBy>
+<createdTime>2023-08-02 00:43:20 UTC</createdTime>
+<commentInRDBMS><![CDATA[Stores information about the availability schedule for doctors.]]></commentInRDBMS>
+<ownerDesignName>MedicalClinicDB</ownerDesignName>
+<ordsAlias>table_9</ordsAlias>
+<beforeCreate><![CDATA[GO
+IF EXISTS(SELECT * FROM sys.sysobjects WHERE NAME = '{table}' AND xtype = 'U')
+BEGIN
+	DROP TABLE {schema}.{table};
+END
+GO]]></beforeCreate>
+<endOfScript><![CDATA[SET IDENTITY_INSERT dbo.Availability ON;
+
+INSERT INTO dbo.Availability (AvailabilityId, DoctorId, DayOfWeek, StartTime, EndTime, IsEnabled, DeletedAt)
+VALUES
+(1, 1, 1, '2023-07-28 08:00:00', '2023-07-28 17:00:00', 1, NULL),
+(2, 2, 2, '2023-07-29 09:30:00', '2023-07-29 16:30:00', 1, NULL),
+(3, 3, 3, '2023-07-30 10:00:00', '2023-07-30 18:00:00', 1, NULL),
+(4, 4, 4, '2023-07-31 08:30:00', '2023-07-31 15:30:00', 1, NULL);
+
+SET IDENTITY_INSERT dbo.Availability OFF;
+]]></endOfScript>
+<shouldGeneratescript>true</shouldGeneratescript>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="AvailabilityId" id="0429E689-CFAA-FB85-BB12-F79A3C6C0C68">
+<createdBy>Antônio Rocha</createdBy>
+<createdTime>2023-08-02 00:43:54 UTC</createdTime>
+<commentInRDBMS><![CDATA[Unique identifier for each availability entry.]]></commentInRDBMS>
+<ownerDesignName>MedicalClinicDB</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<identityColumn>true</identityColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DoctorId" id="1016E102-96BB-1AF5-206A-67AB471FCDEE">
+<createdBy>Antônio Rocha</createdBy>
+<createdTime>2023-08-02 00:47:04 UTC</createdTime>
+<commentInRDBMS><![CDATA[Foreign key referencing the doctor associated with this availability]]></commentInRDBMS>
+<ownerDesignName>MedicalClinicDB</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="6874431F-8241-F47A-97CD-043685B16A89" referredColumn="9D721544-EA0B-6805-5DF8-141F5316177B"/>
+</associations>
+</Column>
+<Column name="DayOfWeek" id="5662A357-F00C-DA23-8E2F-BD4D106EE679">
+<createdBy>Antônio Rocha</createdBy>
+<createdTime>2023-08-02 00:45:51 UTC</createdTime>
+<commentInRDBMS><![CDATA[The day of the week when the doctor is available:
+0: Monday
+1: Tuesday
+2: Wednesday
+3: Thursday
+4: Friday
+5: Saturday
+6: Sunday]]></commentInRDBMS>
+<ownerDesignName>MedicalClinicDB</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT042</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="StartTime" id="EA9E3A24-C5D9-7FA6-D729-88FFA31AC3FE">
+<createdBy>Antônio Rocha</createdBy>
+<createdTime>2023-08-02 00:46:10 UTC</createdTime>
+<commentInRDBMS><![CDATA[The start time of the doctors availability for the specified day.]]></commentInRDBMS>
+<ownerDesignName>MedicalClinicDB</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT008</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="EndTime" id="3704889E-028A-09D7-DA12-2ED86875A5AB">
+<createdBy>Antônio Rocha</createdBy>
+<createdTime>2023-08-02 00:46:23 UTC</createdTime>
+<commentInRDBMS><![CDATA[The end time of the doctors availability for the specified day]]></commentInRDBMS>
+<ownerDesignName>MedicalClinicDB</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT008</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="IsEnabled " id="4482DBA2-8D92-A5AD-2675-A3574FFCBE77">
+<createdBy>Antônio Rocha</createdBy>
+<createdTime>2023-08-02 00:48:11 UTC</createdTime>
+<commentInRDBMS><![CDATA[Indicates if the record  is currently active in the system]]></commentInRDBMS>
+<ownerDesignName>MedicalClinicDB</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT034</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DeletedAt" id="CFB0CB53-1F00-46B3-15F6-0D2C7EB917E2">
+<createdBy>Antônio Rocha</createdBy>
+<createdTime>2023-08-02 00:48:11 UTC</createdTime>
+<commentInRDBMS><![CDATA[The date when the record  was logically deleted from the system]]></commentInRDBMS>
+<ownerDesignName>MedicalClinicDB</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT008</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="4E2CC734-011F-4F6F-4A50-B2B5F1181DE7" name="PK_Availability">
+<createdBy>Antônio Rocha</createdBy>
+<createdTime>2023-08-02 00:43:54 UTC</createdTime>
+<ownerDesignName>MedicalClinicDB</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="0429E689-CFAA-FB85-BB12-F79A3C6C0C68"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="E70C5844-4D8A-A646-39CB-FFC8EA63A101" name="IX_Availability_DoctorId">
+<createdBy>Antônio Rocha</createdBy>
+<createdTime>2023-08-02 00:53:56 UTC</createdTime>
+<ownerDesignName>MedicalClinicDB</ownerDesignName>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="1016E102-96BB-1AF5-206A-67AB471FCDEE"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="DE84B0A7-D98C-C814-F006-E25F8AD57B25" name="FK_Availability_Doctors">
+<createdBy>Antônio Rocha</createdBy>
+<createdTime>2023-08-02 00:47:04 UTC</createdTime>
+<ownerDesignName>MedicalClinicDB</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="1016E102-96BB-1AF5-206A-67AB471FCDEE"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

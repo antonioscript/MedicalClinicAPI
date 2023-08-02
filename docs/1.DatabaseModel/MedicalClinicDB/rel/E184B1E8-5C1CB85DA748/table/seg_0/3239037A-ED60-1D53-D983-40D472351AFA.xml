@@ -11,6 +11,17 @@ BEGIN
 	DROP TABLE {schema}.{table};
 END
 GO]]></beforeCreate>
+<endOfScript><![CDATA[SET IDENTITY_INSERT dbo.Insurance ON;
+
+INSERT INTO dbo.Insurance (InsuranceId, Name, Description, PercentageTypeOne, PercentageTypeTwo, PercentageTypeThree, IsEnabled, DeletedAt)
+VALUES
+(1, 'Basic Plan', 'Provides basic healthcare coverage.', 0.15, 0.25, 0.10, 1, NULL),
+(2, 'Premium Plan', 'Comprehensive healthcare coverage with additional benefits.', 0.20, 0.35, 0.15, 1, NULL),
+(3, 'Family Plan', 'Covers healthcare for the whole family at a discounted rate.', 0.18, 0.30, 0.12, 1, NULL),
+(4, 'Senior Plan', 'Tailored for senior citizens with specialized care options.', 0.12, 0.20, 0.08, 1, NULL);
+
+SET IDENTITY_INSERT dbo.Insurance OFF;
+]]></endOfScript>
 <shouldGeneratescript>true</shouldGeneratescript>
 <allowColumnReorder>false</allowColumnReorder>
 <existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
@@ -127,6 +138,17 @@ GO]]></beforeCreate>
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
 <colUsage columnID="375225A3-3B19-DD9E-A4AA-AC6B1B1C9B0D"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="75E7D0D6-F410-91CF-F983-A06A38455B24" name="UK_Insurance_Name_DeletedAt">
+<createdBy>Antônio Rocha</createdBy>
+<createdTime>2023-08-02 00:56:08 UTC</createdTime>
+<ownerDesignName>MedicalClinicDB</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="54FB0773-96F5-C7C0-00FF-49143143565B"/>
+<colUsage columnID="79448F05-A471-8873-1768-C991E4124DA3"/>
 </indexColumnUsage>
 </ind_PK_UK>
 </indexes>

@@ -1,0 +1,16 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="51FD05A4-CAB1-3D68-98CB-F43FEB273A9C" containerWithKeyObject="1287F307-6891-DEF2-9531-689DC46074D9" localFKIndex="03CFE80A-6032-ED86-6DD9-C11ACE8A4109" name="FK_Procedures_Exams">
+<createdBy>Antônio Rocha</createdBy>
+<createdTime>2023-07-29 02:32:51 UTC</createdTime>
+<ownerDesignName>MedicalClinicDB</ownerDesignName>
+<referredTableLongName>dbo.Exams</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>285857F8-3AE9-D231-2247-7A79BB7A37CF</referredTableID>
+<keyObject>675F1B03-64A8-F154-4C0F-76F009D1A23A</keyObject>
+<referredKeyID>675F1B03-64A8-F154-4C0F-76F009D1A23A</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>ExamId</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

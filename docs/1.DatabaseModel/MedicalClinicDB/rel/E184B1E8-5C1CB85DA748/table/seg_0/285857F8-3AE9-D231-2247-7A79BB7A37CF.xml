@@ -5,6 +5,24 @@
 <comment><![CDATA[Stores information about medical exams or medical tests]]></comment>
 <ownerDesignName>MedicalClinicDB</ownerDesignName>
 <ordsAlias>table_6</ordsAlias>
+<beforeCreate><![CDATA[GO
+IF EXISTS(SELECT * FROM sys.sysobjects WHERE NAME = '{table}' AND xtype = 'U')
+BEGIN
+	DROP TABLE {schema}.{table};
+END
+GO]]></beforeCreate>
+<endOfScript><![CDATA[SET IDENTITY_INSERT dbo.Exams ON;
+
+INSERT INTO dbo.Exams (ExamId, Name, Description, Value, IsEnabled, DeletedAt)
+VALUES
+(1, 'Blood Test', 'Basic blood analysis', 80.00, 1, NULL),
+(2, 'X-ray', 'Radiographic imaging', 150.00, 1, NULL),
+(3, 'MRI', 'Magnetic resonance imaging', 300.00, 1, NULL),
+(4, 'Ultrasound', 'Diagnostic ultrasound', 200.00, 1, NULL);
+
+SET IDENTITY_INSERT dbo.Exams OFF;
+]]></endOfScript>
+<shouldGeneratescript>true</shouldGeneratescript>
 <allowColumnReorder>false</allowColumnReorder>
 <existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
 <parsed>true</parsed>
@@ -94,6 +112,17 @@
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
 <colUsage columnID="6A80C18E-06E6-B340-A141-E3BDFBC73A3C"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="C45EDD3E-9273-01E1-3445-C39393D549CD" name="UK_Exam_Name_DeletedAt">
+<createdBy>Antônio Rocha</createdBy>
+<createdTime>2023-08-02 00:59:59 UTC</createdTime>
+<ownerDesignName>MedicalClinicDB</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="09422BB9-0E98-5FB6-1F02-66BCF445D42F"/>
+<colUsage columnID="CA06EF74-2DE4-2442-ED82-0156DF1F446B"/>
 </indexColumnUsage>
 </ind_PK_UK>
 </indexes>

@@ -1,0 +1,175 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="3414D3C7-9E12-FB21-3E89-C699BFB64BF4" schemaObject="6B374BDA-32BE-BB34-9CFF-AFA5E6292D1F" name="Appointments">
+<createdBy>Antônio Rocha</createdBy>
+<createdTime>2023-07-29 02:19:16 UTC</createdTime>
+<commentInRDBMS><![CDATA[Stores information about medical appointments or consultations]]></commentInRDBMS>
+<ownerDesignName>MedicalClinicDB</ownerDesignName>
+<ordsAlias>table_7</ordsAlias>
+<beforeCreate><![CDATA[GO
+IF EXISTS(SELECT * FROM sys.sysobjects WHERE NAME = '{table}' AND xtype = 'U')
+BEGIN
+	DROP TABLE {schema}.{table};
+END
+GO]]></beforeCreate>
+<endOfScript><![CDATA[SET IDENTITY_INSERT dbo.Appointments ON;
+
+INSERT INTO dbo.Appointments (AppointmentId, PatientId, DoctorId, Status, Observation, IsEnabled, DeletedAt)
+VALUES
+(1, 1, 1, 1, 'Regular check-up', 1, NULL),
+(2, 2, 2, 2, 'Vaccination', 1, NULL),
+(3, 3, 3, 1, 'Follow-up consultation', 1, NULL),
+(4, 4, 4, 3, 'Physical examination', 1, NULL);
+
+SET IDENTITY_INSERT dbo.Appointments OFF;
+]]></endOfScript>
+<shouldGeneratescript>true</shouldGeneratescript>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="AppointmentId" id="D39CDEE7-B95A-C860-83C0-BBFD5FA17022">
+<createdBy>Antônio Rocha</createdBy>
+<createdTime>2023-07-29 02:19:43 UTC</createdTime>
+<commentInRDBMS><![CDATA[Unique identifier for each medical appointment]]></commentInRDBMS>
+<ownerDesignName>MedicalClinicDB</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<identityColumn>true</identityColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PatientId" id="C07E9F9E-09F9-CA01-58DA-87D732ADCFE5">
+<createdBy>Antônio Rocha</createdBy>
+<createdTime>2023-07-29 02:20:38 UTC</createdTime>
+<commentInRDBMS><![CDATA[Foreign key referencing the unique identifier of the patient associated with the appointment]]></commentInRDBMS>
+<ownerDesignName>MedicalClinicDB</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="4FA3B79F-9A5D-47AE-3FBF-96B2CB878169" referredColumn="9C12CCFE-AFF5-45D0-2211-9A3107C8F67E"/>
+</associations>
+</Column>
+<Column name="DoctorId" id="759BF1A9-A410-FC05-4299-91B42B23A1B2">
+<createdBy>Antônio Rocha</createdBy>
+<createdTime>2023-07-29 02:20:56 UTC</createdTime>
+<commentInRDBMS><![CDATA[Foreign key referencing the unique identifier of the doctor associated with the appointment]]></commentInRDBMS>
+<ownerDesignName>MedicalClinicDB</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="7BB22AA4-DE94-B7A1-4D57-58E46D11CDC1" referredColumn="9D721544-EA0B-6805-5DF8-141F5316177B"/>
+</associations>
+</Column>
+<Column name="Status" id="68D29EF0-C704-E843-1360-8056F2A88C5A">
+<createdBy>Antônio Rocha</createdBy>
+<createdTime>2023-07-29 02:26:04 UTC</createdTime>
+<commentInRDBMS><![CDATA[Indicates the Status of the Query, being:
+0:Scheduled
+1:Confirmed
+2: Cancelled]]></commentInRDBMS>
+<ownerDesignName>MedicalClinicDB</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT042</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Observation" id="25F06188-606F-EB2C-7E60-5E1021792A50">
+<createdBy>Antônio Rocha</createdBy>
+<createdTime>2023-07-29 02:28:27 UTC</createdTime>
+<commentInRDBMS><![CDATA[Additional observation or notes related to the appointment]]></commentInRDBMS>
+<ownerDesignName>MedicalClinicDB</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>200</dataTypeSize>
+<ownDataTypeParameters>200,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="IsEnabled " id="1299C1A9-C5B6-716A-B3D4-F4FF4D44EB07">
+<createdBy>Antônio Rocha</createdBy>
+<createdTime>2023-07-29 02:26:04 UTC</createdTime>
+<commentInRDBMS><![CDATA[Indicates if the record  is currently active in the system]]></commentInRDBMS>
+<ownerDesignName>MedicalClinicDB</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT034</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DeletedAt" id="836903FA-B845-7369-33F0-AF5EFB2C7B6F">
+<createdBy>Antônio Rocha</createdBy>
+<createdTime>2023-07-29 02:26:04 UTC</createdTime>
+<commentInRDBMS><![CDATA[The date when the record  was logically deleted from the system]]></commentInRDBMS>
+<ownerDesignName>MedicalClinicDB</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT008</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="6861B327-A806-4E94-890C-3B8BBA559E25" name="PK_Appointments">
+<createdBy>Antônio Rocha</createdBy>
+<createdTime>2023-07-29 02:19:43 UTC</createdTime>
+<ownerDesignName>MedicalClinicDB</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="D39CDEE7-B95A-C860-83C0-BBFD5FA17022"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="AFEB05E8-065C-040A-D80A-FD8895A409F2" name="IX_Appointments_Patientid">
+<createdBy>Antônio Rocha</createdBy>
+<createdTime>2023-07-29 02:23:03 UTC</createdTime>
+<ownerDesignName>MedicalClinicDB</ownerDesignName>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="C07E9F9E-09F9-CA01-58DA-87D732ADCFE5"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="60093156-A03A-F9D4-A35F-C097E3515C43" name="IX_Appointments_DoctorId">
+<createdBy>Antônio Rocha</createdBy>
+<createdTime>2023-07-29 02:23:03 UTC</createdTime>
+<ownerDesignName>MedicalClinicDB</ownerDesignName>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="759BF1A9-A410-FC05-4299-91B42B23A1B2"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="74F236F2-C56D-D1B7-48F8-D20E43BAA39F" name="FK_Appointments_Patients">
+<createdBy>Antônio Rocha</createdBy>
+<createdTime>2023-07-29 02:20:38 UTC</createdTime>
+<ownerDesignName>MedicalClinicDB</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="C07E9F9E-09F9-CA01-58DA-87D732ADCFE5"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="8969D1ED-DDFC-D912-7100-9D3FF7BAB961" name="FK_Appointments_Doctors">
+<createdBy>Antônio Rocha</createdBy>
+<createdTime>2023-07-29 02:20:56 UTC</createdTime>
+<ownerDesignName>MedicalClinicDB</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="759BF1A9-A410-FC05-4299-91B42B23A1B2"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
