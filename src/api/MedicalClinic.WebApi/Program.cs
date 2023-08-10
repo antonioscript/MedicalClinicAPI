@@ -1,14 +1,7 @@
 using MediatR;
-using MedicalClinic.Application.Features.Appointments.Queries;
-using MedicalClinic.Application.Interfaces.Repositories.Entities;
 using MedicalClinic.Infrastructure.Extensions;
 using MedicalClinic.Infrastructure.MedicalClinic.Infrastructure.DbContexts;
-using MedicalClinic.Infrastructure.Repositories.Entities;
-using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
-using System.Reflection;
-using AutoMapper;
 
 var builder = WebApplication.CreateBuilder(args);
 
