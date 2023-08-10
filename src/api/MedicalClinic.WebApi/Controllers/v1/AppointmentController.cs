@@ -23,11 +23,10 @@ namespace MedicalClinic.WebApi.Controllers.v1
 
         [HttpGet]
         [AllowAnonymous]
-        public async Task<List<Appointment>> GetAppointmentAsync()
+        public async Task<IActionResult> GetAll()
         {
-            var appointment = await _mediator.Send(new GetAllAppointmentQuery());
-
-            return appointment;
+            var results = await _mediator.Send(new GetAllAppointmentQuery());
+            return Ok(results);
         }
     }
 }

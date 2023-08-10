@@ -12,7 +12,7 @@ using MediatR;
 
 namespace MedicalClinic.Application.Features.Appointments.Queries
 {
-    public class GetAllAppointmentQuery : IRequest<List<Appointment>>
+    public class GetAllAppointmentQuery : IRequest<List<AppointmentResponse>>
     {
         public GetAllAppointmentQuery()
         {
@@ -20,20 +20,27 @@ namespace MedicalClinic.Application.Features.Appointments.Queries
         }
     }
 
-    public class GetAllAppointmentQueryHandler : IRequestHandler<GetAllAppointmentQuery, List<Appointment>>
+    public class GetAllAppointmentQueryHandler : IRequestHandler<GetAllAppointmentQuery, List<AppointmentResponse>>
     {
         private readonly IAppointmentRepository _repository;
-        //private readonly IMapper _mapper;
+        private readonly IMapper _mapper;
 
-        public GetAllAppointmentQueryHandler(IAppointmentRepository repository ) //, //IMapper mapper)
+        public GetAllAppointmentQueryHandler(IAppointmentRepository repository, IMapper mapper) 
         {
             _repository = repository;
-            //_mapper = mapper;
+            _mapper = mapper;
+
         }
 
-        public async Task<List<Appointment>> Handle(GetAllAppointmentQuery request, CancellationToken cancellationToken)
+        public async Task<List<AppointmentResponse>> Handle(GetAllAppointmentQuery request, CancellationToken cancellationToken)
         {
-            return await _repository.GetAppointmentListAsync();
+            var list = await _repository.Entities
+                .AsNoTracking()
+                .ToListAsync();
+
+            var listResult = _mapper.Map<List<AppointmentResponse>>(list);
+
+            return listResult;
         }
     }
 
