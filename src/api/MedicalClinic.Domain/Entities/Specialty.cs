@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 namespace MedicalClinic.Domain.Entities
 {
+    //TODO: O nome da classe 'Specialty' está incorreto, ajeitar
     /// <summary>
     /// Stores information about medical specialties
     /// </summary>

@@ -83,7 +83,7 @@ namespace MedicalClinic.WebApi.Controllers.v1
         [HttpPost]
         public async Task<ActionResult<Availability>> PostAvailability(Availability Availability)
         {
-            if (_context.Availabilities == null)
+            if (_context == null)
             {
                 return Problem("Entity set 'BookStoreDbContext.Availability'  is null.");
             }

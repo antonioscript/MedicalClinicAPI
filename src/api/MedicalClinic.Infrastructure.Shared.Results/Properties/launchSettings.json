@@ -1,0 +1,12 @@
+{
+  "profiles": {
+    "MedicalClinic.Infrastructure.Shared.Results": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "https://localhost:52872;http://localhost:52873"
+    }
+  }
+}
