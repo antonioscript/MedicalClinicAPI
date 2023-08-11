@@ -1,13 +1,16 @@
-﻿using System;
+﻿using MedicalClinic.Domain.Entities;
+using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace MedicalClinic.Domain.Entities
+namespace MedicalClinic.Application.DTOs.Availability
 {
-    public partial class Availability
+    public  class AvailabilityRequestFilter
     {
         public int Id { get; set; }
         public int DoctorId { get; set; }
-        public virtual Doctor Doctor { get; set; } = null!;
 
         /// <summary>
         /// The day of the week when the doctor is available:
@@ -20,11 +23,10 @@ namespace MedicalClinic.Domain.Entities
         /// 6: Sunday
         /// </summary>
         public byte DayOfWeek { get; set; }
-       
+
         public DateTime StartTime { get; set; }
         public DateTime EndTime { get; set; }
 
         public bool IsEnabled { get; set; }
-        public DateTime? DeletedAt { get; set; }
     }
 }

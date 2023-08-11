@@ -19,13 +19,17 @@ namespace MedicalClinic.Infrastructure.EntitiesConfiguration
 
             builder.HasIndex(e => e.PatientId, "IX_Appointments_Patientid");
 
-            builder.Property(e => e.AppointmentId).HasComment("Unique identifier for each medical appointment");
+            builder.Property(e => e.Id)
+                .HasColumnName("AppointmentId")
+                .HasComment("Unique identifier for each medical appointment");
 
             builder.Property(e => e.DeletedAt)
                 .HasColumnType("datetime")
                 .HasComment("The date when the record  was logically deleted from the system");
 
-            builder.Property(e => e.DoctorId).HasComment("Foreign key referencing the unique identifier of the doctor associated with the appointment");
+            builder.Property(e => e.DoctorId)
+                .HasColumnName("DoctorId")
+                .HasComment("Foreign key referencing the unique identifier of the doctor associated with the appointment");
 
             builder.Property(e => e.IsEnabled)
                 .HasColumnName("IsEnabled ")
@@ -36,7 +40,9 @@ namespace MedicalClinic.Infrastructure.EntitiesConfiguration
                 .IsUnicode(false)
                 .HasComment("Additional observation or notes related to the appointment");
 
-            builder.Property(e => e.PatientId).HasComment("Foreign key referencing the unique identifier of the patient associated with the appointment");
+            builder.Property(e => e.PatientId)
+                .HasColumnName("PatientId")
+                .HasComment("Foreign key referencing the unique identifier of the patient associated with the appointment");
 
             builder.Property(e => e.Status).HasComment("Indicates the Status of the Query, being:\r\n0:Scheduled\r\n1:Confirmed\r\n2: Cancelled");
 

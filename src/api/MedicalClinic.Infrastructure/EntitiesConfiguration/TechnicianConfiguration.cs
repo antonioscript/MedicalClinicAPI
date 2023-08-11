@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace MedicalClinic.Infrastructure.EntitiesConfiguration
 {
+    //TODO: Está faltando o Id?
     class TechnicianConfiguration : IEntityTypeConfiguration<Technician>
     {
         public void Configure (EntityTypeBuilder<Technician> builder)

@@ -1,20 +1,27 @@
-﻿using System;
+﻿using MedicalClinic.Application.DTOs.Appointment;
+using MedicalClinic.Application.DTOs.Insurance;
+using MedicalClinic.Application.DTOs.Procedure;
+using MedicalClinic.Domain.Entities;
+using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace MedicalClinic.Domain.Entities
+namespace MedicalClinic.Application.DTOs.Patient
 {
-    public partial class Patient
+    public class PatientResponse
     {
-        public Patient()
+        public PatientResponse()
         {
-            Appointments = new HashSet<Appointment>();
-            Procedures = new HashSet<Procedure>();
+            //Appointments = new HashSet<AppointmentResponse>();
+            Procedures = new HashSet<ProcedureResponse>();
         }
 
 
         public int Id { get; set; }
         public int? InsuranceId { get; set; }
-        public virtual Insurance? Insurance { get; set; }
+        public virtual InsuranceResponse? Insurance { get; set; }
 
         public byte? InsuranceType { get; set; }
         public string FirstName { get; set; } = null!;
@@ -37,9 +44,8 @@ namespace MedicalClinic.Domain.Entities
         public string? AddressLineTwo { get; set; }
 
         public bool IsEnabled { get; set; }
-        public DateTime? DeletedAt { get; set; }
 
-        public virtual ICollection<Appointment> Appointments { get; set; }
-        public virtual ICollection<Procedure> Procedures { get; set; }
+        //public virtual ICollection<AppointmentResponse> Appointments { get; set; }
+        public virtual ICollection<ProcedureResponse> Procedures { get; set; }
     }
 }

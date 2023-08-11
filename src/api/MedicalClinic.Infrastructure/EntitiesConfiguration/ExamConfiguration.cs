@@ -16,7 +16,9 @@ namespace MedicalClinic.Infrastructure.EntitiesConfiguration
             builder.HasIndex(e => new { e.Name, e.DeletedAt }, "UK_Exam_Name_DeletedAt")
                     .IsUnique();
 
-            builder.Property(e => e.ExamId).HasComment("Unique identifier for each medical exam");
+            builder.Property(e => e.Id)
+                .HasColumnName("ExamId")
+                .HasComment("Unique identifier for each medical exam");
 
             builder.Property(e => e.DeletedAt)
                 .HasColumnType("datetime")

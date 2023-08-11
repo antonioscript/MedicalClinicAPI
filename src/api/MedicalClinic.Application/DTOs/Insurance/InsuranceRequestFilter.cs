@@ -1,16 +1,14 @@
-﻿using System;
+﻿using MedicalClinic.Domain.Entities;
+using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace MedicalClinic.Domain.Entities
+namespace MedicalClinic.Application.DTOs.Insurance
 {
-    public partial class Insurance
+    public class InsuranceRequestFilter
     {
-        public Insurance()
-        {
-            Patients = new HashSet<Patient>();
-        }
-
-        public int Id { get; set; }
         public string Name { get; set; } = null!;
         public string? Description { get; set; }
 
@@ -20,8 +18,5 @@ namespace MedicalClinic.Domain.Entities
         public decimal PercentageTypeThree { get; set; }
 
         public bool IsEnabled { get; set; }
-        public DateTime? DeletedAt { get; set; }
-
-        public virtual ICollection<Patient> Patients { get; set; }
     }
 }

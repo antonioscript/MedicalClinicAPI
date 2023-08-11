@@ -1,13 +1,17 @@
-﻿using System;
+﻿using MedicalClinic.Application.DTOs.Procedure;
+using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace MedicalClinic.Domain.Entities
+namespace MedicalClinic.Application.DTOs.Technician
 {
-    public partial class Technician
+    public class TechnicianResponse
     {
-        public Technician()
+        public TechnicianResponse()
         {
-            Procedures = new HashSet<Procedure>();
+            Procedures = new HashSet<ProcedureResponse>();
         }
 
         public int Id { get; set; }
@@ -21,8 +25,7 @@ namespace MedicalClinic.Domain.Entities
         public byte? InsuranceType { get; set; }
 
         public bool IsEnabled { get; set; }
-        public DateTime? DeletedAt { get; set; }
 
-        public virtual ICollection<Procedure> Procedures { get; set; }
+        public virtual ICollection<ProcedureResponse> Procedures { get; set; }
     }
 }

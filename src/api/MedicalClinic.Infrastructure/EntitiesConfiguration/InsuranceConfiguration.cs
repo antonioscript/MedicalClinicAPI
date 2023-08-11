@@ -21,7 +21,9 @@ namespace MedicalClinic.Infrastructure.EntitiesConfiguration
             builder.HasIndex(e => new { e.Name, e.DeletedAt }, "UK_Insurance_Name_DeletedAt")
                 .IsUnique();
 
-            builder.Property(e => e.InsuranceId).HasComment("nique identifier for each health insurance plan");
+            builder.Property(e => e.Id)
+                .HasColumnName("InsuranceId")
+                .HasComment("nique identifier for each health insurance plan");
 
             builder.Property(e => e.DeletedAt)
                 .HasColumnType("datetime")

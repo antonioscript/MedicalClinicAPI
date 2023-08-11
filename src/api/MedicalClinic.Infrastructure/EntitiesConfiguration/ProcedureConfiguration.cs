@@ -22,7 +22,9 @@ namespace MedicalClinic.Infrastructure.EntitiesConfiguration
 
             builder.HasIndex(e => e.TechnicianId, "IX_Procedures_TechnicianId");
 
-            builder.Property(e => e.ProcedureId).HasComment("Unique identifier for each medical procedure");
+            builder.Property(e => e.Id)
+                .HasColumnName("ProcedureId")
+                .HasComment("Unique identifier for each medical procedure");
 
             builder.Property(e => e.DeletedAt)
                 .HasColumnType("datetime")

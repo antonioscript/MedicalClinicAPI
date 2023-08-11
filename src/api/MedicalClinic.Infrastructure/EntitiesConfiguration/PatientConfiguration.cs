@@ -18,7 +18,9 @@ namespace MedicalClinic.Infrastructure.EntitiesConfiguration
             builder.HasIndex(e => new { e.Document, e.DeletedAt }, "UK_Patient_Document_DeletedAt")
                 .IsUnique();
 
-            builder.Property(e => e.PatientId).HasComment("Patients table unique identifier");
+            builder.Property(e => e.Id)
+                .HasColumnName("PatientId")
+                .HasComment("Patients table unique identifier");
 
             builder.Property(e => e.AddressLineOne)
                 .HasMaxLength(100)

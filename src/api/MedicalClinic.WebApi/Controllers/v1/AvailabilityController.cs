@@ -52,7 +52,7 @@ namespace MedicalClinic.WebApi.Controllers.v1
         [HttpPut("{id}")]
         public async Task<IActionResult> PutAvailability(int id, Availability Availability)
         {
-            if (id != Availability.AvailabilityId)
+            if (id != Availability.Id)
             {
                 return BadRequest();
             }
@@ -90,7 +90,7 @@ namespace MedicalClinic.WebApi.Controllers.v1
             _context.Availabilities.Add(Availability);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction(nameof(GetAvailability), new { id = Availability.AvailabilityId }, Availability);
+            return CreatedAtAction(nameof(GetAvailability), new { id = Availability.Id }, Availability);
         }
 
         // DELETE: api/Availability/5
@@ -115,7 +115,7 @@ namespace MedicalClinic.WebApi.Controllers.v1
 
         private bool AvailabilityExists(int id)
         {
-            return (_context.Availabilities?.Any(e => e.AvailabilityId == id)).GetValueOrDefault();
+            return (_context.Availabilities?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }

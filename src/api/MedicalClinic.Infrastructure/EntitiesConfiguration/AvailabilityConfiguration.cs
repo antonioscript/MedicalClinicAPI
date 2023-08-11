@@ -20,7 +20,9 @@ namespace MedicalClinic.Infrastructure.EntitiesConfiguration
 
             builder.HasIndex(e => e.DoctorId, "IX_Availability_DoctorId");
 
-            builder.Property(e => e.AvailabilityId).HasComment("Unique identifier for each availability entry.");
+            builder.Property(e => e.Id)
+                .HasColumnName("AvailabilityId")
+                .HasComment("Unique identifier for each availability entry.");
 
             builder.Property(e => e.DayOfWeek).HasComment("The day of the week when the doctor is available:\r\n0: Monday\r\n1: Tuesday\r\n2: Wednesday\r\n3: Thursday\r\n4: Friday\r\n5: Saturday\r\n6: Sunday");
 

@@ -19,7 +19,9 @@ namespace MedicalClinic.Infrastructure.EntitiesConfiguration
             builder.HasIndex(e => new { e.Name, e.DeletedAt }, "UK_Speciality_Name_DeletedAt")
                 .IsUnique();
 
-            builder.Property(e => e.SpecialtyId).HasComment("Unique identifier for each medical specialty");
+            builder.Property(e => e.Id)
+                .HasColumnName("SpecialtyId")
+                .HasComment("Unique identifier for each medical specialty");
 
             builder.Property(e => e.ConsultationValue)
                 .HasColumnType("decimal(18, 6)")
