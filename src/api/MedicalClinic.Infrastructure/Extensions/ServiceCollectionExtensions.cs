@@ -4,6 +4,7 @@ using System.Reflection;
 using MedicalClinic.Infrastructure.Repositories.Entities;
 using MedicalClinic.Application.Interfaces.Repositories.Entities;
 using MedicalClinic.Application.Interfaces.Repositories;
+using MedicalClinic.Infrastructure.Repositories;
 
 namespace MedicalClinic.Infrastructure.Extensions
 {
@@ -21,6 +22,7 @@ namespace MedicalClinic.Infrastructure.Extensions
         public static void AddRepositories(this IServiceCollection services)
         {
             services.AddTransient(typeof(IRepositoryAsync<>), typeof(RepositoryAsync<>));
+            services.AddTransient<IUnitOfWork, UnitOfWork>();
 
             services.AddTransient<IAppointmentRepository, AppointmentRepository>();
         }

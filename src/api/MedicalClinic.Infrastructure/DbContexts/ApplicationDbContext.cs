@@ -19,6 +19,10 @@ namespace MedicalClinic.Infrastructure.MedicalClinic.Infrastructure.DbContexts
         {
         }
 
+        public bool HasChanges => ChangeTracker.HasChanges();
+
+        //TODO : Verificar se precisa dos itens de configuração abaixo, se não, pode excluir
+
         public virtual DbSet<Appointment> Appointments { get; set; } = null!;
         public virtual DbSet<Availability> Availabilities { get; set; } = null!;
         public virtual DbSet<Doctor> Doctors { get; set; } = null!;

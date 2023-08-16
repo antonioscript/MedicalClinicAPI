@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using MedicalClinic.Application.DTOs.Appointment;
+using MedicalClinic.Application.Features.Appointments.Commands;
 using MedicalClinic.Domain.Entities;
 using System;
 using System.Collections.Generic;
@@ -13,6 +14,7 @@ namespace MedicalClinic.Application.Mappings
     {
         public AppointmentProfile()
         {
+            CreateMap<CreateAppointmentCommand, Appointment>();
             CreateMap<Appointment, AppointmentResponse>();
         }
     }

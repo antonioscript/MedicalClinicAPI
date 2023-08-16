@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MedicalClinic.Infrastructure.Repositories.Entities
+namespace MedicalClinic.Infrastructure.Repositories
 {
     public class RepositoryAsync<T> : IRepositoryAsync<T> where T : class
     {
