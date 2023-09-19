@@ -17,8 +17,4 @@
     <ProjectReference Include="..\MedicalClinic.Infrastructure.Shared.Results\MedicalClinic.Infrastructure.Shared.Results.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Features\Appointments\Commands\" />
-  </ItemGroup>
-
 </Project>

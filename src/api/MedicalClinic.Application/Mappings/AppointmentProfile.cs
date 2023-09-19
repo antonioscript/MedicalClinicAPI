@@ -2,6 +2,7 @@
 using MedicalClinic.Application.DTOs.Appointment;
 using MedicalClinic.Application.Features.Appointments.Commands;
 using MedicalClinic.Domain.Entities;
+using MedicalClinic.Infrastructure.Shared.Results;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,7 +16,9 @@ namespace MedicalClinic.Application.Mappings
         public AppointmentProfile()
         {
             CreateMap<CreateAppointmentCommand, Appointment>();
+            
             CreateMap<Appointment, AppointmentResponse>();
+            CreateMap<PaginatedResult<Appointment>, PaginatedResult<AppointmentResponse>>();
         }
     }
 }

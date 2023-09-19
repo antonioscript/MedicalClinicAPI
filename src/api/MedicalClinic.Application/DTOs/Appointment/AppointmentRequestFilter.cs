@@ -9,19 +9,19 @@ namespace MedicalClinic.Application.DTOs.Appointment
 {
     public class AppointmentRequestFilter
     {
-        public int PatientId { get; set; }
+        public int? PatientId { get; set; }
 
-        public int DoctorId { get; set; }
+        public int? DoctorId { get; set; }
 
         /// <summary>
         /// Indicates the Status of the Query, being:
         /// 0:Scheduled
         /// 1:Confirmed
-        /// 2: Cancelled
+        /// 2:Cancelled
         /// </summary>
-        public byte Status { get; set; }
+        public byte? Status { get; set; }
 
         public string? Observation { get; set; }
-        public bool IsEnabled { get; set; }
+        public bool? IsEnabled { get; set; }
     }
 }
