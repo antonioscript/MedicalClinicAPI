@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using MedicalClinic.Infrastructure.Shared.Results;
 using MedicalClinic.Application.Interfaces.Repositories.Entities;
 using MedicalClinic.Application.Interfaces.Repositories;
+using MedicalClinic.Resource.Resources;
 
 namespace MedicalClinic.Application.Features.Appointments.Commands
 {
@@ -29,7 +30,7 @@ namespace MedicalClinic.Application.Features.Appointments.Commands
                 if (result == null)
                 {
                     //await _unitOfWork.Rollback();
-                    return Result<int>.Fail("Appointment not found");
+                    return Result<int>.Fail(string.Format(SharedResource.MESSAGE_APPOINTMENT_NOT_FOUND, command.Id));
                 }
                 else
                 {

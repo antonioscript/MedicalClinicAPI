@@ -15,6 +15,7 @@
   <ItemGroup>
     <ProjectReference Include="..\MedicalClinic.Domain\MedicalClinic.Domain.csproj" />
     <ProjectReference Include="..\MedicalClinic.Infrastructure.Shared.Results\MedicalClinic.Infrastructure.Shared.Results.csproj" />
+    <ProjectReference Include="..\MedicalClinic.Resource\MedicalClinic.Resource.csproj" />
   </ItemGroup>
 
 </Project>
