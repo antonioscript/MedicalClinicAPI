@@ -9,12 +9,11 @@ using System.Threading.Tasks;
 
 namespace MedicalClinic.Infrastructure.EntitiesConfiguration
 {
-    //TODO: Colocar a Tabela Insurance no Plural no Banco de Dados 
     class InsuranceConfiguration : IEntityTypeConfiguration<Insurance>
     {
         public void Configure (EntityTypeBuilder<Insurance> builder)
         {
-            builder.ToTable("Insurance");
+            builder.ToTable("Insurances");
 
             builder.HasComment("Stores information about health insurance plans or medical health plans");
 

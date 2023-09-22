@@ -1,19 +1,19 @@
 ﻿using AutoMapper;
 using MedicalClinic.Application.DTOs.Technician;
+using MedicalClinic.Application.DTOs.Technician;
 using MedicalClinic.Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using MedicalClinic.Infrastructure.Shared.Results;
 
 namespace MedicalClinic.Application.Mappings
 {
-    internal class TechnicianrProfile : Profile
+    internal class TechnicianProfile : Profile
     {
-        public TechnicianrProfile()
+        public TechnicianProfile()
         {
+            //CreateMap<CreateTechnicianCommand, TechnicianResponse>();
+
             CreateMap<Technician, TechnicianResponse>();
+            CreateMap<PaginatedResult<Technician>, PaginatedResult<TechnicianResponse>>();
         }
     }
 }

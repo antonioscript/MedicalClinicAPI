@@ -9,12 +9,11 @@ using System.Threading.Tasks;
 
 namespace MedicalClinic.Infrastructure.EntitiesConfiguration
 {
-    //TODO: Colocar a Tabela Availability no Plural no Banco de Dados 
     class AvailabilityConfiguration : IEntityTypeConfiguration<Availability>
     {
         public void Configure (EntityTypeBuilder<Availability> builder)
         {
-            builder.ToTable("Availability");
+            builder.ToTable("Availabilities");
 
             builder.HasComment("Stores information about the availability schedule for doctors.");
 

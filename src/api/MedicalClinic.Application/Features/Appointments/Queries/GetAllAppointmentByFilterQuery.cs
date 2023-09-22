@@ -2,6 +2,7 @@
 using MediatR;
 using MedicalClinic.Application.DTOs.Appointment;
 using MedicalClinic.Application.Interfaces.Repositories.Entities;
+using MedicalClinic.Domain.Enums;
 using MedicalClinic.Infrastructure.Shared.Results;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -41,7 +42,7 @@ namespace MedicalClinic.Application.Features.Appointments.Queries
                 .Where(p =>
                        (request.AppRequest.PatientId == null || p.PatientId == request.AppRequest.PatientId)
                        && (request.AppRequest.DoctorId == null || p.DoctorId == request.AppRequest.DoctorId)
-                       && (request.AppRequest.Status == null || p.Status == request.AppRequest.Status)
+                       && (request.AppRequest.Status == null || p.Status == (AppointmentStatusCode)request.AppRequest.Status)
                        && (String.IsNullOrEmpty(request.AppRequest.Observation) || p.Observation.Contains(request.AppRequest.Observation))
                        && (request.AppRequest.IsEnabled == null || p.IsEnabled == request.AppRequest.IsEnabled)
                         )

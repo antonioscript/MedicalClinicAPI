@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using MedicalClinic.Infrastructure.Shared.Results;
 using MedicalClinic.Application.Interfaces.Repositories;
 using MedicalClinic.Application.Interfaces.Repositories.Entities;
+using MedicalClinic.Domain.Enums;
 
 namespace MedicalClinic.Application.Features.Appointments.Commands
 {
@@ -42,7 +43,7 @@ namespace MedicalClinic.Application.Features.Appointments.Commands
 
                 register.PatientId = command.PatientId;
                 register.DoctorId = command.DoctorId;
-                register.Status = command.Status;
+                register.Status = (AppointmentStatusCode)command.Status;
                 register.Observation = command.Observation ?? register.Observation;
                 register.IsEnabled = command.IsEnabled;
 

@@ -1,11 +1,8 @@
 ﻿using AutoMapper;
 using MedicalClinic.Application.DTOs.Specialty;
+using MedicalClinic.Application.DTOs.Specialty;
 using MedicalClinic.Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using MedicalClinic.Infrastructure.Shared.Results;
 
 namespace MedicalClinic.Application.Mappings
 {
@@ -13,7 +10,10 @@ namespace MedicalClinic.Application.Mappings
     {
         public SpecialtyProfile()
         {
+            //CreateMap<CreateSpecialtyCommand, SpecialtyResponse>();
+
             CreateMap<Specialty, SpecialtyResponse>();
+            CreateMap<PaginatedResult<Specialty>, PaginatedResult<SpecialtyResponse>>();
         }
     }
 }

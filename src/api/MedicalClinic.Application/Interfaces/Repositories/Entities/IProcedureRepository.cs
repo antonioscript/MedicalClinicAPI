@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MedicalClinic.Application.Interfaces.Repositories.Entities
 {
-    public interface IAppointmentRepository : IRepositoryAsync<Appointment>
+    public interface IProcedureRepository : IRepositoryAsync<Procedure>
     {
     }
 }

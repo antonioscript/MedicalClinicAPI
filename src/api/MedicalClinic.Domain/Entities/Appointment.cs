@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MedicalClinic.Domain.Enums;
+using System;
 using System.Collections.Generic;
 
 namespace MedicalClinic.Domain.Entities
@@ -13,14 +14,7 @@ namespace MedicalClinic.Domain.Entities
         public int DoctorId { get; set; }
         public virtual Doctor Doctor { get; set; } = null!;
 
-        /// <summary>
-        /// Indicates the Status of the Query, being:
-        /// 0:Scheduled
-        /// 1:Confirmed
-        /// 2: Cancelled
-        /// </summary>
-        public byte Status { get; set; }
-    
+        public AppointmentStatusCode Status { get; set; }    
         public string? Observation { get; set; }
         public bool IsEnabled { get; set; }
         public DateTime? DeletedAt { get; set; }

@@ -25,6 +25,14 @@ namespace MedicalClinic.Infrastructure.Extensions
             services.AddTransient<IUnitOfWork, UnitOfWork>();
 
             services.AddTransient<IAppointmentRepository, AppointmentRepository>();
+            services.AddTransient<IAvailabilityRepository, AvailabilityRepository>();
+            services.AddTransient<IDoctorRepository, DoctorRepository>();
+            services.AddTransient<IExamRepository, ExamRepository>();
+            services.AddTransient<IInsuranceRepository, InsuranceRepository>();
+            services.AddTransient<IPatientRepository, PatientRepository>();
+            services.AddTransient<IProcedureRepository, ProcedureRepository>();
+            services.AddTransient<ISpecialtyRepository, SpecialtyRepository>();
+            services.AddTransient<ITechnicianRepository, TechnicianRepository>();
         }
     }
 }

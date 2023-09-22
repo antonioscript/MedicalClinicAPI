@@ -1,11 +1,8 @@
 ﻿using AutoMapper;
 using MedicalClinic.Application.DTOs.Procedure;
+using MedicalClinic.Application.DTOs.Procedure;
 using MedicalClinic.Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using MedicalClinic.Infrastructure.Shared.Results;
 
 namespace MedicalClinic.Application.Mappings
 {
@@ -13,7 +10,10 @@ namespace MedicalClinic.Application.Mappings
     {
         public ProcedureProfile()
         {
+            //CreateMap<CreateProcedureCommand, ProcedureResponse>();
+
             CreateMap<Procedure, ProcedureResponse>();
+            CreateMap<PaginatedResult<Procedure>, PaginatedResult<ProcedureResponse>>();
         }
     }
 }

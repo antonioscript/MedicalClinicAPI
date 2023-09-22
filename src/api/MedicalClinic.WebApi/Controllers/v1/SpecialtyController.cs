@@ -5,11 +5,11 @@ namespace MedicalClinic.WebApi.Controllers.v1
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class AvailabilityController : ControllerBase
+    public class SpecialtyController : ControllerBase
     {
         //private readonly IMediator _mediator; 
 
-        //public AvailabilityController( IMediator mediator)
+        //public SpecialtyController( IMediator mediator)
         //{
         //    _mediator = mediator;
         //}
@@ -18,14 +18,14 @@ namespace MedicalClinic.WebApi.Controllers.v1
         //[AllowAnonymous]
         //public async Task<IActionResult> GetAll()
         //{
-        //    var results = await _mediator.Send(new GetAllAvailabilityQuery());
+        //    var results = await _mediator.Send(new GetAllSpecialtyQuery());
         //    return Ok(results);
         //}
 
 
         //[HttpPost]
         //[AllowAnonymous]
-        //public async Task<IActionResult> Post(CreateAvailabilityCommand command)
+        //public async Task<IActionResult> Post(CreateSpecialtyCommand command)
         //{
         //    return Ok(await _mediator.Send(command));
         //}
@@ -35,15 +35,15 @@ namespace MedicalClinic.WebApi.Controllers.v1
         //[AllowAnonymous]
         //public async Task<IActionResult> GetAllPaged(int pageNumber, int pageSize)
         //{
-        //    var results = await _mediator.Send(new GetAllPagedAvailabilityQuery(pageNumber, pageSize));
+        //    var results = await _mediator.Send(new GetAllPagedSpecialtyQuery(pageNumber, pageSize));
         //    return Ok(results);
         //}
 
         //[HttpGet("Filter")]
         //[AllowAnonymous]
-        //public async Task<IActionResult> GetAllFilter([FromQuery] AvailabilityRequestFilter filter)
+        //public async Task<IActionResult> GetAllFilter([FromQuery] SpecialtyRequestFilter filter)
         //{
-        //    var results = await _mediator.Send(new GetAllAvailabilityByFilterQuery(filter));
+        //    var results = await _mediator.Send(new GetAllSpecialtyByFilterQuery(filter));
         //    return Ok(results);
         //}
 
@@ -51,14 +51,14 @@ namespace MedicalClinic.WebApi.Controllers.v1
         //[AllowAnonymous]
         //public async Task<IActionResult> GetById(int id)
         //{
-        //    var result = await _mediator.Send(new GetAvailabilityByIdQuery() { Id = id });
+        //    var result = await _mediator.Send(new GetSpecialtyByIdQuery() { Id = id });
         //    return Ok(result);
         //}
 
         //// PUT api/<controller>/5
         //[HttpPut("{id}")]
         //[AllowAnonymous]
-        //public async Task<IActionResult> Put(int id, UpdateAvailabilityCommand command)
+        //public async Task<IActionResult> Put(int id, UpdateSpecialtyCommand command)
         //{
         //    if (id != command.Id)
         //    {
@@ -72,7 +72,7 @@ namespace MedicalClinic.WebApi.Controllers.v1
         //[AllowAnonymous]
         //public async Task<IActionResult> Delete(int id)
         //{
-        //    return Ok(await _mediator.Send(new DeleteAvailabilityCommand { Id = id }));
+        //    return Ok(await _mediator.Send(new DeleteSpecialtyCommand { Id = id }));
         //}
     }
 }

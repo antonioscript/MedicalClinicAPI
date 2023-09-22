@@ -1,11 +1,8 @@
 ﻿using AutoMapper;
 using MedicalClinic.Application.DTOs.Exam;
+using MedicalClinic.Application.DTOs.Exam;
 using MedicalClinic.Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using MedicalClinic.Infrastructure.Shared.Results;
 
 namespace MedicalClinic.Application.Mappings
 {
@@ -13,7 +10,10 @@ namespace MedicalClinic.Application.Mappings
     {
         public ExamProfile()
         {
+            //CreateMap<CreateExamCommand, ExamResponse>();
+
             CreateMap<Exam, ExamResponse>();
+            CreateMap<PaginatedResult<Exam>, PaginatedResult<ExamResponse>>();
         }
     }
 }

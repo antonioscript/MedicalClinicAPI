@@ -1,6 +1,8 @@
 ﻿using MedicalClinic.Application.DTOs.Doctor;
 using MedicalClinic.Application.DTOs.Patient;
+using MedicalClinic.Application.Enums;
 using MedicalClinic.Domain.Entities;
+using MedicalClinic.Domain.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,14 +21,7 @@ namespace MedicalClinic.Application.DTOs.Appointment
         public int DoctorId { get; set; }
         public virtual DoctorResponse Doctor { get; set; } = null!;
 
-        /// <summary>
-        /// Indicates the Status of the Query, being:
-        /// 0:Scheduled
-        /// 1:Confirmed
-        /// 2: Cancelled
-        /// </summary>
-        public byte Status { get; set; }
-
+        public AppointmentStatusCodeDto Status { get; set; }
         public string? Observation { get; set; }
         public bool IsEnabled { get; set; }
     }
