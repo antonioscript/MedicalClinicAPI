@@ -1,5 +1,5 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="E33B9B5A-1C07-DC5A-F6D1-16942D66E041" schemaObject="6B374BDA-32BE-BB34-9CFF-AFA5E6292D1F" name="Availability">
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="E33B9B5A-1C07-DC5A-F6D1-16942D66E041" schemaObject="6B374BDA-32BE-BB34-9CFF-AFA5E6292D1F" name="Availabilities">
 <createdBy>Antônio Rocha</createdBy>
 <createdTime>2023-08-02 00:43:20 UTC</createdTime>
 <commentInRDBMS><![CDATA[Stores information about the availability schedule for doctors.]]></commentInRDBMS>
