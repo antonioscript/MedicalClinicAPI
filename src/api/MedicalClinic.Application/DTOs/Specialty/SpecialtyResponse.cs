@@ -11,7 +11,7 @@ namespace MedicalClinic.Application.DTOs.Specialty
     {
         public SpecialtyResponse()
         {
-            Doctors = new HashSet<DoctorResponse>();
+            //Doctors = new HashSet<DoctorResponse>();
         }
 
         public int Id { get; set; }
@@ -21,6 +21,6 @@ namespace MedicalClinic.Application.DTOs.Specialty
 
         public bool IsEnabled { get; set; }
 
-        public virtual ICollection<DoctorResponse> Doctors { get; set; }
+        //public virtual ICollection<DoctorResponse> Doctors { get; set; }
     }
 }

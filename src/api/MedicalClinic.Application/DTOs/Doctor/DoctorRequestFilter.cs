@@ -10,16 +10,16 @@ namespace MedicalClinic.Application.DTOs.Doctor
 {
     public class DoctorRequestFilter
     {
-        public int SpecialtyId { get; set; }
-        public string Crm { get; set; } = null!;
-        public string FirstName { get; set; } = null!;
-        public string LastName { get; set; } = null!;
+        public int? SpecialtyId { get; set; }
+        public string? Crm { get; set; } 
+        public string? FirstName { get; set; }
+        public string? LastName { get; set; } 
 
-        public string Phone { get; set; } = null!;
+        public string? Phone { get; set; }
         public string? Email { get; set; }
         public string? AddressLineOne { get; set; }
         public string? AddressLineTwo { get; set; }
 
-        public bool IsEnabled { get; set; }
+        public bool? IsEnabled { get; set; }
     }
 }

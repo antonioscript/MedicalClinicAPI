@@ -1,6 +1,7 @@
 using MediatR;
 using MedicalClinic.Infrastructure.Extensions;
 using MedicalClinic.Infrastructure.MedicalClinic.Infrastructure.DbContexts;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -19,6 +20,7 @@ builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 
 
+
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -32,6 +34,11 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseSwaggerUI(options =>
+{
+    options.DefaultModelsExpandDepth(-1);
+});
 
 app.UseHttpsRedirection();
 

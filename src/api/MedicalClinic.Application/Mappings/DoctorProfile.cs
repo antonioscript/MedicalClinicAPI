@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using MedicalClinic.Application.DTOs.Doctor;
-using MedicalClinic.Application.DTOs.Doctor;
+using MedicalClinic.Application.Features.Doctors.Commands;
 using MedicalClinic.Domain.Entities;
 using MedicalClinic.Infrastructure.Shared.Results;
 
@@ -10,9 +10,7 @@ namespace MedicalClinic.Application.Mappings
     {
         public DoctorProfile()
         {
-            CreateMap<Doctor, DoctorResponse>();
-
-            //CreateMap<CreateDoctorCommand, DoctorResponse>();
+            CreateMap<CreateDoctorCommand, Doctor>();
 
             CreateMap<Doctor, DoctorResponse>();
             CreateMap<PaginatedResult<Doctor>, PaginatedResult<DoctorResponse>>();

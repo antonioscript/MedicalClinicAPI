@@ -1,5 +1,4 @@
-﻿using Marko.Api.Mercury.Application.Features.Appointments.Queries;
-using MediatR;
+﻿using MediatR;
 using MedicalClinic.Application.DTOs.Appointment;
 using MedicalClinic.Application.Features.Appointments.Commands;
 using MedicalClinic.Application.Features.Appointments.Queries;

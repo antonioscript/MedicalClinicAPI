@@ -19,7 +19,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Features\Availabilities\Commands\" />
     <Folder Include="Features\Procedures\Command\" />
     <Folder Include="Features\Procedures\Queries\" />
     <Folder Include="Features\Patients\Command\" />
@@ -32,8 +31,6 @@
     <Folder Include="Features\Insurances\Queries\" />
     <Folder Include="Features\Exams\Command\" />
     <Folder Include="Features\Exams\Queries\" />
-    <Folder Include="Features\Doctors\Command\" />
-    <Folder Include="Features\Doctors\Queries\" />
   </ItemGroup>
 
 </Project>

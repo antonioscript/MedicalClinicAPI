@@ -8,7 +8,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Marko.Api.Mercury.Application.Features.Appointments.Queries
+namespace MedicalClinic.Application.Features.Appointments.Queries
 {
     public class GetAppointmentByIdQuery : IRequest<Result<AppointmentResponse>>
     {

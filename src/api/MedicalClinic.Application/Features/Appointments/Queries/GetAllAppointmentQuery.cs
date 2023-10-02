@@ -2,12 +2,6 @@
 using MedicalClinic.Application.DTOs.Appointment;
 using MedicalClinic.Application.Interfaces.Repositories.Entities;
 using Microsoft.EntityFrameworkCore;
-using MedicalClinic.Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading;
-using System.Threading.Tasks;
 using MediatR;
 
 namespace MedicalClinic.Application.Features.Appointments.Queries
