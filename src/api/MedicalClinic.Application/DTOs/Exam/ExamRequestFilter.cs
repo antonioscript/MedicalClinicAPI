@@ -9,11 +9,11 @@ namespace MedicalClinic.Application.DTOs.Exam
 {
     public class ExamRequestFilter
     {
-        public string Name { get; set; } = null!;
+        public string? Name { get; set; } = null!;
         public string? Description { get; set; }
-        public decimal Value { get; set; }
+        public decimal? Value { get; set; }
 
-        public bool IsEnabled { get; set; }
+        public bool? IsEnabled { get; set; }
 
     }
 }

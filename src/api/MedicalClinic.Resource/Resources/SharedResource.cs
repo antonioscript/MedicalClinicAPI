@@ -14,6 +14,15 @@ namespace MedicalClinic.Resource.Resources
         public const string MESSAGE_DOCTOR_EXISTS = "There is already a Doctor with CRM code '{0}'";
         public const string MESSAGE_DOCTOR_NOT_FOUND = "Doctor Id '{0}' not found";
 
+        public const string MESSAGE_EXAM_EXISTS = "There is already a Exam with Name '{0}'";
+        public const string MESSAGE_EXAM_NOT_FOUND = "Exame Id '{0}' not found";
+
+        public const string MESSAGE_INSURANCE_EXISTS = "There is already a Insurance with Name '{0}'";
+        public const string MESSAGE_INSURANCE_NOT_FOUND = "Insurance Id '{0}' not found";
+
+        public const string MESSAGE_PATIENT_EXISTS = "There is already a Patient with First Name '{0}' and Last Name '{1}'";
+        public const string MESSAGE_PATIENT_NOT_FOUND = "Patient Id '{0}' not found";
+
     }
 }
 

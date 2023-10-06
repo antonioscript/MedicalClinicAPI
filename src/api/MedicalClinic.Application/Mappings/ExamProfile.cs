@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using MedicalClinic.Application.DTOs.Exam;
 using MedicalClinic.Application.DTOs.Exam;
+using MedicalClinic.Application.Features.Exams.Commands;
 using MedicalClinic.Domain.Entities;
 using MedicalClinic.Infrastructure.Shared.Results;
 
@@ -10,7 +11,7 @@ namespace MedicalClinic.Application.Mappings
     {
         public ExamProfile()
         {
-            //CreateMap<CreateExamCommand, ExamResponse>();
+            CreateMap<CreateExamCommand, Exam>();
 
             CreateMap<Exam, ExamResponse>();
             CreateMap<PaginatedResult<Exam>, PaginatedResult<ExamResponse>>();

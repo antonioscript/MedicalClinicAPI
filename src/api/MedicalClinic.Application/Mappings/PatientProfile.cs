@@ -10,7 +10,7 @@ namespace MedicalClinic.Application.Mappings
     {
         public PatientProfile()
         {
-            //CreateMap<CreatePatientCommand, PatientResponse>();
+            //CreateMap<CreatePatientCommand, Patient>();
 
             CreateMap<Patient, PatientResponse>();
             CreateMap<PaginatedResult<Patient>, PaginatedResult<PatientResponse>>();

@@ -5,7 +5,7 @@ using MedicalClinic.Application.Interfaces.Repositories.Entities;
 using MedicalClinic.Infrastructure.Shared.Results;
 using Microsoft.EntityFrameworkCore;
 
-namespace MedicalClinic.Features.Doctors.Queries
+namespace MedicalClinic.Application.Features.Doctors.Queries
 {
     public class GetDoctorByIdQuery : IRequest<Result<DoctorResponse>>
     {

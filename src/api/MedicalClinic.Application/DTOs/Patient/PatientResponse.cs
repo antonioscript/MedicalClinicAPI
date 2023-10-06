@@ -1,6 +1,7 @@
 ﻿using MedicalClinic.Application.DTOs.Appointment;
 using MedicalClinic.Application.DTOs.Insurance;
 using MedicalClinic.Application.DTOs.Procedure;
+using MedicalClinic.Application.Enums;
 using MedicalClinic.Domain.Entities;
 using System;
 using System.Collections.Generic;
@@ -15,7 +16,7 @@ namespace MedicalClinic.Application.DTOs.Patient
         public PatientResponse()
         {
             //Appointments = new HashSet<AppointmentResponse>();
-            Procedures = new HashSet<ProcedureResponse>();
+            //Procedures = new HashSet<ProcedureResponse>();
         }
 
 
@@ -30,13 +31,7 @@ namespace MedicalClinic.Application.DTOs.Patient
 
         public DateTime DateOfBirth { get; set; }
 
-        /// <summary>
-        /// The gender of the patient
-        /// 0: Male, 
-        /// 1: Female,
-        /// 2: NonBinary
-        /// </summary>
-        public byte Gender { get; set; }
+        public PatientGenderCodeDto Gender { get; set; }
         public string PhoneOne { get; set; } = null!;
         public string? PhoneTwo { get; set; }
         public string? Email { get; set; }
@@ -46,6 +41,6 @@ namespace MedicalClinic.Application.DTOs.Patient
         public bool IsEnabled { get; set; }
 
         //public virtual ICollection<AppointmentResponse> Appointments { get; set; }
-        public virtual ICollection<ProcedureResponse> Procedures { get; set; }
+        //public virtual ICollection<ProcedureResponse> Procedures { get; set; }
     }
 }

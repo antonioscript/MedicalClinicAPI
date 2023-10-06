@@ -2,7 +2,6 @@
 using MedicalClinic.Application.DTOs.Doctor;
 using MedicalClinic.Application.Features.Doctors.Commands;
 using MedicalClinic.Application.Features.Doctors.Queries;
-using MedicalClinic.Features.Doctors.Queries;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 

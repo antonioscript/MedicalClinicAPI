@@ -10,7 +10,7 @@ namespace MedicalClinic.Application.Mappings
     {
         public ProcedureProfile()
         {
-            //CreateMap<CreateProcedureCommand, ProcedureResponse>();
+            //CreateMap<CreateProcedureCommand, Procedure>();
 
             CreateMap<Procedure, ProcedureResponse>();
             CreateMap<PaginatedResult<Procedure>, PaginatedResult<ProcedureResponse>>();

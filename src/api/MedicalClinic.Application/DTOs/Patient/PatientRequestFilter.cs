@@ -1,4 +1,5 @@
-﻿using MedicalClinic.Domain.Entities;
+﻿using MedicalClinic.Application.Enums;
+using MedicalClinic.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,19 +13,13 @@ namespace MedicalClinic.Application.DTOs.Patient
         public int? InsuranceId { get; set; }
 
         public byte? InsuranceType { get; set; }
-        public string FirstName { get; set; } = null!;
-        public string LastName { get; set; } = null!;
+        public string? FirstName { get; set; } = null!;
+        public string? LastName { get; set; } = null!;
         public string? Document { get; set; }
 
-        public DateTime DateOfBirth { get; set; }
+        public DateTime? DateOfBirth { get; set; }
 
-        /// <summary>
-        /// The gender of the patient
-        /// 0: Male, 
-        /// 1: Female,
-        /// 2: NonBinary
-        /// </summary>
-        public byte Gender { get; set; }
+        public PatientGenderCodeDto? Gender { get; set; }
         public string PhoneOne { get; set; } = null!;
         public string? PhoneTwo { get; set; }
         public string? Email { get; set; }

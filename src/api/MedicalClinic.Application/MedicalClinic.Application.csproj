@@ -21,16 +21,10 @@
   <ItemGroup>
     <Folder Include="Features\Procedures\Command\" />
     <Folder Include="Features\Procedures\Queries\" />
-    <Folder Include="Features\Patients\Command\" />
-    <Folder Include="Features\Patients\Queries\" />
     <Folder Include="Features\Technicians\Command\" />
     <Folder Include="Features\Technicians\Queries\" />
     <Folder Include="Features\Specialties\Command\" />
     <Folder Include="Features\Specialties\Queries\" />
-    <Folder Include="Features\Insurances\Command\" />
-    <Folder Include="Features\Insurances\Queries\" />
-    <Folder Include="Features\Exams\Command\" />
-    <Folder Include="Features\Exams\Queries\" />
   </ItemGroup>
 
 </Project>
