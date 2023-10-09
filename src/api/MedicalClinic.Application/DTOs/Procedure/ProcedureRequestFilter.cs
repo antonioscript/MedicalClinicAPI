@@ -11,13 +11,13 @@ namespace MedicalClinic.Application.DTOs.Procedure
 {
     public class ProcedureRequestFilter
     {
-        public int PatientId { get; set; }
+        public int? PatientId { get; set; }
 
-        public int TechnicianId { get; set; }
-        public int ExamId { get; set; }
+        public int? TechnicianId { get; set; }
+        public int? ExamId { get; set; }
 
         public string? Observation { get; set; }
 
-        public bool IsEnabled { get; set; }
+        public bool? IsEnabled { get; set; }
     }
 }

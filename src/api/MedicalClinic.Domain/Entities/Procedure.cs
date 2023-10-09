@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 namespace MedicalClinic.Domain.Entities
 {
+    //TODO: Maybe to add a prop of DateOfProcedure
     public partial class Procedure
     {
         public int Id { get; set; }

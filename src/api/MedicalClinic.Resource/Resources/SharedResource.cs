@@ -23,6 +23,8 @@ namespace MedicalClinic.Resource.Resources
         public const string MESSAGE_PATIENT_EXISTS = "There is already a Patient with First Name '{0}' and Last Name '{1}'";
         public const string MESSAGE_PATIENT_NOT_FOUND = "Patient Id '{0}' not found";
 
+        public const string MESSAGE_PROCEDURE_NOT_FOUND = "Procedure Id '{0}' not found";
+
     }
 }
 

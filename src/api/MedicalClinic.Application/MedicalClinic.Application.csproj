@@ -19,12 +19,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Features\Procedures\Command\" />
-    <Folder Include="Features\Procedures\Queries\" />
-    <Folder Include="Features\Technicians\Command\" />
-    <Folder Include="Features\Technicians\Queries\" />
-    <Folder Include="Features\Specialties\Command\" />
+    <Folder Include="Features\Specialties\Commands\" />
     <Folder Include="Features\Specialties\Queries\" />
+    <Folder Include="Features\Technicians\Commands\" />
+    <Folder Include="Features\Technicians\Queries\" />
   </ItemGroup>
 
 </Project>
