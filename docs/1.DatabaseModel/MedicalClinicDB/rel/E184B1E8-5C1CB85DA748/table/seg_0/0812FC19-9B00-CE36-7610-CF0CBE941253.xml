@@ -30,6 +30,7 @@ SET IDENTITY_INSERT dbo.Technicians OFF;
 <Column name="TechnicianId" id="DF661DF4-1C73-D89A-2C96-7C7F38DDB719">
 <createdBy>Antônio Rocha</createdBy>
 <createdTime>2023-07-27 01:53:54 UTC</createdTime>
+<commentInRDBMS><![CDATA[Unique identifier for each Technician]]></commentInRDBMS>
 <ownerDesignName>MedicalClinicDB</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
