@@ -9,18 +9,12 @@ namespace MedicalClinic.Application.DTOs.Specialty
 {
     public class SpecialtyResponse
     {
-        public SpecialtyResponse()
-        {
-            //Doctors = new HashSet<DoctorResponse>();
-        }
-
         public int Id { get; set; }
-        public string Name { get; set; } = null!;
-        public string Description { get; set; } = null!;
-        public decimal ConsultationValue { get; set; }
+        public string Name { get; set; } 
+        public string Description { get; set; }
+        public double ConsultationValue { get; set; }
 
         public bool IsEnabled { get; set; }
 
-        //public virtual ICollection<DoctorResponse> Doctors { get; set; }
     }
 }

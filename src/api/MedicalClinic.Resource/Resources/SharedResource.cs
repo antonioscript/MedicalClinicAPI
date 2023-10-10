@@ -25,6 +25,12 @@ namespace MedicalClinic.Resource.Resources
 
         public const string MESSAGE_PROCEDURE_NOT_FOUND = "Procedure Id '{0}' not found";
 
+        public const string MESSAGE_SPECIALTY_EXISTS = "There is already a Specialty with Name '{0}'";
+        public const string MESSAGE_SPECIALTY_NOT_FOUND = "Specialty Id '{0}' not found";
+
+        public const string MESSAGE_TECHNICIAN_EXISTS = "There is already a Technician with First Name '{0}' and Last Name '{1}'";
+        public const string MESSAGE_TECHNICIAN_NOT_FOUND = "Technician Id '{0}' not found";
+
     }
 }
 

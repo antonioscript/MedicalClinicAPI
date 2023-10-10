@@ -9,14 +9,14 @@ namespace MedicalClinic.Application.DTOs.Technician
 {
     public class TechnicianResponse
     {
-        public TechnicianResponse()
-        {
-            Procedures = new HashSet<ProcedureResponse>();
-        }
+        //public TechnicianResponse()
+        //{
+        //    Procedures = new HashSet<ProcedureResponse>();
+        //}
 
         public int Id { get; set; }
-        public string FirstName { get; set; } = null!;
-        public string LastName { get; set; } = null!;
+        public string FirstName { get; set; } 
+        public string LastName { get; set; } 
         public string? Email { get; set; }
         public string? Phone { get; set; }
 
@@ -26,6 +26,6 @@ namespace MedicalClinic.Application.DTOs.Technician
 
         public bool IsEnabled { get; set; }
 
-        public virtual ICollection<ProcedureResponse> Procedures { get; set; }
+        //public virtual ICollection<ProcedureResponse> Procedures { get; set; }
     }
 }

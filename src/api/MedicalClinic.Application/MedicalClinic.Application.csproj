@@ -18,11 +18,4 @@
     <ProjectReference Include="..\MedicalClinic.Resource\MedicalClinic.Resource.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Features\Specialties\Commands\" />
-    <Folder Include="Features\Specialties\Queries\" />
-    <Folder Include="Features\Technicians\Commands\" />
-    <Folder Include="Features\Technicians\Queries\" />
-  </ItemGroup>
-
 </Project>

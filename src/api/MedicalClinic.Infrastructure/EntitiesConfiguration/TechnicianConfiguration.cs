@@ -16,6 +16,10 @@ namespace MedicalClinic.Infrastructure.EntitiesConfiguration
         {
             builder.HasComment("Stores information about technicians or technical staff");
 
+            builder.Property(e => e.Id)
+                .HasColumnName("TechnicianId")
+                .HasComment("Unique identifier for each Technician");
+
             builder.Property(e => e.AddressLineOne)
                 .HasMaxLength(100)
                 .IsUnicode(false)

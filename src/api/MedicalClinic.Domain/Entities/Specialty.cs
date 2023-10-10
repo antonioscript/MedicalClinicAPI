@@ -3,7 +3,6 @@ using System.Collections.Generic;
 
 namespace MedicalClinic.Domain.Entities
 {
-    //TODO: O nome da classe 'Specialty' está incorreto, ajeitar
     public partial class Specialty
     {
         public Specialty()
@@ -14,7 +13,7 @@ namespace MedicalClinic.Domain.Entities
         public int Id { get; set; }
         public string Name { get; set; } = null!;
         public string Description { get; set; } = null!;
-        public decimal ConsultationValue { get; set; }
+        public double ConsultationValue { get; set; }
 
         public bool IsEnabled { get; set; }
         public DateTime? DeletedAt { get; set; }

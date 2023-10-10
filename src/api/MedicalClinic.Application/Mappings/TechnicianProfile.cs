@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using MedicalClinic.Application.DTOs.Technician;
-using MedicalClinic.Application.DTOs.Technician;
+using MedicalClinic.Application.Features.Technicians.Commands;
 using MedicalClinic.Domain.Entities;
 using MedicalClinic.Infrastructure.Shared.Results;
 
@@ -10,7 +10,7 @@ namespace MedicalClinic.Application.Mappings
     {
         public TechnicianProfile()
         {
-            //CreateMap<CreateTechnicianCommand, Technician>();
+            CreateMap<CreateTechnicianCommand, Technician>();
 
             CreateMap<Technician, TechnicianResponse>();
             CreateMap<PaginatedResult<Technician>, PaginatedResult<TechnicianResponse>>();

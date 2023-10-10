@@ -9,7 +9,6 @@ using System.Threading.Tasks;
 
 namespace MedicalClinic.Infrastructure.EntitiesConfiguration
 {
-    //TODO: O nome da classe está incorreto, ajeitar
     class SpecialtyConfiguration : IEntityTypeConfiguration<Specialty>
     {
         public void Configure (EntityTypeBuilder<Specialty> builder)

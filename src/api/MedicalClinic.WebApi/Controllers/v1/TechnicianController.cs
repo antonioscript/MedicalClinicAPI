@@ -1,4 +1,8 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using MediatR;
+using MedicalClinic.Application.DTOs.Technician;
+using MedicalClinic.Application.Features.Technicians.Commands;
+using MedicalClinic.Application.Features.Technicians.Queries;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MedicalClinic.WebApi.Controllers.v1
@@ -7,73 +11,73 @@ namespace MedicalClinic.WebApi.Controllers.v1
     [ApiController]
     public class TechnicianController : ControllerBase
     {
-        //private readonly IMediator _mediator; 
+        private readonly IMediator _mediator;
 
-        //public TechnicianController( IMediator mediator)
-        //{
-        //    _mediator = mediator;
-        //}
+        public TechnicianController(IMediator mediator)
+        {
+            _mediator = mediator;
+        }
 
-        //[HttpGet]
-        //[AllowAnonymous]
-        //public async Task<IActionResult> GetAll()
-        //{
-        //    var results = await _mediator.Send(new GetAllTechnicianQuery());
-        //    return Ok(results);
-        //}
-
-
-        //[HttpPost]
-        //[AllowAnonymous]
-        //public async Task<IActionResult> Post(CreateTechnicianCommand command)
-        //{
-        //    return Ok(await _mediator.Send(command));
-        //}
+        [HttpGet]
+        [AllowAnonymous]
+        public async Task<IActionResult> GetAll()
+        {
+            var results = await _mediator.Send(new GetAllTechnicianQuery());
+            return Ok(results);
+        }
 
 
-        //[HttpGet("Paged")]
-        //[AllowAnonymous]
-        //public async Task<IActionResult> GetAllPaged(int pageNumber, int pageSize)
-        //{
-        //    var results = await _mediator.Send(new GetAllPagedTechnicianQuery(pageNumber, pageSize));
-        //    return Ok(results);
-        //}
+        [HttpPost]
+        [AllowAnonymous]
+        public async Task<IActionResult> Post(CreateTechnicianCommand command)
+        {
+            return Ok(await _mediator.Send(command));
+        }
 
-        //[HttpGet("Filter")]
-        //[AllowAnonymous]
-        //public async Task<IActionResult> GetAllFilter([FromQuery] TechnicianRequestFilter filter)
-        //{
-        //    var results = await _mediator.Send(new GetAllTechnicianByFilterQuery(filter));
-        //    return Ok(results);
-        //}
 
-        //[HttpGet("{id}")]
-        //[AllowAnonymous]
-        //public async Task<IActionResult> GetById(int id)
-        //{
-        //    var result = await _mediator.Send(new GetTechnicianByIdQuery() { Id = id });
-        //    return Ok(result);
-        //}
+        [HttpGet("Paged")]
+        [AllowAnonymous]
+        public async Task<IActionResult> GetAllPaged(int pageNumber, int pageSize)
+        {
+            var results = await _mediator.Send(new GetAllPagedTechnicianQuery(pageNumber, pageSize));
+            return Ok(results);
+        }
 
-        //// PUT api/<controller>/5
-        //[HttpPut("{id}")]
-        //[AllowAnonymous]
-        //public async Task<IActionResult> Put(int id, UpdateTechnicianCommand command)
-        //{
-        //    if (id != command.Id)
-        //    {
-        //        return BadRequest();
-        //    }
-        //    return Ok(await _mediator.Send(command));
-        //}
+        [HttpGet("Filter")]
+        [AllowAnonymous]
+        public async Task<IActionResult> GetAllFilter([FromQuery] TechnicianRequestFilter filter)
+        {
+            var results = await _mediator.Send(new GetAllTechnicianByFilterQuery(filter));
+            return Ok(results);
+        }
 
-        //// DELETE api/<controller>/5
-        //[HttpDelete("{id}")]
-        //[AllowAnonymous]
-        //public async Task<IActionResult> Delete(int id)
-        //{
-        //    return Ok(await _mediator.Send(new DeleteTechnicianCommand { Id = id }));
-        //}
+        [HttpGet("{id}")]
+        [AllowAnonymous]
+        public async Task<IActionResult> GetById(int id)
+        {
+            var result = await _mediator.Send(new GetTechnicianByIdQuery() { Id = id });
+            return Ok(result);
+        }
+
+        // PUT api/<controller>/5
+        [HttpPut("{id}")]
+        [AllowAnonymous]
+        public async Task<IActionResult> Put(int id, UpdateTechnicianCommand command)
+        {
+            if (id != command.Id)
+            {
+                return BadRequest();
+            }
+            return Ok(await _mediator.Send(command));
+        }
+
+        // DELETE api/<controller>/5
+        [HttpDelete("{id}")]
+        [AllowAnonymous]
+        public async Task<IActionResult> Delete(int id)
+        {
+            return Ok(await _mediator.Send(new DeleteTechnicianCommand { Id = id }));
+        }
     }
 }
 

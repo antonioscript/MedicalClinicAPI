@@ -9,8 +9,8 @@ namespace MedicalClinic.Application.DTOs.Technician
 {
     public class TechnicianRequestFilter
     {
-        public string FirstName { get; set; } = null!;
-        public string LastName { get; set; } = null!;
+        public string? FirstName { get; set; }
+        public string? LastName { get; set; } 
         public string? Email { get; set; }
         public string? Phone { get; set; }
 
@@ -18,7 +18,7 @@ namespace MedicalClinic.Application.DTOs.Technician
         public string? AddressLineTwo { get; set; }
         public byte? InsuranceType { get; set; }
 
-        public bool IsEnabled { get; set; }
+        public bool? IsEnabled { get; set; }
 
     }
 }
