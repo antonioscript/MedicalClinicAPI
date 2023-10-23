@@ -164,5 +164,16 @@ SET IDENTITY_INSERT dbo.Technicians OFF;
 <colUsage columnID="DF661DF4-1C73-D89A-2C96-7C7F38DDB719"/>
 </indexColumnUsage>
 </ind_PK_UK>
+<ind_PK_UK id="7CE42115-EF6E-E4F8-4D91-435C725B16D2" name="UK_Technicians_FirstName_LastName">
+<createdBy>Antônio Rocha</createdBy>
+<createdTime>2023-10-23 09:48:30 UTC</createdTime>
+<ownerDesignName>MedicalClinicDB</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="9F27AB27-A34D-DDA2-203B-1A63A0600716"/>
+<colUsage columnID="9D737623-AFEC-5C35-22A6-E8CDDBA4981B"/>
+</indexColumnUsage>
+</ind_PK_UK>
 </indexes>
 </Table>

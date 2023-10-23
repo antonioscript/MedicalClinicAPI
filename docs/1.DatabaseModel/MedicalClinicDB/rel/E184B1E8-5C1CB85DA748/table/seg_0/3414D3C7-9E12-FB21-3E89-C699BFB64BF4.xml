@@ -40,6 +40,22 @@ SET IDENTITY_INSERT dbo.Appointments OFF;
 <identityColumn>true</identityColumn>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
+<Column name="RequestingDoctorId" id="9DA1C626-3593-D33C-8CDC-FDB67BACF889">
+<createdBy>Antônio Rocha</createdBy>
+<createdTime>2023-10-23 09:55:39 UTC</createdTime>
+<commentInRDBMS><![CDATA[Foreign key of the doctor who requested the consultation, if there is a request within the clinic itself]]></commentInRDBMS>
+<ownerDesignName>MedicalClinicDB</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="477BF81D-236C-C38E-5886-C93EFC8F54A0" referredColumn="9D721544-EA0B-6805-5DF8-141F5316177B"/>
+</associations>
+</Column>
 <Column name="PatientId" id="C07E9F9E-09F9-CA01-58DA-87D732ADCFE5">
 <createdBy>Antônio Rocha</createdBy>
 <createdTime>2023-07-29 02:20:38 UTC</createdTime>
@@ -169,6 +185,16 @@ SET IDENTITY_INSERT dbo.Appointments OFF;
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
 <colUsage columnID="759BF1A9-A410-FC05-4299-91B42B23A1B2"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="B3FF8F50-EA0A-51B2-F9A0-31E697AB8FFC" name="FK_Appointments_Requesting_Doctor">
+<createdBy>Antônio Rocha</createdBy>
+<createdTime>2023-10-23 09:55:39 UTC</createdTime>
+<ownerDesignName>MedicalClinicDB</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="9DA1C626-3593-D33C-8CDC-FDB67BACF889"/>
 </indexColumnUsage>
 </ind_PK_UK>
 </indexes>
