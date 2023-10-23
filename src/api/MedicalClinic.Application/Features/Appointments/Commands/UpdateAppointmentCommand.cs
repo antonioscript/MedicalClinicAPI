@@ -14,6 +14,7 @@ namespace MedicalClinic.Application.Features.Appointments.Commands
     public class UpdateAppointmentCommand : IRequest<Result<int>>
     {
         public int Id { get; set; }
+        public int RequestingDoctorId { get; set; }
         public int PatientId { get; set; }
         public int DoctorId { get; set; }
         public byte Status { get; set; }
@@ -43,6 +44,7 @@ namespace MedicalClinic.Application.Features.Appointments.Commands
                 }
 
                 register.PatientId = command.PatientId;
+                register.RequestingDoctorId = command.RequestingDoctorId;
                 register.DoctorId = command.DoctorId;
                 register.Status = (AppointmentStatusCode)command.Status;
                 register.Observation = command.Observation ?? register.Observation;

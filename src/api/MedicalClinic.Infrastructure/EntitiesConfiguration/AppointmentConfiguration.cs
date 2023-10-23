@@ -44,6 +44,10 @@ namespace MedicalClinic.Infrastructure.EntitiesConfiguration
                 .HasColumnName("PatientId")
                 .HasComment("Foreign key referencing the unique identifier of the patient associated with the appointment");
 
+            builder.Property(e => e.RequestingDoctorId)
+                .HasColumnName("RequestingDoctorId")
+                .HasComment("Foreign key of the doctor who requested the consultation, if there is a request within the clinic itself");
+
             builder.Property(e => e.Status).HasComment("Indicates the Status of the Query, being:\r\n0:Scheduled\r\n1:Confirmed\r\n2: Cancelled");
 
             builder.HasOne(d => d.Doctor)
@@ -57,6 +61,12 @@ namespace MedicalClinic.Infrastructure.EntitiesConfiguration
                 .HasForeignKey(d => d.PatientId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_Appointments_Patients");
+
+            builder.HasOne(d => d.RequestingDoctor)
+                .WithMany(p => p.AppointmentsRequestingDoctor)
+                .HasForeignKey(d => d.RequestingDoctorId)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_Appointments_Requesting_Doctor");
         }
     }
 }

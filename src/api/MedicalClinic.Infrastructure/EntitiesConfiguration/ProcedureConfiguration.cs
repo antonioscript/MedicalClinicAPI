@@ -9,7 +9,6 @@ using System.Threading.Tasks;
 
 namespace MedicalClinic.Infrastructure.EntitiesConfiguration
 {
-    //TODO: Colocar a Tabela Procedure no Plural no Banco de Dados 
     class ProcedureConfiguration : IEntityTypeConfiguration<Procedure>
     {
         public void Configure (EntityTypeBuilder<Procedure> builder)

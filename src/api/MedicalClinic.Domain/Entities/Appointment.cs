@@ -8,6 +8,9 @@ namespace MedicalClinic.Domain.Entities
     {
         public int Id { get; set; }
 
+        public int? RequestingDoctorId { get; set; }
+        public virtual Doctor RequestingDoctor { get; set; } = null!;
+
         public int PatientId { get; set; }
         public virtual Patient Patient { get; set; } = null!;
 

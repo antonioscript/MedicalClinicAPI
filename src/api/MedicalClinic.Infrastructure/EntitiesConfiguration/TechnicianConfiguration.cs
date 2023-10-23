@@ -9,7 +9,6 @@ using System.Threading.Tasks;
 
 namespace MedicalClinic.Infrastructure.EntitiesConfiguration
 {
-    //TODO: Está faltando o Id?
     class TechnicianConfiguration : IEntityTypeConfiguration<Technician>
     {
         public void Configure (EntityTypeBuilder<Technician> builder)
@@ -59,6 +58,9 @@ namespace MedicalClinic.Infrastructure.EntitiesConfiguration
                 .HasMaxLength(20)
                 .IsUnicode(false)
                 .HasComment("The phone number of the technician");
+
+            builder.HasIndex(e => new { e.FirstName, e.LastName }, "UK_Technicians_FirstName_LastName")
+                .IsUnique();
         }
     }
 }

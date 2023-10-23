@@ -27,7 +27,15 @@ namespace MedicalClinic.Application.Features.Appointments.Queries
 
             public async Task<Result<AppointmentResponse>> Handle(GetAppointmentByIdQuery query, CancellationToken cancellationToken)
             {
-                var result = await _repository.GetByIdAsync(query.Id);
+                //var result = await _repository.GetByIdAsync(query.Id);
+
+                var result = await _repository.Entities
+                    .Include(a => a.RequestingDoctor)
+                    .Include(a => a.Patient)
+                    .Include(a => a.Doctor)
+                    .AsNoTracking()
+                    .FirstOrDefaultAsync();
+
                 var mappedCompetitorCompany = _mapper.Map<AppointmentResponse>(result);
                 return Result<AppointmentResponse>.Success(mappedCompetitorCompany);
             }

@@ -1,4 +1,5 @@
-﻿using MedicalClinic.Application.Enums;
+﻿using MedicalClinic.Application.DTOs.Doctor;
+using MedicalClinic.Application.Enums;
 using MedicalClinic.Domain.Entities;
 using System;
 using System.Collections.Generic;
@@ -11,6 +12,8 @@ namespace MedicalClinic.Application.DTOs.Appointment
     public class AppointmentRequestFilter
     {
         public int? PatientId { get; set; }
+
+        public int? RequestingDoctorId { get; set; }
 
         public int? DoctorId { get; set; }
 

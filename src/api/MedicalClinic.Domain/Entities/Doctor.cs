@@ -9,6 +9,7 @@ namespace MedicalClinic.Domain.Entities
         public Doctor()
         {
             Appointments = new HashSet<Appointment>();
+            AppointmentsRequestingDoctor = new HashSet<Appointment>();
             Availabilities = new HashSet<Availability>();
         }
 
@@ -32,6 +33,7 @@ namespace MedicalClinic.Domain.Entities
 
         
         public virtual ICollection<Appointment> Appointments { get; set; }
+        public virtual ICollection<Appointment> AppointmentsRequestingDoctor { get; set; }
         public virtual ICollection<Availability> Availabilities { get; set; }
     }
 }

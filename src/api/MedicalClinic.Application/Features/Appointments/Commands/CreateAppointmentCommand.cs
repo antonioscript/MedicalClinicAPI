@@ -10,6 +10,7 @@ namespace MedicalClinic.Application.Features.Appointments.Commands
     public partial class CreateAppointmentCommand : IRequest<Result<int>>
     {
         public int PatientId { get; set; }
+        public int? RequestingDoctorId { get; set; }
         public int DoctorId { get; set; }
         public byte Status { get; set; }
 

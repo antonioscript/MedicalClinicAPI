@@ -29,6 +29,7 @@ namespace MedicalClinic.Application.Features.Appointments.Queries
         public async Task<List<AppointmentResponse>> Handle(GetAllAppointmentQuery request, CancellationToken cancellationToken)
         {
             var list = await _repository.Entities
+                .Include(a => a.RequestingDoctor)
                 .Include(a => a.Patient)
                 .Include(a => a.Doctor)
                 .AsNoTracking()

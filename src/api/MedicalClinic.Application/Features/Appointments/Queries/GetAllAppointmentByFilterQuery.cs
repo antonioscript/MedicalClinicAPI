@@ -42,6 +42,7 @@ namespace MedicalClinic.Application.Features.Appointments.Queries
                 .Where(p =>
                        (request.AppRequest.PatientId == null || p.PatientId == request.AppRequest.PatientId)
                        && (request.AppRequest.DoctorId == null || p.DoctorId == request.AppRequest.DoctorId)
+                       && (request.AppRequest.RequestingDoctorId == null || p.RequestingDoctorId == request.AppRequest.RequestingDoctorId)
                        && (request.AppRequest.Status == null || p.Status == (AppointmentStatusCode)request.AppRequest.Status)
                        && (String.IsNullOrEmpty(request.AppRequest.Observation) || p.Observation.Contains(request.AppRequest.Observation))
                        && (request.AppRequest.IsEnabled == null || p.IsEnabled == request.AppRequest.IsEnabled)
