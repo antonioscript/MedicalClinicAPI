@@ -1,0 +1,16 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="2E073D60-DB8B-B106-B736-B44B296ED763" containerWithKeyObject="23D27853-D9E1-3E37-9CD3-69BE79598D87" localFKIndex="89085A1A-BF80-DD18-A02D-1F30FDB3345A" name="FK_Medication_Prescriptions">
+<createdBy>Antônio Rocha</createdBy>
+<createdTime>2023-10-25 10:24:11 UTC</createdTime>
+<ownerDesignName>MedicalClinicDB</ownerDesignName>
+<referredTableLongName>dbo.Prescriptions</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>B183B1C3-D873-BD0A-0C87-80F19E7F14E4</referredTableID>
+<keyObject>98A30481-75CD-E235-8B86-84910B45A182</keyObject>
+<referredKeyID>98A30481-75CD-E235-8B86-84910B45A182</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>PrescriptionId</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

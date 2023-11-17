@@ -1,0 +1,84 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="B183B1C3-D873-BD0A-0C87-80F19E7F14E4" schemaObject="6B374BDA-32BE-BB34-9CFF-AFA5E6292D1F" name="Prescriptions">
+<createdBy>Antônio Rocha</createdBy>
+<createdTime>2023-10-25 10:14:28 UTC</createdTime>
+<commentInRDBMS><![CDATA[This table is structured to capture details about medical prescriptions, associating them with specific patients and doctors, recording the date of issuance and expiration, and providing space for any additional notes or instructions associated with the prescription.]]></commentInRDBMS>
+<ownerDesignName>MedicalClinicDB</ownerDesignName>
+<ordsAlias>table_10</ordsAlias>
+<beforeCreate><![CDATA[GO
+IF EXISTS(SELECT * FROM sys.sysobjects WHERE NAME = '{table}' AND xtype = 'U')
+BEGIN
+	DROP TABLE {schema}.{table};
+END
+GO]]></beforeCreate>
+<endOfScript><![CDATA[INSERT INTO Prescriptions (PrescriptionId, AppointmentId, Observation) VALUES (1, 1, 'Discovered elevated blood pressure during examination. Recommend monitoring and lifestyle changes.')
+INSERT INTO Prescriptions (PrescriptionId, AppointmentId, Observation) VALUES (2, 2, 'Identified vitamin D deficiency. Suggested daily supplementation of 1000 IU.')
+INSERT INTO Prescriptions (PrescriptionId, AppointmentId, Observation) VALUES (3, 3, 'Patient reported difficulty sleeping. Advised practicing good sleep hygiene habits.')]]></endOfScript>
+<shouldGeneratescript>true</shouldGeneratescript>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="PrescriptionId" id="F0A12DBD-7947-17A9-3077-A42676AB2B11">
+<createdBy>Antônio Rocha</createdBy>
+<createdTime>2023-10-25 10:15:24 UTC</createdTime>
+<commentInRDBMS><![CDATA[A unique identifier for each prescription.]]></commentInRDBMS>
+<ownerDesignName>MedicalClinicDB</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="AppointmentId" id="A9A1EE25-F276-E824-E846-8DE4AF021EAB">
+<createdBy>Antônio Rocha</createdBy>
+<createdTime>2023-10-25 10:17:32 UTC</createdTime>
+<commentInRDBMS><![CDATA[An identifier that associates this prescription with a specific appointment or medical visit.]]></commentInRDBMS>
+<ownerDesignName>MedicalClinicDB</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="9E883336-6544-9FD6-AC67-E35C1B648A07" referredColumn="D39CDEE7-B95A-C860-83C0-BBFD5FA17022"/>
+</associations>
+</Column>
+<Column name="Observation" id="C499C395-DA66-591A-CCE3-0EDF78A5E315">
+<createdBy>Antônio Rocha</createdBy>
+<createdTime>2023-10-25 10:17:04 UTC</createdTime>
+<commentInRDBMS><![CDATA[A field used to store observations or notes related to the prescription.]]></commentInRDBMS>
+<ownerDesignName>MedicalClinicDB</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>2000</dataTypeSize>
+<ownDataTypeParameters>2000,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="98A30481-75CD-E235-8B86-84910B45A182" name="PK_Prescriptions">
+<createdBy>Antônio Rocha</createdBy>
+<createdTime>2023-10-25 10:15:24 UTC</createdTime>
+<ownerDesignName>MedicalClinicDB</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="F0A12DBD-7947-17A9-3077-A42676AB2B11"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="C4796661-8FE4-39CC-0EAE-1DF03B3F6693" name="FK_Prescription_Appointments">
+<createdBy>Antônio Rocha</createdBy>
+<createdTime>2023-10-25 10:17:31 UTC</createdTime>
+<ownerDesignName>MedicalClinicDB</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="A9A1EE25-F276-E824-E846-8DE4AF021EAB"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

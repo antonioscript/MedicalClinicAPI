@@ -1,0 +1,16 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="827EFA15-567C-EA73-1F38-0658A41641A1" containerWithKeyObject="F79C2F04-CBED-B1C6-BD5C-581419F457BB" localFKIndex="CD4A8C3E-C0A4-3698-10BC-AA8DCE935812" name="FK_Forwarding_Specialties">
+<createdBy>Antônio Rocha</createdBy>
+<createdTime>2023-11-17 09:40:13 UTC</createdTime>
+<ownerDesignName>MedicalClinicDB</ownerDesignName>
+<referredTableLongName>dbo.Specialties</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>496775D9-AA41-1F21-491E-22A71E9E3FC7</referredTableID>
+<keyObject>89E21D40-4FB2-919D-7197-515CD1AB23A9</keyObject>
+<referredKeyID>89E21D40-4FB2-919D-7197-515CD1AB23A9</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>SpecialtyId</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

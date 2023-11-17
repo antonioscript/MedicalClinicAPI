@@ -1,0 +1,111 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="F79C2F04-CBED-B1C6-BD5C-581419F457BB" schemaObject="6B374BDA-32BE-BB34-9CFF-AFA5E6292D1F" name="Forwardings">
+<createdBy>Antônio Rocha</createdBy>
+<createdTime>2023-10-26 09:48:04 UTC</createdTime>
+<commentInRDBMS><![CDATA[The table is structured to capture details about medical referrals, linking them to specific prescriptions, associating them with medical specialties, and providing space for additional observations or notes.]]></commentInRDBMS>
+<ownerDesignName>MedicalClinicDB</ownerDesignName>
+<ordsAlias>table_13</ordsAlias>
+<beforeCreate><![CDATA[GO
+IF EXISTS(SELECT * FROM sys.sysobjects WHERE NAME = '{table}' AND xtype = 'U')
+BEGIN
+	DROP TABLE {schema}.{table};
+END
+GO]]></beforeCreate>
+<endOfScript><![CDATA[INSERT INTO Forwardings (ForwardingId, PrescriptionId, SpecialtyId, Observation)
+VALUES
+    (1, 1, 1, 'Forwarded prescription to cardiology for further evaluation.'),
+    (2, 2, 3, 'Referred patient to orthopedics for additional consultation.'),
+    (3, 3, 2, 'Sent prescription to Pediatrics department for specialized care.');]]></endOfScript>
+<shouldGeneratescript>true</shouldGeneratescript>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ForwardingId" id="0D7D69D0-5762-0A6F-3AA3-CBFA5F5178BA">
+<createdBy>Antônio Rocha</createdBy>
+<createdTime>2023-10-26 09:52:12 UTC</createdTime>
+<commentInRDBMS><![CDATA[: A unique identifier for each medical record forwarding activity.]]></commentInRDBMS>
+<ownerDesignName>MedicalClinicDB</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PrescriptionId" id="A9B9E3C6-F9CD-F52A-8F7F-426E2C19139D">
+<createdBy>Antônio Rocha</createdBy>
+<createdTime>2023-10-26 09:52:28 UTC</createdTime>
+<ownerDesignName>MedicalClinicDB</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="BDC41989-0A22-BDB4-F18F-C00BEC4F89E2" referredColumn="F0A12DBD-7947-17A9-3077-A42676AB2B11"/>
+</associations>
+</Column>
+<Column name="SpecialtyId" id="A66A4870-DB4D-9CED-AC9F-7ECE2F1EBA60">
+<createdBy>Antônio Rocha</createdBy>
+<createdTime>2023-11-17 09:40:13 UTC</createdTime>
+<commentInRDBMS><![CDATA[FK of SPecialty]]></commentInRDBMS>
+<ownerDesignName>MedicalClinicDB</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="827EFA15-567C-EA73-1F38-0658A41641A1" referredColumn="816D6846-EB29-CE29-F98A-CD594E8548E4"/>
+</associations>
+</Column>
+<Column name="Observation" id="C4C45165-06CB-BA3C-17DD-96C676791C3E">
+<createdBy>Antônio Rocha</createdBy>
+<createdTime>2023-11-17 09:57:01 UTC</createdTime>
+<commentInRDBMS><![CDATA[A field used to store observations or notes related to the fowarding.]]></commentInRDBMS>
+<ownerDesignName>MedicalClinicDB</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>1000</dataTypeSize>
+<ownDataTypeParameters>1000,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="C070ECF5-4981-D2C2-3DC6-45521B85714B" name="PK_Forwardings">
+<createdBy>Antônio Rocha</createdBy>
+<createdTime>2023-10-26 09:52:12 UTC</createdTime>
+<ownerDesignName>MedicalClinicDB</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="0D7D69D0-5762-0A6F-3AA3-CBFA5F5178BA"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="F23335BB-B2D8-A55B-2AFB-2304C4985924" name="FK_Forwarding_Prescriptions">
+<createdBy>Antônio Rocha</createdBy>
+<createdTime>2023-10-26 09:52:28 UTC</createdTime>
+<ownerDesignName>MedicalClinicDB</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="A9B9E3C6-F9CD-F52A-8F7F-426E2C19139D"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="CD4A8C3E-C0A4-3698-10BC-AA8DCE935812" name="FK_Forwarding_Specialties">
+<createdBy>Antônio Rocha</createdBy>
+<createdTime>2023-11-17 09:40:13 UTC</createdTime>
+<ownerDesignName>MedicalClinicDB</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="A66A4870-DB4D-9CED-AC9F-7ECE2F1EBA60"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

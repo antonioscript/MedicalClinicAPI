@@ -1,0 +1,122 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="23D27853-D9E1-3E37-9CD3-69BE79598D87" schemaObject="6B374BDA-32BE-BB34-9CFF-AFA5E6292D1F" name="Medications">
+<createdBy>Antônio Rocha</createdBy>
+<createdTime>2023-10-25 10:23:25 UTC</createdTime>
+<commentInRDBMS><![CDATA[The table is structured to facilitate the management and tracking of prescribed medications, including details about potential substitutes and specific usage instructions.]]></commentInRDBMS>
+<ownerDesignName>MedicalClinicDB</ownerDesignName>
+<ordsAlias>table_12</ordsAlias>
+<beforeCreate><![CDATA[GO
+IF EXISTS(SELECT * FROM sys.sysobjects WHERE NAME = '{table}' AND xtype = 'U')
+BEGIN
+	DROP TABLE {schema}.{table};
+END
+GO]]></beforeCreate>
+<endOfScript><![CDATA[INSERT INTO Medications (MedicationId, PrescriptionId, Name, SubstituteOne, SubstituteTwo, Instruction) VALUES (1, 1, 'Ibuprofen', 'Acetaminophen', 'Naproxen', 'Take one tablet every 6 hours with food.')
+INSERT INTO Medications (MedicationId, PrescriptionId, Name, SubstituteOne, SubstituteTwo, Instruction) VALUES (2, 2, 'Amoxicillin', 'Penicillin', 'Cephalexin', 'Take one capsule twice daily with meals.')
+INSERT INTO Medications (MedicationId, PrescriptionId, Name, SubstituteOne, SubstituteTwo, Instruction) VALUES (3, 3, 'Melatonin', 'Valerian Root', 'Diphenhydramine', 'Take one tablet 30 minutes before bedtime.')]]></endOfScript>
+<shouldGeneratescript>true</shouldGeneratescript>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="MedicationId" id="9778F959-6666-E0D7-7995-374B172AE44D">
+<createdBy>Antônio Rocha</createdBy>
+<createdTime>2023-10-25 10:23:50 UTC</createdTime>
+<commentInRDBMS><![CDATA[A unique identifier for each medication, allowing for easy reference and linkage to prescriptions.]]></commentInRDBMS>
+<ownerDesignName>MedicalClinicDB</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PrescriptionId" id="79067E0D-8AD7-3AC5-2251-2C1F57075DEA">
+<createdBy>Antônio Rocha</createdBy>
+<createdTime>2023-10-25 10:24:11 UTC</createdTime>
+<commentInRDBMS><![CDATA[An identifier that associates this medication with a specific prescription. It establishes a relationship between medications and the prescriptions in which they are prescribed.]]></commentInRDBMS>
+<ownerDesignName>MedicalClinicDB</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="2E073D60-DB8B-B106-B736-B44B296ED763" referredColumn="F0A12DBD-7947-17A9-3077-A42676AB2B11"/>
+</associations>
+</Column>
+<Column name="Name" id="02F95B43-1025-0CC2-07C5-26800747B0D5">
+<createdBy>Antônio Rocha</createdBy>
+<createdTime>2023-10-25 10:25:27 UTC</createdTime>
+<commentInRDBMS><![CDATA[: The name of the medication being prescribed.]]></commentInRDBMS>
+<ownerDesignName>MedicalClinicDB</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<ownDataTypeParameters>100,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="SubstituteOne" id="72D62DD3-7E7E-168D-607A-D528AED6BC56">
+<createdBy>Antônio Rocha</createdBy>
+<createdTime>2023-10-25 10:27:18 UTC</createdTime>
+<commentInRDBMS><![CDATA[ field used to record the name of the first substitute medication, if applicable]]></commentInRDBMS>
+<ownerDesignName>MedicalClinicDB</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<ownDataTypeParameters>100,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="SubstituteTwo" id="8BC71A28-E6DB-A34E-2404-13F39D064434">
+<createdBy>Antônio Rocha</createdBy>
+<createdTime>2023-10-25 10:27:30 UTC</createdTime>
+<commentInRDBMS><![CDATA[A field used to record the name of the second substitute medication, if applicable.]]></commentInRDBMS>
+<ownerDesignName>MedicalClinicDB</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<ownDataTypeParameters>100,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Instruction" id="CCBAB8F4-7D9C-E2B6-DDF2-B10094E40CEB">
+<createdBy>Antônio Rocha</createdBy>
+<createdTime>2023-10-25 10:28:07 UTC</createdTime>
+<commentInRDBMS><![CDATA[Instructions related to the medication. This field provides guidance on how the medication should be taken, including dosage, frequency, and any additional directions]]></commentInRDBMS>
+<ownerDesignName>MedicalClinicDB</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>500</dataTypeSize>
+<ownDataTypeParameters>500,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="CECB0DC6-5A28-CDC9-F687-B553512EAF48" name="PK_Medications">
+<createdBy>Antônio Rocha</createdBy>
+<createdTime>2023-10-25 10:23:50 UTC</createdTime>
+<ownerDesignName>MedicalClinicDB</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="9778F959-6666-E0D7-7995-374B172AE44D"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="89085A1A-BF80-DD18-A02D-1F30FDB3345A" name="FK_Medication_Prescriptions">
+<createdBy>Antônio Rocha</createdBy>
+<createdTime>2023-10-25 10:24:11 UTC</createdTime>
+<ownerDesignName>MedicalClinicDB</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="79067E0D-8AD7-3AC5-2251-2C1F57075DEA"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
