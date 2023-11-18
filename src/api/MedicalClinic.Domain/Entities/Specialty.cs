@@ -8,6 +8,7 @@ namespace MedicalClinic.Domain.Entities
         public Specialty()
         {
             Doctors = new HashSet<Doctor>();
+            Forwardings = new HashSet<Forwarding>();
         }
 
         public int Id { get; set; }
@@ -20,5 +21,6 @@ namespace MedicalClinic.Domain.Entities
 
 
         public virtual ICollection<Doctor> Doctors { get; set; }
+        public virtual ICollection<Forwarding> Forwardings { get; set; }
     }
 }

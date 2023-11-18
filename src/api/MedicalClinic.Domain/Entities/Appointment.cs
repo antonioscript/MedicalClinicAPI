@@ -6,6 +6,10 @@ namespace MedicalClinic.Domain.Entities
 {
     public partial class Appointment
     {
+        public Appointment()
+        {
+            Prescriptions = new HashSet<Prescription>();
+        }
         public int Id { get; set; }
 
         public int? RequestingDoctorId { get; set; }
@@ -21,5 +25,7 @@ namespace MedicalClinic.Domain.Entities
         public string? Observation { get; set; }
         public bool IsEnabled { get; set; }
         public DateTime? DeletedAt { get; set; }
+
+        public virtual ICollection<Prescription> Prescriptions { get; set; }
     }
 }

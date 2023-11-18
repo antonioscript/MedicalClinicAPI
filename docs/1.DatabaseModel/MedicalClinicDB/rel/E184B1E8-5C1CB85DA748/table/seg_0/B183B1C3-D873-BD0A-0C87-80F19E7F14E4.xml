@@ -70,6 +70,16 @@ INSERT INTO Prescriptions (PrescriptionId, AppointmentId, Observation) VALUES (3
 <colUsage columnID="F0A12DBD-7947-17A9-3077-A42676AB2B11"/>
 </indexColumnUsage>
 </ind_PK_UK>
+<ind_PK_UK id="FEC4E962-1FFD-215F-ED04-B223CF0F2DA0" name="UK_Prescription_AppointmentId">
+<createdBy>Antônio Rocha</createdBy>
+<createdTime>2023-11-18 17:11:58 UTC</createdTime>
+<ownerDesignName>MedicalClinicDB</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="A9A1EE25-F276-E824-E846-8DE4AF021EAB"/>
+</indexColumnUsage>
+</ind_PK_UK>
 <ind_PK_UK id="C4796661-8FE4-39CC-0EAE-1DF03B3F6693" name="FK_Prescription_Appointments">
 <createdBy>Antônio Rocha</createdBy>
 <createdTime>2023-10-25 10:17:31 UTC</createdTime>

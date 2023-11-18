@@ -31,6 +31,9 @@ namespace MedicalClinic.Resource.Resources
         public const string MESSAGE_TECHNICIAN_EXISTS = "There is already a Technician with First Name '{0}' and Last Name '{1}'";
         public const string MESSAGE_TECHNICIAN_NOT_FOUND = "Technician Id '{0}' not found";
 
+        public const string MESSAGE_PRESCRIPTION_EXISTS = "There is already a Prescription with Id Appointment '{0}'";
+        public const string MESSAGE_PRESCRIPTION_NOT_FOUND = "Prescription Id '{0}' not found";
+
     }
 }
 

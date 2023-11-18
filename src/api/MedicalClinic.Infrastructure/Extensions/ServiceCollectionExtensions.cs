@@ -33,6 +33,9 @@ namespace MedicalClinic.Infrastructure.Extensions
             services.AddTransient<IProcedureRepository, ProcedureRepository>();
             services.AddTransient<ISpecialtyRepository, SpecialtyRepository>();
             services.AddTransient<ITechnicianRepository, TechnicianRepository>();
+            services.AddTransient<IPrescriptionRepository, PrescriptionRepository>();
+            services.AddTransient<IMedicationRepository, MedicationRepository>();
+            services.AddTransient<IForwardingRepository, ForwardingRepository>();
         }
     }
 }
