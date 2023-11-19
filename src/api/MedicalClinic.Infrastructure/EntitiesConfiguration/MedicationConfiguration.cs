@@ -50,7 +50,7 @@ namespace MedicalClinic.Infrastructure.EntitiesConfiguration
             builder.HasOne(d => d.Prescription)
                 .WithMany(p => p.Medications)
                 .HasForeignKey(d => d.PrescriptionId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
+                .OnDelete(DeleteBehavior.Cascade)
                 .HasConstraintName("FK_Medication_Prescriptions");
         }
     }

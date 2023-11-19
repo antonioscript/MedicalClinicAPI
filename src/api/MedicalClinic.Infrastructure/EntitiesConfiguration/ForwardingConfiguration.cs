@@ -36,7 +36,7 @@ namespace MedicalClinic.Infrastructure.EntitiesConfiguration
             builder.HasOne(d => d.Prescription)
                 .WithMany(p => p.Forwardings)
                 .HasForeignKey(d => d.PrescriptionId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
+                .OnDelete(DeleteBehavior.Cascade)
                 .HasConstraintName("FK_Forwarding_Prescriptions");
 
             builder.HasOne(d => d.Specialty)

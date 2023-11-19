@@ -3,6 +3,8 @@ using MedicalClinic.Infrastructure.Shared.Results;
 using MedicalClinic.Application.Interfaces.Repositories.Entities;
 using MedicalClinic.Application.Interfaces.Repositories;
 using MedicalClinic.Resource.Resources;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
+using Microsoft.EntityFrameworkCore;
 
 namespace MedicalClinic.Application.Features.Prescriptions.Commands
 {
@@ -23,7 +25,11 @@ namespace MedicalClinic.Application.Features.Prescriptions.Commands
 
             public async Task<Result<int>> Handle(DeletePrescriptionCommand command, CancellationToken cancellationToken)
             {
-                var result = await _repository.GetByIdAsync(command.Id);
+                var result = await _repository.Entities
+                    .Where(d => d.Id == command.Id)
+                    .Include(d => d.Medications)
+                    .Include(e => e.Forwardings)
+                    .FirstOrDefaultAsync();
 
                 if (result == null)
                 {

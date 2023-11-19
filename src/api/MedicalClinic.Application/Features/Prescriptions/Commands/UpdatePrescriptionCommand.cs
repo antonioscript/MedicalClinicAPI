@@ -8,6 +8,7 @@ using MedicalClinic.Resource.Resources;
 using System.Net.Mail;
 using MedicalClinic.Application.DTOs.Medication;
 using MedicalClinic.Application.DTOs.Forwarding;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace MedicalClinic.Application.Features.Prescriptions.Commands
 {
@@ -15,16 +16,16 @@ namespace MedicalClinic.Application.Features.Prescriptions.Commands
     {
         public UpdatePrescriptionCommand()
         {
-            Medications = new HashSet<MedicationRequestFilter>();
-            Forwardings = new HashSet<ForwardingRequestFilter>();
+            Medications = new HashSet<MedicationRequestUpdate>();
+            Forwardings = new HashSet<ForwardingRequestUpdate>();
         }
 
         public int Id { get; set; }
         public int AppointmentId { get; set; }
         public string Observation { get; set; } = null!;
 
-        public virtual ICollection<MedicationRequestFilter> Medications { get; set; }
-        public virtual ICollection<ForwardingRequestFilter> Forwardings { get; set; }
+        public virtual ICollection<MedicationRequestUpdate> Medications { get; set; }
+        public virtual ICollection<ForwardingRequestUpdate> Forwardings { get; set; }
 
 
         public class UpdateCompetitorCompaniesCommandHandler : IRequestHandler<UpdatePrescriptionCommand, Result<int>>
@@ -40,7 +41,11 @@ namespace MedicalClinic.Application.Features.Prescriptions.Commands
 
             public async Task<Result<int>> Handle(UpdatePrescriptionCommand command, CancellationToken cancellationToken)
             {
-                var register = await _repository.GetByIdAsync(command.Id);
+                var register = await _repository.Entities
+                    .Where(d => d.Id == command.Id)
+                    .Include(d => d.Medications)
+                    .Include(e => e.Forwardings)
+                    .FirstOrDefaultAsync();
 
                 if (register == null)
                 {
@@ -65,8 +70,8 @@ namespace MedicalClinic.Application.Features.Prescriptions.Commands
                         register.Observation = command.Observation ?? register.Observation;
 
                         #region Update Medication
-                        foreach (var medication in command.Medications) 
-                        { 
+                        foreach (var medication in command.Medications)
+                        {
                             if (medication.Id == null || medication.Id == 0)
                             {
                                 var newMedication = new Medication()
@@ -133,7 +138,7 @@ namespace MedicalClinic.Application.Features.Prescriptions.Commands
                     }
                 }
 
-                
+
             }
         }
     }

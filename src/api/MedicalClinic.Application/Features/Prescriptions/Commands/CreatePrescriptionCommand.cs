@@ -15,15 +15,15 @@ namespace MedicalClinic.Application.Features.Prescriptions.Commands
     {
         public CreatePrescriptionCommand()
         {
-            Medications = new HashSet<MedicationRequestFilter>();
-            Forwardings = new HashSet<ForwardingRequestFilter>();
+            Medications = new HashSet<MedicationRequest>();
+            Forwardings = new HashSet<ForwardingRequest>();
         }
 
         public int AppointmentId { get; set; }
         public string Observation { get; set; } = null!;
 
-        public virtual ICollection<MedicationRequestFilter> Medications { get; set; }
-        public virtual ICollection<ForwardingRequestFilter> Forwardings { get; set; }
+        public virtual ICollection<MedicationRequest> Medications { get; set; }
+        public virtual ICollection<ForwardingRequest> Forwardings { get; set; }
     }
 
 
