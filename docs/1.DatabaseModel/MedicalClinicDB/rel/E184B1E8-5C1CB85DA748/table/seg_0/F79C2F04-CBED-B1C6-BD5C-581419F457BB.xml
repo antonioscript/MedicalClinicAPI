@@ -11,11 +11,16 @@ BEGIN
 	DROP TABLE {schema}.{table};
 END
 GO]]></beforeCreate>
-<endOfScript><![CDATA[INSERT INTO Forwardings (ForwardingId, PrescriptionId, SpecialtyId, Observation)
+<endOfScript><![CDATA[SET IDENTITY_INSERT dbo.Forwardings ON;
+
+
+INSERT INTO Forwardings (ForwardingId, PrescriptionId, SpecialtyId, Observation)
 VALUES
     (1, 1, 1, 'Forwarded prescription to cardiology for further evaluation.'),
     (2, 2, 3, 'Referred patient to orthopedics for additional consultation.'),
-    (3, 3, 2, 'Sent prescription to Pediatrics department for specialized care.');]]></endOfScript>
+    (3, 3, 2, 'Sent prescription to Pediatrics department for specialized care.');
+
+SET IDENTITY_INSERT dbo.Forwardings OFF;]]></endOfScript>
 <shouldGeneratescript>true</shouldGeneratescript>
 <allowColumnReorder>false</allowColumnReorder>
 <existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
@@ -30,6 +35,8 @@ VALUES
 <use>1</use>
 <logicalDatatype>LOGDT011</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<identityColumn>true</identityColumn>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
 <Column name="PrescriptionId" id="A9B9E3C6-F9CD-F52A-8F7F-426E2C19139D">

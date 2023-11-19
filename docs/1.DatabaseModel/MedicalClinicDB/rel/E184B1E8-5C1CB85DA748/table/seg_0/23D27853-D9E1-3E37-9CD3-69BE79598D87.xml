@@ -11,9 +11,13 @@ BEGIN
 	DROP TABLE {schema}.{table};
 END
 GO]]></beforeCreate>
-<endOfScript><![CDATA[INSERT INTO Medications (MedicationId, PrescriptionId, Name, SubstituteOne, SubstituteTwo, Instruction) VALUES (1, 1, 'Ibuprofen', 'Acetaminophen', 'Naproxen', 'Take one tablet every 6 hours with food.')
+<endOfScript><![CDATA[SET IDENTITY_INSERT dbo.Medications ON;
+
+INSERT INTO Medications (MedicationId, PrescriptionId, Name, SubstituteOne, SubstituteTwo, Instruction) VALUES (1, 1, 'Ibuprofen', 'Acetaminophen', 'Naproxen', 'Take one tablet every 6 hours with food.')
 INSERT INTO Medications (MedicationId, PrescriptionId, Name, SubstituteOne, SubstituteTwo, Instruction) VALUES (2, 2, 'Amoxicillin', 'Penicillin', 'Cephalexin', 'Take one capsule twice daily with meals.')
-INSERT INTO Medications (MedicationId, PrescriptionId, Name, SubstituteOne, SubstituteTwo, Instruction) VALUES (3, 3, 'Melatonin', 'Valerian Root', 'Diphenhydramine', 'Take one tablet 30 minutes before bedtime.')]]></endOfScript>
+INSERT INTO Medications (MedicationId, PrescriptionId, Name, SubstituteOne, SubstituteTwo, Instruction) VALUES (3, 3, 'Melatonin', 'Valerian Root', 'Diphenhydramine', 'Take one tablet 30 minutes before bedtime.')
+
+SET IDENTITY_INSERT dbo.Medications OFF;]]></endOfScript>
 <shouldGeneratescript>true</shouldGeneratescript>
 <allowColumnReorder>false</allowColumnReorder>
 <existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
@@ -28,6 +32,8 @@ INSERT INTO Medications (MedicationId, PrescriptionId, Name, SubstituteOne, Subs
 <use>1</use>
 <logicalDatatype>LOGDT011</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<identityColumn>true</identityColumn>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
 <Column name="PrescriptionId" id="79067E0D-8AD7-3AC5-2251-2C1F57075DEA">

@@ -11,9 +11,13 @@ BEGIN
 	DROP TABLE {schema}.{table};
 END
 GO]]></beforeCreate>
-<endOfScript><![CDATA[INSERT INTO Prescriptions (PrescriptionId, AppointmentId, Observation) VALUES (1, 1, 'Discovered elevated blood pressure during examination. Recommend monitoring and lifestyle changes.')
+<endOfScript><![CDATA[SET IDENTITY_INSERT dbo.Prescriptions ON;
+
+INSERT INTO Prescriptions (PrescriptionId, AppointmentId, Observation) VALUES (1, 1, 'Discovered elevated blood pressure during examination. Recommend monitoring and lifestyle changes.')
 INSERT INTO Prescriptions (PrescriptionId, AppointmentId, Observation) VALUES (2, 2, 'Identified vitamin D deficiency. Suggested daily supplementation of 1000 IU.')
-INSERT INTO Prescriptions (PrescriptionId, AppointmentId, Observation) VALUES (3, 3, 'Patient reported difficulty sleeping. Advised practicing good sleep hygiene habits.')]]></endOfScript>
+INSERT INTO Prescriptions (PrescriptionId, AppointmentId, Observation) VALUES (3, 3, 'Patient reported difficulty sleeping. Advised practicing good sleep hygiene habits.')
+
+SET IDENTITY_INSERT dbo.Prescriptions OFF;]]></endOfScript>
 <shouldGeneratescript>true</shouldGeneratescript>
 <allowColumnReorder>false</allowColumnReorder>
 <existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
@@ -28,6 +32,8 @@ INSERT INTO Prescriptions (PrescriptionId, AppointmentId, Observation) VALUES (3
 <use>1</use>
 <logicalDatatype>LOGDT011</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<identityColumn>true</identityColumn>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
 <Column name="AppointmentId" id="A9A1EE25-F276-E824-E846-8DE4AF021EAB">
