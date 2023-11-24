@@ -14,6 +14,8 @@ namespace MedicalClinic.Domain.Entities
         public DateTime StartTime { get; set; }
         public DateTime EndTime { get; set; }
 
+        public int AppointmentDuration { get; set; }
+
         public bool IsEnabled { get; set; }
         public DateTime? DeletedAt { get; set; }
     }

@@ -19,12 +19,12 @@ namespace MedicalClinic.Application.Features.Availabilities.Queries
 
     }
 
-    public class GetAllCompetitorCompaniesByFilterQueryHandler : IRequestHandler<GetAllAvailabilityByFilterQuery, Result<List<AvailabilityResponse>>>
+    public class GetAllAvailabilityByIdByFilterQueryHandler : IRequestHandler<GetAllAvailabilityByFilterQuery, Result<List<AvailabilityResponse>>>
     {
         private readonly IAvailabilityRepository _repository;
         private readonly IMapper _mapper;
 
-        public GetAllCompetitorCompaniesByFilterQueryHandler(IAvailabilityRepository repository, IMapper mapper)
+        public GetAllAvailabilityByIdByFilterQueryHandler(IAvailabilityRepository repository, IMapper mapper)
         {
             _repository = repository;
             _mapper = mapper;
@@ -39,6 +39,7 @@ namespace MedicalClinic.Application.Features.Availabilities.Queries
                        && (request.AppRequest.DayOfWeek == null || p.DayOfWeek == (AvailabilityDayOfWeekCode)request.AppRequest.DayOfWeek)
                        && (request.AppRequest.StartTime == null || p.StartTime == request.AppRequest.StartTime)
                        && (request.AppRequest.EndTime == null || p.EndTime == request.AppRequest.EndTime)
+                       && (request.AppRequest.AppointmentDuration == null || p.AppointmentDuration == request.AppRequest.AppointmentDuration)
                        && (request.AppRequest.IsEnabled == null || p.IsEnabled == request.AppRequest.IsEnabled)
                         )
                 .ToListAsync();

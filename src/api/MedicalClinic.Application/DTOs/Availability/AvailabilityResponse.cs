@@ -21,6 +21,8 @@ namespace MedicalClinic.Application.DTOs.Availability
         public DateTime StartTime { get; set; }
         public DateTime EndTime { get; set; }
 
+        public int AppointmentDuration { get; set; }
+
         public bool IsEnabled { get; set; }
     }
 }

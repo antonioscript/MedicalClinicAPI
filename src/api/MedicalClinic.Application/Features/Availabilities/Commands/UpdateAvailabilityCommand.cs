@@ -22,6 +22,8 @@ namespace MedicalClinic.Application.Features.Availabilities.Commands
         public DateTime StartTime { get; set; }
         public DateTime EndTime { get; set; }
 
+        public int AppointmentDuration { get; set; }
+
         public bool IsEnabled { get; set; }
 
 
@@ -49,6 +51,7 @@ namespace MedicalClinic.Application.Features.Availabilities.Commands
                 register.DayOfWeek = (AvailabilityDayOfWeekCode)command.DayOfWeek;
                 register.StartTime = command.StartTime;
                 register.EndTime = command.EndTime;
+                register.AppointmentDuration = command.AppointmentDuration;
                 register.IsEnabled = command.IsEnabled;
 
                 await _repository.UpdateAsync(register);

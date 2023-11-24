@@ -43,6 +43,10 @@ namespace MedicalClinic.Infrastructure.EntitiesConfiguration
                 .HasColumnType("datetime")
                 .HasComment("The start time of the doctors availability for the specified day.");
 
+            builder.Property(e => e.AppointmentDuration)
+                .HasColumnName("AppointmentDuration")
+                .HasComment("Standard duration in minutes of the average consultation time for the referring doctor");
+
             builder.HasOne(d => d.Doctor)
                 .WithMany(p => p.Availabilities)
                 .HasForeignKey(d => d.DoctorId)

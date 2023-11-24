@@ -14,12 +14,12 @@ namespace Marko.Api.Mercury.Application.Features.Availabilities.Queries
     {
         public int Id { get; set; }
 
-        public class GetCompetitorCompanyByIdQueryHandler : IRequestHandler<GetAvailabilityByIdQuery, Result<AvailabilityResponse>>
+        public class GetAvailabilityByIdQueryHandler : IRequestHandler<GetAvailabilityByIdQuery, Result<AvailabilityResponse>>
         {
             private readonly IAvailabilityRepository _repository;
             private readonly IMapper _mapper;
 
-            public GetCompetitorCompanyByIdQueryHandler(IAvailabilityRepository repository, IMapper mapper)
+            public GetAvailabilityByIdQueryHandler(IAvailabilityRepository repository, IMapper mapper)
             {
                 _repository = repository;
                 _mapper = mapper;
@@ -28,8 +28,8 @@ namespace Marko.Api.Mercury.Application.Features.Availabilities.Queries
             public async Task<Result<AvailabilityResponse>> Handle(GetAvailabilityByIdQuery query, CancellationToken cancellationToken)
             {
                 var result = await _repository.GetByIdAsync(query.Id);
-                var mappedCompetitorCompany = _mapper.Map<AvailabilityResponse>(result);
-                return Result<AvailabilityResponse>.Success(mappedCompetitorCompany);
+                var mappedAvailability = _mapper.Map<AvailabilityResponse>(result);
+                return Result<AvailabilityResponse>.Success(mappedAvailability);
             }
         }
     }

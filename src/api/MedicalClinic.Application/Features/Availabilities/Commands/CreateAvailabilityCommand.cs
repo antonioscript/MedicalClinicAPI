@@ -17,6 +17,8 @@ namespace MedicalClinic.Application.Features.Availabilities.Commands
         public DateTime StartTime { get; set; }
         public DateTime EndTime { get; set; }
 
+        public int AppointmentDuration { get; set; }
+
         public bool IsEnabled { get; set; }
     }
 

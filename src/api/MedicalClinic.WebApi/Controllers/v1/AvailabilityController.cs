@@ -1,4 +1,5 @@
 ﻿using Marko.Api.Mercury.Application.Features.Availabilities.Queries;
+using Marko.Api.Mercury.Application.Features.Availabilities.SpecificQueries;
 using MediatR;
 using MedicalClinic.Application.DTOs.Availability;
 using MedicalClinic.Application.Features.Availabilities.Commands;
@@ -57,6 +58,14 @@ namespace MedicalClinic.WebApi.Controllers.v1
         public async Task<IActionResult> GetById(int id)
         {
             var result = await _mediator.Send(new GetAvailabilityByIdQuery() { Id = id });
+            return Ok(result);
+        }
+
+        [HttpGet("Specific/{doctorId}")]
+        [AllowAnonymous]
+        public async Task<IActionResult> GetByDoctorId(int doctorId)
+        {
+            var result = await _mediator.Send(new GetAvailabilityByIDoctordQuery() { DoctorId = doctorId });
             return Ok(result);
         }
 
