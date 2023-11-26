@@ -15,10 +15,10 @@ GO]]></beforeCreate>
 
 INSERT INTO dbo.Patients (PatientId, InsuranceId, InsuranceType, FirstName, LastName, Document, DateOfBirth, Gender, PhoneOne, PhoneTwo, Email, AddressLineOne, AddressLineTwo, IsEnabled, DeletedAt)
 VALUES
-(1, 1, 1, 'John', 'Doe', '123456789', '1990-05-15 00:00:00', 1, '+1 (123) 456-7890', '+1 (987) 654-3210', 'john.doe@email.com', '123 Main Street', 'Apt 4B', 1, NULL),
-(2, 2, 2, 'Jane', 'Smith', '987654321', '1985-08-25 00:00:00', 2, '+1 (555) 123-4567', NULL, 'jane.smith@email.com', '456 Oak Avenue', NULL, 1, NULL),
-(3, 3, 1, 'Michael', 'Johnson', '456789123', '1995-02-10 00:00:00', 1, '+1 (777) 888-9999', '+1 (444) 555-6666', 'michael.johnson@email.com', '789 Maple Lane', 'Suite 202', 1, NULL),
-(4, 4, 2, 'Sophia', 'Williams', '789123456', '1980-11-05 00:00:00', 2, '+1 (222) 333-4444', NULL, 'sophia.williams@email.com', '456 Pine Road', NULL, 1, NULL);
+(1, 1, 1, 'John', 'Doe', '123456789', '19900515 00:00:00', 1, '+1 (123) 456-7890', '+1 (987) 654-3210', 'john.doe@email.com', '123 Main Street', 'Apt 4B', 1, NULL),
+(2, 2, 2, 'Jane', 'Smith', '987654321', '19850825 00:00:00', 2, '+1 (555) 123-4567', NULL, 'jane.smith@email.com', '456 Oak Avenue', NULL, 1, NULL),
+(3, 3, 1, 'Michael', 'Johnson', '456789123', '19950210 00:00:00', 1, '+1 (777) 888-9999', '+1 (444) 555-6666', 'michael.johnson@email.com', '789 Maple Lane', 'Suite 202', 1, NULL),
+(4, 4, 2, 'Sophia', 'Williams', '789123456', '19801105 00:00:00', 2, '+1 (222) 333-4444', NULL, 'sophia.williams@email.com', '456 Pine Road', NULL, 1, NULL);
 
 SET IDENTITY_INSERT dbo.Patients OFF;
 ]]></endOfScript>

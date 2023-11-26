@@ -11,16 +11,16 @@ BEGIN
 	DROP TABLE {schema}.{table};
 END
 GO]]></beforeCreate>
-<endOfScript><![CDATA[SET IDENTITY_INSERT dbo.Insurance ON;
+<endOfScript><![CDATA[SET IDENTITY_INSERT dbo.Insurances ON;
 
-INSERT INTO dbo.Insurance (InsuranceId, Name, Description, PercentageTypeOne, PercentageTypeTwo, PercentageTypeThree, IsEnabled, DeletedAt)
+INSERT INTO dbo.Insurances (InsuranceId, Name, Description, PercentageTypeOne, PercentageTypeTwo, PercentageTypeThree, IsEnabled, DeletedAt)
 VALUES
 (1, 'Basic Plan', 'Provides basic healthcare coverage.', 0.15, 0.25, 0.10, 1, NULL),
 (2, 'Premium Plan', 'Comprehensive healthcare coverage with additional benefits.', 0.20, 0.35, 0.15, 1, NULL),
 (3, 'Family Plan', 'Covers healthcare for the whole family at a discounted rate.', 0.18, 0.30, 0.12, 1, NULL),
 (4, 'Senior Plan', 'Tailored for senior citizens with specialized care options.', 0.12, 0.20, 0.08, 1, NULL);
 
-SET IDENTITY_INSERT dbo.Insurance OFF;
+SET IDENTITY_INSERT dbo.Insurances OFF;
 ]]></endOfScript>
 <shouldGeneratescript>true</shouldGeneratescript>
 <allowColumnReorder>false</allowColumnReorder>
