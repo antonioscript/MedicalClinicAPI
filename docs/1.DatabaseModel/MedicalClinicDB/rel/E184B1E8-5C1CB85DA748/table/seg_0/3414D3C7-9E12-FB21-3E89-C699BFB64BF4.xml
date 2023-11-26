@@ -13,12 +13,12 @@ END
 GO]]></beforeCreate>
 <endOfScript><![CDATA[SET IDENTITY_INSERT dbo.Appointments ON;
 
-INSERT INTO dbo.Appointments (AppointmentId, PatientId, DoctorId, Status, Observation, IsEnabled, DeletedAt)
+INSERT INTO dbo.Appointments (AppointmentId, PatientId, DoctorId, AppointmentDate, Status, Observation, IsEnabled, DeletedAt)
 VALUES
-(1, 1, 1, 1, 'Regular check-up', 1, NULL),
-(2, 2, 2, 2, 'Vaccination', 1, NULL),
-(3, 3, 3, 1, 'Follow-up consultation', 1, NULL),
-(4, 4, 4, 3, 'Physical examination', 1, NULL);
+(1, 1, 1, '2023-01-15 09:00:00', 1, 'Regular check-up', 1, NULL),
+(2, 2, 2, '2023-01-15 10:30:00', 2, 'Vaccination', 1, NULL),
+(3, 3, 3, '2023-01-15 13:15:00', 1, 'Follow-up consultation', 1, NULL),
+(4, 4, 4, '2023-01-15 15:45:00', 3, 'Physical examination', 1, NULL);
 
 SET IDENTITY_INSERT dbo.Appointments OFF;
 ]]></endOfScript>
@@ -85,6 +85,17 @@ SET IDENTITY_INSERT dbo.Appointments OFF;
 <associations>
 <colAssociation fkAssociation="7BB22AA4-DE94-B7A1-4D57-58E46D11CDC1" referredColumn="9D721544-EA0B-6805-5DF8-141F5316177B"/>
 </associations>
+</Column>
+<Column name="AppointmentDate" id="323CA82A-07FC-2ABA-0EC6-D66649739D86">
+<createdBy>Antônio Rocha</createdBy>
+<createdTime>2023-11-26 15:46:11 UTC</createdTime>
+<commentInRDBMS><![CDATA[The Date of Appointment]]></commentInRDBMS>
+<ownerDesignName>MedicalClinicDB</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT008</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
 </Column>
 <Column name="Status" id="68D29EF0-C704-E843-1360-8056F2A88C5A">
 <createdBy>Antônio Rocha</createdBy>
