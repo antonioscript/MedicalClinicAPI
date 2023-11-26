@@ -24,6 +24,8 @@ namespace MedicalClinic.Application.DTOs.Appointment
         public int DoctorId { get; set; }
         public virtual DoctorResponse Doctor { get; set; } = null!;
 
+        public DateTime AppointmentDate { get; set; } 
+
         public AppointmentStatusCodeDto Status { get; set; }
         public string? Observation { get; set; }
         public bool IsEnabled { get; set; }

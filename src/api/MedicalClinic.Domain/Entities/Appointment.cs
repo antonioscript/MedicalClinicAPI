@@ -21,6 +21,7 @@ namespace MedicalClinic.Domain.Entities
         public int DoctorId { get; set; }
         public virtual Doctor Doctor { get; set; } = null!;
 
+        public DateTime AppointmentDate { get; set; }
         public AppointmentStatusCode Status { get; set; }    
         public string? Observation { get; set; }
         public bool IsEnabled { get; set; }

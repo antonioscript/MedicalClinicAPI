@@ -14,10 +14,12 @@ namespace MedicalClinic.Application.Features.Appointments.Commands
     public class UpdateAppointmentCommand : IRequest<Result<int>>
     {
         public int Id { get; set; }
-        public int RequestingDoctorId { get; set; }
+        public int? RequestingDoctorId { get; set; }
         public int PatientId { get; set; }
         public int DoctorId { get; set; }
         public byte Status { get; set; }
+
+        public DateTime AppointmentDate { get; set; }
 
         public string? Observation { get; set; }
         public bool IsEnabled { get; set; }
@@ -44,9 +46,10 @@ namespace MedicalClinic.Application.Features.Appointments.Commands
                 }
 
                 register.PatientId = command.PatientId;
-                register.RequestingDoctorId = command.RequestingDoctorId;
+                register.RequestingDoctorId = command.RequestingDoctorId ?? register.RequestingDoctorId;
                 register.DoctorId = command.DoctorId;
                 register.Status = (AppointmentStatusCode)command.Status;
+                register.AppointmentDate = command.AppointmentDate;
                 register.Observation = command.Observation ?? register.Observation;
                 register.IsEnabled = command.IsEnabled;
 

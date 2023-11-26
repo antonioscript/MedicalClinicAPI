@@ -27,9 +27,8 @@ namespace MedicalClinic.Application.Features.Appointments.Queries
 
             public async Task<Result<AppointmentResponse>> Handle(GetAppointmentByIdQuery query, CancellationToken cancellationToken)
             {
-                //var result = await _repository.GetByIdAsync(query.Id);
-
                 var result = await _repository.Entities
+                    .Where(c => c.Id == query.Id)
                     .Include(a => a.RequestingDoctor)
                     .Include(a => a.Patient)
                     .Include(a => a.Doctor)

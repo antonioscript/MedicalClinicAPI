@@ -13,6 +13,7 @@ namespace MedicalClinic.Application.Features.Appointments.Commands
         public int? RequestingDoctorId { get; set; }
         public int DoctorId { get; set; }
         public byte Status { get; set; }
+        public DateTime AppointmentDate { get; set; }
 
         public string? Observation { get; set; }
         public bool IsEnabled { get; set; }

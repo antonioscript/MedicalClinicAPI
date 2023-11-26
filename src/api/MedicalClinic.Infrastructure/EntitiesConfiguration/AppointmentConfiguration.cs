@@ -48,6 +48,10 @@ namespace MedicalClinic.Infrastructure.EntitiesConfiguration
                 .HasColumnName("RequestingDoctorId")
                 .HasComment("Foreign key of the doctor who requested the consultation, if there is a request within the clinic itself");
 
+            builder.Property(e => e.AppointmentDate)
+                .HasColumnType("datetime")
+                .HasComment("The date of Appointment");
+
             builder.Property(e => e.Status).HasComment("Indicates the Status of the Query, being:\r\n0:Scheduled\r\n1:Confirmed\r\n2: Cancelled");
 
             builder.HasOne(d => d.Doctor)
