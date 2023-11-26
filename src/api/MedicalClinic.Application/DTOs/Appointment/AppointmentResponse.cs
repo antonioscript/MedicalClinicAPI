@@ -16,7 +16,7 @@ namespace MedicalClinic.Application.DTOs.Appointment
         public int Id { get; set; }
 
         public int? RequestingDoctorId { get; set; }
-        public virtual DoctorResponse RequestingDoctor { get; set; } = null!;
+        public virtual DoctorResponse? RequestingDoctor { get; set; } = null!;
 
         public int PatientId { get; set; }
         public virtual PatientResponse Patient { get; set; } = null!;
