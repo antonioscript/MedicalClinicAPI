@@ -103,7 +103,8 @@ SET IDENTITY_INSERT dbo.Appointments OFF;
 <commentInRDBMS><![CDATA[Indicates the Status of the Query, being:
 0:Scheduled
 1:Confirmed
-2: Cancelled]]></commentInRDBMS>
+2: Cancelled,
+3: Completed]]></commentInRDBMS>
 <ownerDesignName>MedicalClinicDB</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
