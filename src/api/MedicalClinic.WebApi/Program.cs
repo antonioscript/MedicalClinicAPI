@@ -1,6 +1,7 @@
 using MediatR;
 using MedicalClinic.Infrastructure.Extensions;
 using MedicalClinic.Infrastructure.MedicalClinic.Infrastructure.DbContexts;
+using MedicalClinic.WebApi.Extensions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
 
@@ -11,6 +12,11 @@ var connString = builder.Configuration.GetConnectionString("MedicalClinicDbConne
 builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connString)); //--Após o Scaffold inserir essa linha
 
 builder.Services.AddRepositories();
+
+builder.Services.AddSystemBusinessRules();
+
+builder.Services.AddEssentials();
+
 
 //builder.Services.AddMediatR(Assembly.GetExecutingAssembly());
 builder.Services.AddMediatR(AppDomain.CurrentDomain.GetAssemblies());

@@ -10,7 +10,8 @@ namespace MedicalClinic.Domain.Enums
     {
         Scheduled = 0,
         Confirmed = 1,
-        Cancelled = 2
+        Cancelled = 2,
+        Completed = 3
     }
 
     /// <summary>

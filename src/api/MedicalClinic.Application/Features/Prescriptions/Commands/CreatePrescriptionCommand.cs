@@ -4,6 +4,7 @@ using MedicalClinic.Application.DTOs.Forwarding;
 using MedicalClinic.Application.DTOs.Medication;
 using MedicalClinic.Application.Interfaces.Repositories;
 using MedicalClinic.Application.Interfaces.Repositories.Entities;
+using MedicalClinic.Application.Interfaces.Rules;
 using MedicalClinic.Domain.Entities;
 using MedicalClinic.Infrastructure.Shared.Results;
 using MedicalClinic.Resource.Resources;
@@ -31,13 +32,15 @@ namespace MedicalClinic.Application.Features.Prescriptions.Commands
     {
         private readonly IPrescriptionRepository _repository;
         private readonly IMapper _mapper;
+        private readonly IAppointmentRules _appointmentRules;
         private IUnitOfWork _unitOfWork { get; set; }
 
-        public CreatePrescriptionCommandHandler(IPrescriptionRepository repository, IUnitOfWork unitOfWork, IMapper mapper)
+        public CreatePrescriptionCommandHandler(IPrescriptionRepository repository, IUnitOfWork unitOfWork, IMapper mapper, IAppointmentRules appointmentRules)
         {
             _repository = repository;
             _unitOfWork = unitOfWork;
             _mapper = mapper;
+            _appointmentRules = appointmentRules;
         }
 
         public async Task<Result<int>> Handle(CreatePrescriptionCommand request, CancellationToken cancellationToken)
@@ -55,6 +58,9 @@ namespace MedicalClinic.Application.Features.Prescriptions.Commands
             var register = _mapper.Map<Prescription>(request);
             await _repository.AddAsync(register);
             await _unitOfWork.Commit(cancellationToken);
+
+            await _appointmentRules.MarkAppointmentAsDone(request.AppointmentId, cancellationToken);
+
             return Result<int>.Success(register.Id);
         }
     }

@@ -52,7 +52,7 @@ namespace MedicalClinic.Infrastructure.EntitiesConfiguration
                 .HasColumnType("datetime")
                 .HasComment("The date of Appointment");
 
-            builder.Property(e => e.Status).HasComment("Indicates the Status of the Query, being:\r\n0:Scheduled\r\n1:Confirmed\r\n2: Cancelled");
+            builder.Property(e => e.Status).HasComment("Indicates the Status of the Query, being:\r\n0:Scheduled\r\n1:Confirmed\r\n2: Cancelled\r\n3: Completed");
 
             builder.HasOne(d => d.Doctor)
                 .WithMany(p => p.Appointments)
