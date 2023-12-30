@@ -14,12 +14,12 @@ END
 GO]]></beforeCreate>
 <endOfScript><![CDATA[SET IDENTITY_INSERT dbo.Specialties ON;
 
-INSERT INTO dbo.Specialties (SpecialtyId, Name, Description, ConsultationValue, IsEnabled, DeletedAt)
+INSERT INTO dbo.Specialties (SpecialtyId, Name, Description, ConsultationValue,AppointmentDuration, IsEnabled, DeletedAt)
 VALUES
-(1, 'Cardiology', 'Deals with disorders of the heart and blood vessels.', 250.00, 1, NULL),
-(2, 'Pediatrics', 'Focuses on medical care for infants, children, and adolescents.', 200.00, 1, NULL),
-(3, 'Dermatology', 'Specializes in the treatment of skin, hair, and nail conditions.', 180.00, 1, NULL),
-(4, 'Orthopedics', 'Deals with the musculoskeletal system and related injuries.', 300.00, 1, NULL);
+(1, 'Cardiology', 'Deals with disorders of the heart and blood vessels.', 250.00, 1, 1, NULL),
+(2, 'Pediatrics', 'Focuses on medical care for infants, children, and adolescents.', 200.00, 1, 1, NULL),
+(3, 'Dermatology', 'Specializes in the treatment of skin, hair, and nail conditions.', 180.00, 1, 1, NULL),
+(4, 'Orthopedics', 'Deals with the musculoskeletal system and related injuries.', 300.00, 1, 1, NULL);
 
 SET IDENTITY_INSERT dbo.Specialties OFF;
 ]]></endOfScript>
@@ -76,6 +76,17 @@ SET IDENTITY_INSERT dbo.Specialties OFF;
 <dataTypePrecision>18</dataTypePrecision>
 <dataTypeScale>6</dataTypeScale>
 <ownDataTypeParameters>,18,6</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="AppointmentDuration" id="5C1F91CA-4170-F5C5-49B9-A09C6F0ED0EC">
+<createdBy>Antônio Rocha</createdBy>
+<createdTime>2023-12-19 00:45:29 UTC</createdTime>
+<commentInRDBMS><![CDATA[Standard duration in minutes of the average consultation time for the referring doctor]]></commentInRDBMS>
+<ownerDesignName>MedicalClinicDB</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
 <Column name="IsEnabled " id="4E7AB2C2-3935-89B7-4E39-18446E924053">
