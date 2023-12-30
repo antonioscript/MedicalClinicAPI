@@ -36,10 +36,9 @@ namespace MedicalClinic.Application.Features.Availabilities.Queries
                 .AsNoTracking()
                 .Where(p =>
                        (request.AppRequest.DoctorId == null || p.DoctorId == request.AppRequest.DoctorId)
-                       && (request.AppRequest.DayOfWeek == null || p.DayOfWeek == (AvailabilityDayOfWeekCode)request.AppRequest.DayOfWeek)
+                       && (request.AppRequest.DayOfWeek == null || p.DayOfWeek == (DayOfWeek)request.AppRequest.DayOfWeek)
                        && (request.AppRequest.StartTime == null || p.StartTime == request.AppRequest.StartTime)
                        && (request.AppRequest.EndTime == null || p.EndTime == request.AppRequest.EndTime)
-                       && (request.AppRequest.AppointmentDuration == null || p.AppointmentDuration == request.AppRequest.AppointmentDuration)
                        && (request.AppRequest.IsEnabled == null || p.IsEnabled == request.AppRequest.IsEnabled)
                         )
                 .ToListAsync();

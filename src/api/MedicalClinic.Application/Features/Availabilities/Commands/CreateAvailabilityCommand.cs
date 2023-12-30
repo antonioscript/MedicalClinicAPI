@@ -14,10 +14,8 @@ namespace MedicalClinic.Application.Features.Availabilities.Commands
 
         public AvailabilityDayOfWeekCode DayOfWeek { get; set; }
 
-        public DateTime StartTime { get; set; }
-        public DateTime EndTime { get; set; }
-
-        public int AppointmentDuration { get; set; }
+        public TimeSpan StartTime { get; set; }
+        public TimeSpan EndTime { get; set; }
 
         public bool IsEnabled { get; set; }
     }

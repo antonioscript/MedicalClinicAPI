@@ -14,6 +14,7 @@ namespace MedicalClinic.Application.Features.Specialties.Commands
         public string Name { get; set; } 
         public string Description { get; set; }
         public double ConsultationValue { get; set; }
+        public int AppointmentDuration { get; set; }
 
         public bool IsEnabled { get; set; }
     }

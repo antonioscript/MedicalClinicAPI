@@ -32,20 +32,16 @@ namespace MedicalClinic.Infrastructure.EntitiesConfiguration
             builder.Property(e => e.DoctorId).HasComment("Foreign key referencing the doctor associated with this availability");
 
             builder.Property(e => e.EndTime)
-                .HasColumnType("datetime")
+                .HasColumnType("time")
                 .HasComment("The end time of the doctors availability for the specified day");
 
             builder.Property(e => e.IsEnabled)
-                .HasColumnName("IsEnabled ")
+                .HasColumnName("IsEnabled")
                 .HasComment("Indicates if the record  is currently active in the system");
 
             builder.Property(e => e.StartTime)
-                .HasColumnType("datetime")
+                .HasColumnType("time")
                 .HasComment("The start time of the doctors availability for the specified day.");
-
-            builder.Property(e => e.AppointmentDuration)
-                .HasColumnName("AppointmentDuration")
-                .HasComment("Standard duration in minutes of the average consultation time for the referring doctor");
 
             builder.HasOne(d => d.Doctor)
                 .WithMany(p => p.Availabilities)

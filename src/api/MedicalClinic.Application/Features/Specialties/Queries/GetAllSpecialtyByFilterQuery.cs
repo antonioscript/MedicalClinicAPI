@@ -38,6 +38,7 @@ namespace MedicalClinic.Application.Features.Specialties.Queries
                        && (String.IsNullOrEmpty(request.AppRequest.Description) || p.Description.Contains(request.AppRequest.Description))
 
                        && (request.AppRequest.ConsultationValue == null || p.ConsultationValue == request.AppRequest.ConsultationValue)
+                       && (request.AppRequest.AppointmentDuration == null || p.AppointmentDuration == request.AppRequest.AppointmentDuration)
                        && (request.AppRequest.IsEnabled == null || p.IsEnabled == request.AppRequest.IsEnabled)
                         )
                 .ToListAsync();

@@ -10,11 +10,9 @@ namespace MedicalClinic.Domain.Entities
         public int DoctorId { get; set; }
         public virtual Doctor Doctor { get; set; } = null!;
 
-        public AvailabilityDayOfWeekCode DayOfWeek { get; set; }
-        public DateTime StartTime { get; set; }
-        public DateTime EndTime { get; set; }
-
-        public int AppointmentDuration { get; set; }
+        public DayOfWeek DayOfWeek { get; set; }
+        public TimeSpan StartTime { get; set; }
+        public TimeSpan EndTime { get; set; }
 
         public bool IsEnabled { get; set; }
         public DateTime? DeletedAt { get; set; }

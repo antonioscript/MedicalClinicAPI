@@ -2,6 +2,7 @@
 using MediatR;
 using MedicalClinic.Application.Interfaces.Repositories;
 using MedicalClinic.Application.Interfaces.Repositories.Entities;
+using MedicalClinic.Application.Interfaces.Rules;
 using MedicalClinic.Domain.Entities;
 using MedicalClinic.Infrastructure.Shared.Results;
 
@@ -23,12 +24,14 @@ namespace MedicalClinic.Application.Features.Appointments.Commands
     public class CreateAppointmentCommandHandler : IRequestHandler<CreateAppointmentCommand, Result<int>>
     {
         private readonly IAppointmentRepository _repository;
+        private readonly IAppointmentRules _appointmentRules;
         private readonly IMapper _mapper;
         private IUnitOfWork _unitOfWork { get; set; }
 
-        public CreateAppointmentCommandHandler(IAppointmentRepository repository, IUnitOfWork unitOfWork, IMapper mapper)
+        public CreateAppointmentCommandHandler(IAppointmentRepository repository, IAppointmentRules appointmentRules, IUnitOfWork unitOfWork, IMapper mapper)
         {
             _repository = repository;
+            _appointmentRules = appointmentRules;
             _unitOfWork = unitOfWork;
             _mapper = mapper;
         }
@@ -36,6 +39,9 @@ namespace MedicalClinic.Application.Features.Appointments.Commands
         public async Task<Result<int>> Handle(CreateAppointmentCommand request, CancellationToken cancellationToken)
         {
             var register = _mapper.Map<Appointment>(request);
+
+            await _appointmentRules.CheckDoctorHasAvailability(request.DoctorId, request.AppointmentDate);
+
             await _repository.AddAsync(register);
             await _unitOfWork.Commit(cancellationToken);
             return Result<int>.Success(register.Id);

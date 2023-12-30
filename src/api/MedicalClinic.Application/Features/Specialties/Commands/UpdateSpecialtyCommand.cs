@@ -14,6 +14,7 @@ namespace MedicalClinic.Application.Features.Specialties.Commands
         public string Name { get; set; } 
         public string Description { get; set; }
         public double ConsultationValue { get; set; }
+        public int AppointmentDuration { get; set; }
 
         public bool IsEnabled { get; set; }
 
@@ -53,6 +54,7 @@ namespace MedicalClinic.Application.Features.Specialties.Commands
                         register.Name = command.Name ?? register.Name;
                         register.Description = command.Description ?? register.Description;
                         register.ConsultationValue = command.ConsultationValue;
+                        register.AppointmentDuration = command.AppointmentDuration;
                         register.IsEnabled = command.IsEnabled;
 
                         await _repository.UpdateAsync(register);

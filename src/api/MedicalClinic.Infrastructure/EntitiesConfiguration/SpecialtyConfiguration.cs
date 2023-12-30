@@ -35,6 +35,10 @@ namespace MedicalClinic.Infrastructure.EntitiesConfiguration
                 .IsUnicode(false)
                 .HasComment("escription of the medical specialty");
 
+            builder.Property(e => e.AppointmentDuration)
+                .HasColumnName("AppointmentDuration")
+                .HasComment("Standard duration in minutes of the average consultation time for the referring doctor");
+
             builder.Property(e => e.IsEnabled)
                 .HasColumnName("IsEnabled ")
                 .HasComment("Indicates if the record  is currently active in the system");

@@ -9,5 +9,7 @@ namespace MedicalClinic.Application.Interfaces.Rules
     public interface IAppointmentRules
     {
         Task MarkAppointmentAsDone(int appointmentId, CancellationToken cancellationToken);
+
+        Task CheckDoctorHasAvailability(int doctorId, DateTime appointmentDate);
     }
 }
