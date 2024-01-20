@@ -11,5 +11,9 @@ namespace MedicalClinic.Application.Interfaces.Rules
         Task MarkAppointmentAsDone(int appointmentId, CancellationToken cancellationToken);
 
         Task CheckDoctorHasAvailability(int doctorId, DateTime appointmentDate);
+
+        Task CheckRulesForCancelingAnAppointment(int appointmentId);
+
+        Task MarkAnAppointmentAsCanceled(int appointmentId);
     }
 }

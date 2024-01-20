@@ -35,6 +35,7 @@ namespace MedicalClinic.Infrastructure.MedicalClinic.Infrastructure.DbContexts
         public virtual DbSet<Prescription> Prescriptions { get; set; } = null!;
         public virtual DbSet<Medication> Medications { get; set; } = null!;
         public virtual DbSet<Forwarding> Forwardings { get; set; } = null!;
+        //public virtual DbSet<CanceledAppointment> CanceledAppointments { get; set; } = null!;
 
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -65,6 +66,7 @@ namespace MedicalClinic.Infrastructure.MedicalClinic.Infrastructure.DbContexts
             builder.ApplyConfiguration(new PrescriptionConfiguration());
             builder.ApplyConfiguration(new MedicationConfiguration());
             builder.ApplyConfiguration(new ForwardingConfiguration());
+            builder.ApplyConfiguration(new CanceledAppointmentConfiguration());
 
         }
     }

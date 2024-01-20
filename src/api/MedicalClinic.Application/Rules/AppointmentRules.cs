@@ -6,6 +6,9 @@ using MedicalClinic.Application.Interfaces.Rules;
 using MedicalClinic.Domain.Enums;
 using MedicalClinic.Resource.Resources;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Win32;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
+using System.Threading;
 
 namespace MedicalClinic.Application.Rules
 {
@@ -98,9 +101,54 @@ namespace MedicalClinic.Application.Rules
 
             if (appointmentOverlap != null && appointmentOverlap.Any())
                 throw new MdException(SharedResource.MESSAGE_DOCTOR_ALREADY_APPOINTMENT_SPECIFIED_TIME, doctorId);
+        }
 
+        /// <summary>
+        /// Check rules for canceling an appointment
+        /// </summary>
+        /// <param name="appointmentId"></param>
+        /// <returns></returns>
+        /// <exception cref="MdException"></exception>
+        public async Task CheckRulesForCancelingAnAppointment(int appointmentId)
+        {
+            var appointmentStatus = await _appointmentRepository.Entities
+                .Where(a => a.Id == appointmentId)
+                .Select(a => a.Status)
+                .FirstOrDefaultAsync();
 
-           
+            if (appointmentStatus == AppointmentStatusCode.Completed)
+            {
+                throw new MdException(SharedResource.MESSAGE_CANCELED_APPOINTMENT_NOT_VALID);
+            }
+        }
+
+        /// <summary>
+        /// Mark An Appointment as Canceled
+        /// </summary>
+        /// <param name="appointmentId"></param>
+        /// <returns></returns>
+        /// <exception cref="MdException"></exception>
+        public async Task MarkAnAppointmentAsCanceled(int appointmentId)
+        {
+            var appointment = await _appointmentRepository.Entities
+                .Where(a => a.Id == appointmentId)
+                .FirstOrDefaultAsync();
+
+            if (appointment != null)
+            {
+                appointment.Status = AppointmentStatusCode.Cancelled;
+
+                var cancellationToken = new CancellationToken();
+
+                await _appointmentRepository.UpdateAsync(appointment);
+                await _unitOfWork.Commit(cancellationToken);
+            }
+            else
+            {
+                throw new MdException(SharedResource.MESSAGE_APPOINTMENT_NOT_FOUND, appointmentId);
+            }
+
+            
         }
     }
 }

@@ -9,6 +9,7 @@ namespace MedicalClinic.Domain.Entities
         public Appointment()
         {
             Prescriptions = new HashSet<Prescription>();
+            CanceledAppointments = new HashSet<CanceledAppointment>();
         }
         public int Id { get; set; }
 
@@ -28,5 +29,6 @@ namespace MedicalClinic.Domain.Entities
         public DateTime? DeletedAt { get; set; }
 
         public virtual ICollection<Prescription> Prescriptions { get; set; }
+        public virtual ICollection<CanceledAppointment> CanceledAppointments { get; set; }
     }
 }

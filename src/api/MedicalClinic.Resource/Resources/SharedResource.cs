@@ -38,6 +38,9 @@ namespace MedicalClinic.Resource.Resources
         public const string MESSAGE_PRESCRIPTION_EXISTS = "There is already a Prescription with Id Appointment '{0}'";
         public const string MESSAGE_PRESCRIPTION_NOT_FOUND = "Prescription Id '{0}' not found";
 
+        public const string MESSAGE_CANCELED_APPOINTMENT_EXISTS = "There is already a Canceled Appointment with Appointment Id '{0}'";
+        public const string MESSAGE_CANCELED_APPOINTMENT_NOT_VALID = "You cannot cancel a appointment that has already been made";
+
 
 
     }
