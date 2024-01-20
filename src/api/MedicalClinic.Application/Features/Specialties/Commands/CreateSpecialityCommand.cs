@@ -2,6 +2,7 @@
 using MediatR;
 using MedicalClinic.Application.Interfaces.Repositories;
 using MedicalClinic.Application.Interfaces.Repositories.Entities;
+using MedicalClinic.Application.Interfaces.Rules;
 using MedicalClinic.Domain.Entities;
 using MedicalClinic.Infrastructure.Shared.Results;
 using MedicalClinic.Resource.Resources;
@@ -23,12 +24,14 @@ namespace MedicalClinic.Application.Features.Specialties.Commands
     public class CreateSpecialtyCommandHandler : IRequestHandler<CreateSpecialtyCommand, Result<int>>
     {
         private readonly ISpecialtyRepository _repository;
+        private readonly ISpecialtyRules _specialtyRules;
         private readonly IMapper _mapper;
         private IUnitOfWork _unitOfWork { get; set; }
 
-        public CreateSpecialtyCommandHandler(ISpecialtyRepository repository, IUnitOfWork unitOfWork, IMapper mapper)
+        public CreateSpecialtyCommandHandler(ISpecialtyRepository repository, ISpecialtyRules specialtyRules, IUnitOfWork unitOfWork, IMapper mapper)
         {
             _repository = repository;
+            _specialtyRules = specialtyRules;
             _unitOfWork = unitOfWork;
             _mapper = mapper;
         }
@@ -44,6 +47,8 @@ namespace MedicalClinic.Application.Features.Specialties.Commands
             {
                 return Result<int>.Fail(string.Format(SharedResource.MESSAGE_SPECIALTY_EXISTS, request.Name));
             }
+
+            await _specialtyRules.CheckAppointmentDurationIsValid(request.AppointmentDuration);
 
             var register = _mapper.Map<Specialty>(request);
             await _repository.AddAsync(register);

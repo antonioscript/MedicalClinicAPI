@@ -11,6 +11,7 @@ namespace MedicalClinic.WebApi.Extensions
         public static void AddSystemBusinessRules(this IServiceCollection services)
         {
             services.AddScoped<IAppointmentRules, AppointmentRules>();
+            services.AddScoped<ISpecialtyRules, SpecialtyRules>();
         }
 
         public static void AddEssentials(this IServiceCollection services)
