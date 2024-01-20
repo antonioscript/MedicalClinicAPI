@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MedicalClinic.Domain.Enums;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,5 +16,6 @@ namespace MedicalClinic.Application.Interfaces.Rules
         Task CheckRulesForCancelingAnAppointment(int appointmentId);
 
         Task MarkAnAppointmentAsCanceled(int appointmentId);
+        Task CheckCanUpdateStatus(int appointmentId);
     }
 }

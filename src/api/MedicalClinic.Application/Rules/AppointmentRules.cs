@@ -9,6 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Win32;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 using System.Threading;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace MedicalClinic.Application.Rules
 {
@@ -147,8 +148,23 @@ namespace MedicalClinic.Application.Rules
             {
                 throw new MdException(SharedResource.MESSAGE_APPOINTMENT_NOT_FOUND, appointmentId);
             }
+        }
 
-            
+        /// <summary>
+        /// Check if you can update the Appointment Status
+        /// </summary>
+        /// <param name="status"></param>
+        /// <returns></returns>
+        /// <exception cref="MdException"></exception>
+        public async Task CheckCanUpdateStatus (int appointmentId)
+        {
+            var statusAppointmentActual = await _appointmentRepository.Entities
+                .Where(a => a.Id == appointmentId)
+                .Select(a => a.Status)
+                .FirstOrDefaultAsync();
+
+            if (statusAppointmentActual == AppointmentStatusCode.Cancelled || statusAppointmentActual == AppointmentStatusCode.Completed)
+                throw new MdException(SharedResource.MESSAGE_APPOINTMENT_UPDATE_STATUS_NOT_VALID);
         }
     }
 }
