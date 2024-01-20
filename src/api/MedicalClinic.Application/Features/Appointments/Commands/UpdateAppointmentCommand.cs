@@ -8,6 +8,7 @@ using MedicalClinic.Application.Interfaces.Repositories;
 using MedicalClinic.Application.Interfaces.Repositories.Entities;
 using MedicalClinic.Domain.Enums;
 using MedicalClinic.Resource.Resources;
+using MedicalClinic.Application.Interfaces.Rules;
 
 namespace MedicalClinic.Application.Features.Appointments.Commands
 {
@@ -17,7 +18,7 @@ namespace MedicalClinic.Application.Features.Appointments.Commands
         public int? RequestingDoctorId { get; set; }
         public int PatientId { get; set; }
         public int DoctorId { get; set; }
-        public byte Status { get; set; }
+        public AppointmentStatusCode Status { get; set; }
 
         public DateTime AppointmentDate { get; set; }
 
@@ -29,10 +30,12 @@ namespace MedicalClinic.Application.Features.Appointments.Commands
         {
             private readonly IUnitOfWork _unitOfWork;
             private readonly IAppointmentRepository _repository;
+            private readonly IAppointmentRules _appointmentRules;
 
-            public UpdateCompetitorCompaniesCommandHandler(IAppointmentRepository repository, IUnitOfWork unitOfWork)
+            public UpdateCompetitorCompaniesCommandHandler(IAppointmentRepository repository, IAppointmentRules appointmentRules, IUnitOfWork unitOfWork)
             {
                 _repository = repository;
+                _appointmentRules = appointmentRules;
                 _unitOfWork = unitOfWork;
             }
 
@@ -44,6 +47,8 @@ namespace MedicalClinic.Application.Features.Appointments.Commands
                 {
                     return Result<int>.Fail(string.Format(SharedResource.MESSAGE_APPOINTMENT_NOT_FOUND, command.Id));
                 }
+
+                await _appointmentRules.CheckCanUpdateStatus(command.Id);
 
                 register.PatientId = command.PatientId;
                 register.RequestingDoctorId = command.RequestingDoctorId ?? register.RequestingDoctorId;

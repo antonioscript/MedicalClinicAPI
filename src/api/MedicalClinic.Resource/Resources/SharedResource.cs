@@ -9,6 +9,7 @@ namespace MedicalClinic.Resource.Resources
     public static class SharedResource
     {
         public const string MESSAGE_APPOINTMENT_NOT_FOUND = "Appointment Id '{0}' not found";
+        public const string MESSAGE_APPOINTMENT_UPDATE_STATUS_NOT_VALID = "It is not possible to update the status of the appointment, as it is either canceled or Completed";
         public const string MESSAGE_AVAILABILITY_NOT_FOUND = "Availability Id '{0}' not found";
         public const string MESSAGE_DOCTOR_IS_NOT_AVAILABLE = "Doctor Id '{0}' has no availability for the specified date and time";
         public const string MESSAGE_DOCTOR_HAS_NO_AVAILABILITY = "Doctor Id '{0}' has no availability registered";
