@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MedicalClinic.Domain.Enums
 {
-    public enum AppointmentStatusCode : byte
+    public enum StatusCode : byte
     {
         Scheduled = 0,
         Confirmed = 1,

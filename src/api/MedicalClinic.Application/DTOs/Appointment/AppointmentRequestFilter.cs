@@ -19,7 +19,7 @@ namespace MedicalClinic.Application.DTOs.Appointment
 
         public DateTime AppointmentDate { get; set; }
 
-        public AppointmentStatusCodeDto? Status { get; set; }
+        public StatusCodeDto? Status { get; set; }
 
         public string? Observation { get; set; }
         public bool? IsEnabled { get; set; }

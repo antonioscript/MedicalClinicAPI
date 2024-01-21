@@ -40,9 +40,18 @@ namespace MedicalClinic.Infrastructure.EntitiesConfiguration
                 .IsUnicode(false)
                 .HasComment("Additional observation or notes related to the procedure");
 
+            builder.Property(e => e.ProcedureDate)
+                .HasColumnType("datetime")
+                .HasComment("The date of Procedure");
+
+            builder.Property(e => e.Status).HasComment("Indicates the Status of the Procedure, being:\r\n0:Scheduled\r\n1:Confirmed\r\n2: Cancelled\r\n3: Completed");
+
             builder.Property(e => e.PatientId).HasComment("Foreign key referencing the unique identifier of the patient associated with the procedure");
 
             builder.Property(e => e.TechnicianId).HasComment("Foreign key referencing the unique identifier of the technician performing the procedure");
+
+            builder.HasIndex(e => new { e.ProcedureDate }, "UK_Procedures_ProcedureDate")
+                .IsUnique();
 
             builder.HasOne(d => d.Exam)
                 .WithMany(p => p.Procedures)

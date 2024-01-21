@@ -4,6 +4,7 @@ using MedicalClinic.Infrastructure.MedicalClinic.Infrastructure.DbContexts;
 using MedicalClinic.WebApi.Extensions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -24,7 +25,13 @@ builder.Services.AddTransient<Mediator>();
 
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
-
+//To solve cyclic reference problem
+builder.Services.AddMvc()
+.AddNewtonsoftJson(
+options => 
+{
+    options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
+});
 
 
 builder.Services.AddControllers();

@@ -1,5 +1,6 @@
 ﻿using MedicalClinic.Application.DTOs.Exam;
 using MedicalClinic.Application.DTOs.Patient;
+using MedicalClinic.Application.Enums;
 using MedicalClinic.Domain.Entities;
 using System;
 using System.Collections.Generic;
@@ -17,6 +18,9 @@ namespace MedicalClinic.Application.DTOs.Procedure
         public int? ExamId { get; set; }
 
         public string? Observation { get; set; }
+
+        public DateTime? ProcedureDate { get; set; }
+        public StatusCodeDto? Status { get; set; }
 
         public bool? IsEnabled { get; set; }
     }

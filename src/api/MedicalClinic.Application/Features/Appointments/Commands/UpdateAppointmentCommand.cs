@@ -18,7 +18,7 @@ namespace MedicalClinic.Application.Features.Appointments.Commands
         public int? RequestingDoctorId { get; set; }
         public int PatientId { get; set; }
         public int DoctorId { get; set; }
-        public AppointmentStatusCode Status { get; set; }
+        public StatusCode Status { get; set; }
 
         public DateTime AppointmentDate { get; set; }
 
@@ -53,7 +53,7 @@ namespace MedicalClinic.Application.Features.Appointments.Commands
                 register.PatientId = command.PatientId;
                 register.RequestingDoctorId = command.RequestingDoctorId ?? register.RequestingDoctorId;
                 register.DoctorId = command.DoctorId;
-                register.Status = (AppointmentStatusCode)command.Status;
+                register.Status = (StatusCode)command.Status;
                 register.AppointmentDate = command.AppointmentDate;
                 register.Observation = command.Observation ?? register.Observation;
                 register.IsEnabled = command.IsEnabled;
