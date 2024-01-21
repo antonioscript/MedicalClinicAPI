@@ -29,6 +29,7 @@ namespace MedicalClinic.Resource.Resources
         public const string MESSAGE_PATIENT_NOT_FOUND = "Patient Id '{0}' not found";
 
         public const string MESSAGE_PROCEDURE_NOT_FOUND = "Procedure Id '{0}' not found";
+        public const string MESSAGE_PROCEDURE_EXISTS = "There is already a procedure with Procedure Date'{0}'";
 
         public const string MESSAGE_SPECIALTY_EXISTS = "There is already a Specialty with Name '{0}'";
         public const string MESSAGE_SPECIALTY_NOT_FOUND = "Specialty Id '{0}' not found";

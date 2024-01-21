@@ -48,7 +48,7 @@ namespace MedicalClinic.Application.Rules
                 .Where(a => a.Id == appointmentId)
                 .FirstOrDefaultAsync();
 
-            appointment.Status = AppointmentStatusCode.Completed;
+            appointment.Status = StatusCode.Completed;
 
             await _appointmentRepository.UpdateAsync(appointment);
             await _unitOfWork.Commit(cancellationToken);
@@ -117,7 +117,7 @@ namespace MedicalClinic.Application.Rules
                 .Select(a => a.Status)
                 .FirstOrDefaultAsync();
 
-            if (appointmentStatus == AppointmentStatusCode.Completed)
+            if (appointmentStatus == StatusCode.Completed)
             {
                 throw new MdException(SharedResource.MESSAGE_CANCELED_APPOINTMENT_NOT_VALID);
             }
@@ -137,7 +137,7 @@ namespace MedicalClinic.Application.Rules
 
             if (appointment != null)
             {
-                appointment.Status = AppointmentStatusCode.Cancelled;
+                appointment.Status = StatusCode.Cancelled;
 
                 var cancellationToken = new CancellationToken();
 
@@ -163,7 +163,7 @@ namespace MedicalClinic.Application.Rules
                 .Select(a => a.Status)
                 .FirstOrDefaultAsync();
 
-            if (statusAppointmentActual == AppointmentStatusCode.Cancelled || statusAppointmentActual == AppointmentStatusCode.Completed)
+            if (statusAppointmentActual == StatusCode.Cancelled || statusAppointmentActual == StatusCode.Completed)
                 throw new MdException(SharedResource.MESSAGE_APPOINTMENT_UPDATE_STATUS_NOT_VALID);
         }
     }

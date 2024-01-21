@@ -2,6 +2,7 @@
 using MediatR;
 using MedicalClinic.Application.DTOs.Procedure;
 using MedicalClinic.Application.Interfaces.Repositories.Entities;
+using MedicalClinic.Domain.Enums;
 using MedicalClinic.Infrastructure.Shared.Results;
 using Microsoft.EntityFrameworkCore;
 
@@ -37,6 +38,8 @@ namespace MedicalClinic.Application.Features.Procedures.Queries
                        (request.AppRequest.PatientId == null || p.PatientId == request.AppRequest.PatientId)
                        && (request.AppRequest.TechnicianId == null || p.TechnicianId == request.AppRequest.TechnicianId)
                        && (request.AppRequest.ExamId == null || p.ExamId == request.AppRequest.ExamId)
+                       && (request.AppRequest.ProcedureDate == null || p.ProcedureDate == request.AppRequest.ProcedureDate)
+                       && (request.AppRequest.Status == null || p.Status == (StatusCode)request.AppRequest.Status)
                        && (String.IsNullOrEmpty(request.AppRequest.Observation) || p.Observation.Contains(request.AppRequest.Observation)
                        && (request.AppRequest.IsEnabled == null || p.IsEnabled == request.AppRequest.IsEnabled))
                         )

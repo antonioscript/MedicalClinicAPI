@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MedicalClinic.Domain.Enums;
+using System;
 using System.Collections.Generic;
 
 namespace MedicalClinic.Domain.Entities
@@ -17,6 +18,9 @@ namespace MedicalClinic.Domain.Entities
         public virtual Exam Exam { get; set; } = null!;
 
         public string? Observation { get; set; }
+
+        public DateTime ProcedureDate { get; set; }
+        public StatusCode Status { get; set; }
 
         public bool IsEnabled { get; set; }
         public DateTime? DeletedAt { get; set; }  

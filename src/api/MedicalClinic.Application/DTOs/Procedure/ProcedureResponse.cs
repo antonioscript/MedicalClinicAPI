@@ -1,7 +1,9 @@
 ﻿using MedicalClinic.Application.DTOs.Exam;
 using MedicalClinic.Application.DTOs.Patient;
 using MedicalClinic.Application.DTOs.Technician;
+using MedicalClinic.Application.Enums;
 using MedicalClinic.Domain.Entities;
+using MedicalClinic.Domain.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,6 +25,9 @@ namespace MedicalClinic.Application.DTOs.Procedure
         public virtual ExamResponse Exam { get; set; } = null!;
 
         public string? Observation { get; set; }
+
+        public DateTime ProcedureDate { get; set; }
+        public StatusCodeDto Status { get; set; }
 
         public bool IsEnabled { get; set; }
     }

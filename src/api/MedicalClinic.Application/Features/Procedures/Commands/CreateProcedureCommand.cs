@@ -1,9 +1,12 @@
 ﻿using AutoMapper;
 using MediatR;
+using MedicalClinic.Application.Enums;
 using MedicalClinic.Application.Interfaces.Repositories;
 using MedicalClinic.Application.Interfaces.Repositories.Entities;
 using MedicalClinic.Domain.Entities;
 using MedicalClinic.Infrastructure.Shared.Results;
+using MedicalClinic.Resource.Resources;
+using Microsoft.EntityFrameworkCore;
 
 namespace MedicalClinic.Application.Features.Procedures.Commands
 {
@@ -14,6 +17,8 @@ namespace MedicalClinic.Application.Features.Procedures.Commands
         public int ExamId { get; set; }
         public string? Observation { get; set; }
 
+        public DateTime ProcedureDate { get; set; }
+        public byte Status { get; set; }
         public bool IsEnabled { get; set; }
     }
 
@@ -33,15 +38,15 @@ namespace MedicalClinic.Application.Features.Procedures.Commands
 
         public async Task<Result<int>> Handle(CreateProcedureCommand request, CancellationToken cancellationToken)
         {
-            //var registerExists = await _repository.Entities
-            //   .Where(d => d.Name == request.Name)
-            //   .AsNoTracking()
-            //   .FirstOrDefaultAsync();
+            var registerExists = await _repository.Entities
+               .Where(d => d.ProcedureDate == request.ProcedureDate)
+               .AsNoTracking()
+               .FirstOrDefaultAsync();
 
-            //if (registerExists != null)
-            //{
-            //    return Result<int>.Fail(string.Format(SharedResource.MESSAGE_Procedure_EXISTS, request.Name));
-            //}
+            if (registerExists != null)
+            {
+                return Result<int>.Fail(string.Format(SharedResource.MESSAGE_PROCEDURE_EXISTS, request.ProcedureDate));
+            }
 
             var register = _mapper.Map<Procedure>(request);
             await _repository.AddAsync(register);

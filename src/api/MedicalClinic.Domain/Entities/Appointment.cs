@@ -23,7 +23,7 @@ namespace MedicalClinic.Domain.Entities
         public virtual Doctor Doctor { get; set; } = null!;
 
         public DateTime AppointmentDate { get; set; }
-        public AppointmentStatusCode Status { get; set; }    
+        public StatusCode Status { get; set; }    
         public string? Observation { get; set; }
         public bool IsEnabled { get; set; }
         public DateTime? DeletedAt { get; set; }

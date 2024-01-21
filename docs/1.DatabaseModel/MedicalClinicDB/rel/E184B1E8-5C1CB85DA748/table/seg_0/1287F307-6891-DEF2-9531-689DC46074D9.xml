@@ -13,12 +13,12 @@ END
 GO]]></beforeCreate>
 <endOfScript><![CDATA[SET IDENTITY_INSERT dbo.Procedures ON;
 
-INSERT INTO dbo.Procedures (ProcedureId, PatientId, TechnicianId, ExamId, Observation, IsEnabled, DeletedAt)
+INSERT INTO dbo.Procedures (ProcedureId, PatientId, TechnicianId, ExamId, Observation, ProcedureDate, Status, IsEnabled, DeletedAt)
 VALUES
-(1, 1, 1, 1, 'Routine blood test', 1, NULL),
-(2, 2, 2, 2, 'Chest X-ray', 1, NULL),
-(3, 3, 3, 3, 'MRI Scan', 1, NULL),
-(4, 4, 4, 4, 'Abdominal Ultrasound', 1, NULL);
+(1, 1, 1, 1, 'Routine blood test', '2023-01-15 09:00:00', 1, 1, NULL),
+(2, 2, 2, 2, 'Chest X-ray', '2023-01-15 10:30:00', 2, 1, NULL),
+(3, 3, 3, 3, 'MRI Scan', '2023-01-15 13:15:00', 1, 1, NULL),
+(4, 4, 4, 4, 'Abdominal Ultrasound', '2023-01-15 15:45:00', 3, 1, NULL);
 
 SET IDENTITY_INSERT dbo.Procedures OFF;
 ]]></endOfScript>
@@ -98,6 +98,32 @@ SET IDENTITY_INSERT dbo.Procedures OFF;
 <ownDataTypeParameters>200,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
+<Column name="ProcedureDate" id="7D48E43B-4073-1319-6628-6EB590A86868">
+<createdBy>Antônio Rocha</createdBy>
+<createdTime>2024-01-20 20:30:14 UTC</createdTime>
+<commentInRDBMS><![CDATA[The Date of Procedure]]></commentInRDBMS>
+<ownerDesignName>MedicalClinicDB</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT008</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Status" id="083291E6-6849-8FDD-ABC8-D9DB3C58AA97">
+<createdBy>Antônio Rocha</createdBy>
+<createdTime>2024-01-20 20:30:43 UTC</createdTime>
+<commentInRDBMS><![CDATA[Indicates the Status of the Procedure, being:
+0:Scheduled
+1:Confirmed
+2: Cancelled,
+3: Completed]]></commentInRDBMS>
+<ownerDesignName>MedicalClinicDB</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT042</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
 <Column name="IsEnabled " id="974E3D9D-120B-CDB3-E1A2-CED0B0CFAD39">
 <createdBy>Antônio Rocha</createdBy>
 <createdTime>2023-07-29 02:36:47 UTC</createdTime>
@@ -132,6 +158,16 @@ SET IDENTITY_INSERT dbo.Procedures OFF;
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
 <colUsage columnID="2FAF2F46-D4B2-C94B-BC78-FBCAC560C6F5"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="8C5CE109-EDBC-891D-3E5D-A85FD689A222" name="UK_Procedures_ProcedureDate">
+<createdBy>Antônio Rocha</createdBy>
+<createdTime>2024-01-20 20:33:39 UTC</createdTime>
+<ownerDesignName>MedicalClinicDB</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="7D48E43B-4073-1319-6628-6EB590A86868"/>
 </indexColumnUsage>
 </ind_PK_UK>
 <ind_PK_UK id="DBF5A745-7BED-01F2-50F4-DC26109481CC" name="IX_Procedures_PatientId">
