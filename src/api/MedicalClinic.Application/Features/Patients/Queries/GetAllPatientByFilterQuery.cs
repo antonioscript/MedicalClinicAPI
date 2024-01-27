@@ -20,12 +20,12 @@ namespace MedicalClinic.Application.Features.Patients.Queries
 
     }
 
-    public class GetAllCompetitorCompaniesByFilterQueryHandler : IRequestHandler<GetAllPatientByFilterQuery, Result<List<PatientResponse>>>
+    public class GetAllPatientByFilterQueryHandler : IRequestHandler<GetAllPatientByFilterQuery, Result<List<PatientResponse>>>
     {
         private readonly IPatientRepository _repository;
         private readonly IMapper _mapper;
 
-        public GetAllCompetitorCompaniesByFilterQueryHandler(IPatientRepository repository, IMapper mapper)
+        public GetAllPatientByFilterQueryHandler(IPatientRepository repository, IMapper mapper)
         {
             _repository = repository;
             _mapper = mapper;
