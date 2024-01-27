@@ -36,19 +36,13 @@ namespace MedicalClinic.Application.Features.Schedulings.Queries
 
         public async Task<Result<List<SchedulingResponse>>> Handle(GetAllSchedulingByFilterQuery request, CancellationToken cancellationToken)
         {
-            // Pegar todas as consultas do paciente
             var allAppointmentPatient = await _appointmentRepository.Entities
                 .Include(p => p.Patient)
                 .Where(a =>
-                    //a.PatientId == request.AppRequest.PatientId ||
-                    (string.IsNullOrEmpty(request.AppRequest.ColumnsFilter) ||
-                        a.Patient.FirstName.Contains(request.AppRequest.ColumnsFilter) ||
-                        a.Patient.LastName.Contains(request.AppRequest.ColumnsFilter))
-                )
+                    a.PatientId == request.AppRequest.PatientId 
+                    )
                 .AsNoTracking()
                 .ToListAsync();
-
-
 
             var schedulingList = new List<SchedulingResponse>();
 
@@ -67,15 +61,11 @@ namespace MedicalClinic.Application.Features.Schedulings.Queries
                 schedulingList.Add(scheduling);
             }
 
-
-            // Pegar todos os procedimentos do paciente
             var allProcedurePatient = await _procedureRepository.Entities
                 .Include(p => p.Patient)
                 .Where(a =>
-                    //a.PatientId == request.AppRequest.PatientId ||
-                    a.Patient.FirstName.Contains(request.AppRequest.ColumnsFilter) ||
-                    a.Patient.LastName.Contains(request.AppRequest.ColumnsFilter)
-                )
+                    a.PatientId == request.AppRequest.PatientId 
+                     )
                 .AsNoTracking()
                 .ToListAsync();
 
@@ -95,7 +85,6 @@ namespace MedicalClinic.Application.Features.Schedulings.Queries
                 schedulingList.Add(scheduling);
             }
 
-            //Aplicação do Filtro
             var test = schedulingList
                 .Where(c =>
                           (request.AppRequest.SchedulingDate == null || c.SchedulingDate == request.AppRequest.SchedulingDate)

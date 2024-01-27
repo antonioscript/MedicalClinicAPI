@@ -16,7 +16,6 @@ namespace MedicalClinic.Application.DTOs.Scheduling
     public class SchedulingRequestFilter : BaseRequestFilter
     {
         public int? PatientId { get; set; }
-        public string? PatientName { get; set; }
 
         public SchedulingCodeDto? SchedulingType { get; set; }
         public DateTime? SchedulingDate { get; set; }
