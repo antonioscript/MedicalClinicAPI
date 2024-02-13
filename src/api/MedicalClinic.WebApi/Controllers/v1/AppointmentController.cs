@@ -78,6 +78,14 @@ namespace MedicalClinic.WebApi.Controllers.v1
         {
             return Ok(await _mediator.Send(new DeleteAppointmentCommand { Id = id }));
         }
+
+
+        [HttpPost("ExportAppointmentAsPDF")]
+        [AllowAnonymous]
+        public async Task<IActionResult> PostPdf(CreatePdfAppointmentCommand command)
+        {
+            return Ok(await _mediator.Send(command));
+        }
     }
 }
 

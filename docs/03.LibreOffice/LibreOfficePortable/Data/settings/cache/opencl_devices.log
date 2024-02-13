@@ -1,0 +1,18 @@
+Device Index: 0
+  Selected: true
+  Device Name: gfx1012:xnack-
+  Device Vendor: Advanced Micro Devices, Inc.
+  Device Version: OpenCL 1.2 AMD-APP (3516.0)
+  Driver Version: 3516.0 (PAL,LC)
+  Device Type: gpu 
+  Device Extensions: cl_khr_fp64 cl_khr_global_int32_base_atomics cl_khr_global_int32_extended_atomics cl_khr_local_int32_base_atomics cl_khr_local_int32_extended_atomics cl_khr_int64_base_atomics cl_khr_int64_extended_atomics cl_khr_3d_image_writes cl_khr_byte_addressable_store cl_khr_fp16 cl_khr_gl_sharing cl_amd_device_attribute_query cl_amd_media_ops cl_amd_media_ops2 cl_khr_d3d10_sharing cl_khr_d3d11_sharing cl_khr_dx9_media_sharing cl_khr_image2d_from_buffer cl_khr_gl_event cl_amd_liquid_flash cl_amd_copy_buffer_p2p 
+  Device OpenCL C Version: OpenCL C 1.2 
+  Device Available: true
+  Device Compiler Available: true
+  Device Linker Available: true
+  Platform Name: AMD Accelerated Parallel Processing
+  Platform Vendor: Advanced Micro Devices, Inc.
+  Platform Version: OpenCL 2.1 AMD-APP (3516.0)
+  Platform Profile: FULL_PROFILE
+  Platform Extensions: cl_khr_icd cl_khr_d3d10_sharing cl_khr_d3d11_sharing cl_khr_dx9_media_sharing cl_amd_event_callback cl_amd_offline_devices 
+

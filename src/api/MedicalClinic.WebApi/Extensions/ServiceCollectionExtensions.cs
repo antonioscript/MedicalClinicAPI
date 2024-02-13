@@ -1,5 +1,7 @@
 ﻿using MedicalClinic.Application.Interfaces.Rules;
+using MedicalClinic.Application.Interfaces.Shared;
 using MedicalClinic.Application.Rules;
+using MedicalClinic.Infrastructure.DocumentProcessor.Repositories;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Localization;
 using Microsoft.OpenApi.Models;
@@ -12,6 +14,7 @@ namespace MedicalClinic.WebApi.Extensions
         {
             services.AddScoped<IAppointmentRules, AppointmentRules>();
             services.AddScoped<ISpecialtyRules, SpecialtyRules>();
+            services.AddScoped<IDocumentProcessor, DocumentProcessor>();
         }
 
         public static void AddEssentials(this IServiceCollection services)
