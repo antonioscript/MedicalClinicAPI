@@ -1,0 +1,1 @@
+To rozszerzenie integruje się z programem Calc i oferuje nowe mechanizmy modułu Solver, używane w optymalizowaniu modeli programowania nielinowego.

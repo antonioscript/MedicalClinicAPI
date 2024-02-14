@@ -23,6 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\MedicalClinic.Infrastructure.DocumentProcessor\MedicalClinic.Infrastructure.DocumentProcessor.csproj" />
     <ProjectReference Include="..\MedicalClinic.Infrastructure\MedicalClinic.Infrastructure.csproj" />
   </ItemGroup>
 

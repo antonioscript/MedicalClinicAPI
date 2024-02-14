@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<oor:items xmlns:oor="http://openoffice.org/2001/registry" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<item oor:path="/org.openoffice.Office.Calc/Formula/Calculation"><prop oor:name="OpenCLMinimumDataSize" oor:op="fuse"><value>100</value></prop></item>
+<item oor:path="/org.openoffice.Office.Common/Help"><prop oor:name="ExtendedTip" oor:op="fuse"><value>false</value></prop></item>
+<item oor:path="/org.openoffice.Office.Common/Help"><prop oor:name="Locale" oor:op="fuse"><value></value></prop></item>
+<item oor:path="/org.openoffice.Office.Common/Help"><prop oor:name="System" oor:op="fuse"><value>WIN</value></prop></item>
+<item oor:path="/org.openoffice.Office.Common/Misc"><prop oor:name="FirstRun" oor:op="fuse"><value>false</value></prop></item>
+<item oor:path="/org.openoffice.Office.Common/Misc"><prop oor:name="SelectedOpenCLDeviceIdentifier" oor:op="fuse"><value>Advanced Micro Devices, Inc. 3516.0 (PAL,LC)--7.6.4.1--1629438604</value></prop></item>
+<item oor:path="/org.openoffice.Office.Common/Path/Current"><prop oor:name="Work" oor:op="fuse"><value xsi:nil="true"/></prop></item>
+<item oor:path="/org.openoffice.Office.Linguistic/General"><prop oor:name="UILocale" oor:op="fuse"><value>pt-BR</value></prop></item>
+<item oor:path="/org.openoffice.Office.Linguistic/ServiceManager/GrammarCheckerList"><prop oor:name="en-AU" oor:op="fuse" oor:type="oor:string-list"><value><it>org.libreoffice.comp.pyuno.Lightproof.en</it></value></prop></item>
+<item oor:path="/org.openoffice.Office.Linguistic/ServiceManager/GrammarCheckerList"><prop oor:name="en-BS" oor:op="fuse" oor:type="oor:string-list"><value><it>org.libreoffice.comp.pyuno.Lightproof.en</it></value></prop></item>
+<item oor:path="/org.openoffice.Office.Linguistic/ServiceManager/GrammarCheckerList"><prop oor:name="en-BZ" oor:op="fuse" oor:type="oor:string-list"><value><it>org.libreoffice.comp.pyuno.Lightproof.en</it></value></prop></item>
+<item oor:path="/org.openoffice.Office.Linguistic/ServiceManager/GrammarCheckerList"><prop oor:name="en-CA" oor:op="fuse" oor:type="oor:string-list"><value><it>org.libreoffice.comp.pyuno.Lightproof.en</it></value></prop></item>
+<item oor:path="/org.openoffice.Office.Linguistic/ServiceManager/GrammarCheckerList"><prop oor:name="en-GB" oor:op="fuse" oor:type="oor:string-list"><value><it>org.libreoffice.comp.pyuno.Lightproof.en</it></value></prop></item>
+<item oor:path="/org.openoffice.Office.Linguistic/ServiceManager/GrammarCheckerList"><prop oor:name="en-GH" oor:op="fuse" oor:type="oor:string-list"><value><it>org.libreoffice.comp.pyuno.Lightproof.en</it></value></prop></item>
+<item oor:path="/org.openoffice.Office.Linguistic/ServiceManager/GrammarCheckerList"><prop oor:name="en-IE" oor:op="fuse" oor:type="oor:string-list"><value><it>org.libreoffice.comp.pyuno.Lightproof.en</it></value></prop></item>
+<item oor:path="/org.openoffice.Office.Linguistic/ServiceManager/GrammarCheckerList"><prop oor:name="en-IL" oor:op="fuse" oor:type="oor:string-list"><value><it>org.libreoffice.comp.pyuno.Lightproof.en</it></value></prop></item>
+<item oor:path="/org.openoffice.Office.Linguistic/ServiceManager/GrammarCheckerList"><prop oor:name="en-IN" oor:op="fuse" oor:type="oor:string-list"><value><it>org.libreoffice.comp.pyuno.Lightproof.en</it></value></prop></item>
+<item oor:path="/org.openoffice.Office.Linguistic/ServiceManager/GrammarCheckerList"><prop oor:name="en-JM" oor:op="fuse" oor:type="oor:string-list"><value><it>org.libreoffice.comp.pyuno.Lightproof.en</it></value></prop></item>
+<item oor:path="/org.openoffice.Office.Linguistic/ServiceManager/GrammarCheckerList"><prop oor:name="en-NA" oor:op="fuse" oor:type="oor:string-list"><value><it>org.libreoffice.comp.pyuno.Lightproof.en</it></value></prop></item>
+<item oor:path="/org.openoffice.Office.Linguistic/ServiceManager/GrammarCheckerList"><prop oor:name="en-NZ" oor:op="fuse" oor:type="oor:string-list"><value><it>org.libreoffice.comp.pyuno.Lightproof.en</it></value></prop></item>
+<item oor:path="/org.openoffice.Office.Linguistic/ServiceManager/GrammarCheckerList"><prop oor:name="en-PH" oor:op="fuse" oor:type="oor:string-list"><value><it>org.libreoffice.comp.pyuno.Lightproof.en</it></value></prop></item>
+<item oor:path="/org.openoffice.Office.Linguistic/ServiceManager/GrammarCheckerList"><prop oor:name="en-TT" oor:op="fuse" oor:type="oor:string-list"><value><it>org.libreoffice.comp.pyuno.Lightproof.en</it></value></prop></item>
+<item oor:path="/org.openoffice.Office.Linguistic/ServiceManager/GrammarCheckerList"><prop oor:name="en-US" oor:op="fuse" oor:type="oor:string-list"><value><it>org.libreoffice.comp.pyuno.Lightproof.en</it></value></prop></item>
+<item oor:path="/org.openoffice.Office.Linguistic/ServiceManager/GrammarCheckerList"><prop oor:name="en-ZA" oor:op="fuse" oor:type="oor:string-list"><value><it>org.libreoffice.comp.pyuno.Lightproof.en</it></value></prop></item>
+<item oor:path="/org.openoffice.Office.Linguistic/ServiceManager/GrammarCheckerList"><prop oor:name="en-ZW" oor:op="fuse" oor:type="oor:string-list"><value><it>org.libreoffice.comp.pyuno.Lightproof.en</it></value></prop></item>
+<item oor:path="/org.openoffice.Office.Linguistic/ServiceManager/GrammarCheckerList"><prop oor:name="pt-BR" oor:op="fuse" oor:type="oor:string-list"><value><it>org.libreoffice.comp.pyuno.Lightproof.pt_BR</it></value></prop></item>
+<item oor:path="/org.openoffice.Office.Linguistic/ServiceManager/HyphenatorList"><prop oor:name="en-AU" oor:op="fuse" oor:type="oor:string-list"><value></value></prop></item>
+<item oor:path="/org.openoffice.Office.Linguistic/ServiceManager/HyphenatorList"><prop oor:name="en-BS" oor:op="fuse" oor:type="oor:string-list"><value></value></prop></item>
+<item oor:path="/org.openoffice.Office.Linguistic/ServiceManager/HyphenatorList"><prop oor:name="en-BZ" oor:op="fuse" oor:type="oor:string-list"><value></value></prop></item>
+<item oor:path="/org.openoffice.Office.Linguistic/ServiceManager/HyphenatorList"><prop oor:name="en-CA" oor:op="fuse" oor:type="oor:string-list"><value></value></prop></item>
+<item oor:path="/org.openoffice.Office.Linguistic/ServiceManager/HyphenatorList"><prop oor:name="en-GB" oor:op="fuse" oor:type="oor:string-list"><value></value></prop></item>
+<item oor:path="/org.openoffice.Office.Linguistic/ServiceManager/HyphenatorList"><prop oor:name="en-GH" oor:op="fuse" oor:type="oor:string-list"><value></value></prop></item>
+<item oor:path="/org.openoffice.Office.Linguistic/ServiceManager/HyphenatorList"><prop oor:name="en-IE" oor:op="fuse" oor:type="oor:string-list"><value></value></prop></item>
+<item oor:path="/org.openoffice.Office.Linguistic/ServiceManager/HyphenatorList"><prop oor:name="en-IL" oor:op="fuse" oor:type="oor:string-list"><value></value></prop></item>
+<item oor:path="/org.openoffice.Office.Linguistic/ServiceManager/HyphenatorList"><prop oor:name="en-IN" oor:op="fuse" oor:type="oor:string-list"><value></value></prop></item>
+<item oor:path="/org.openoffice.Office.Linguistic/ServiceManager/HyphenatorList"><prop oor:name="en-JM" oor:op="fuse" oor:type="oor:string-list"><value></value></prop></item>
+<item oor:path="/org.openoffice.Office.Linguistic/ServiceManager/HyphenatorList"><prop oor:name="en-MW" oor:op="fuse" oor:type="oor:string-list"><value></value></prop></item>
+<item oor:path="/org.openoffice.Office.Linguistic/ServiceManager/HyphenatorList"><prop oor:name="en-NA" oor:op="fuse" oor:type="oor:string-list"><value></value></prop></item>
+<item oor:path="/org.openoffice.Office.Linguistic/ServiceManager/HyphenatorList"><prop oor:name="en-NZ" oor:op="fuse" oor:type="oor:string-list"><value></value></prop></item>
+<item oor:path="/org.openoffice.Office.Linguistic/ServiceManager/HyphenatorList"><prop oor:name="en-PH" oor:op="fuse" oor:type="oor:string-list"><value></value></prop></item>
+<item oor:path="/org.openoffice.Office.Linguistic/ServiceManager/HyphenatorList"><prop oor:name="en-TT" oor:op="fuse" oor:type="oor:string-list"><value></value></prop></item>
+<item oor:path="/org.openoffice.Office.Linguistic/ServiceManager/HyphenatorList"><prop oor:name="en-US" oor:op="fuse" oor:type="oor:string-list"><value></value></prop></item>
+<item oor:path="/org.openoffice.Office.Linguistic/ServiceManager/HyphenatorList"><prop oor:name="en-ZA" oor:op="fuse" oor:type="oor:string-list"><value></value></prop></item>
+<item oor:path="/org.openoffice.Office.Linguistic/ServiceManager/HyphenatorList"><prop oor:name="en-ZW" oor:op="fuse" oor:type="oor:string-list"><value></value></prop></item>
+<item oor:path="/org.openoffice.Office.Linguistic/ServiceManager/HyphenatorList"><prop oor:name="pt-BR" oor:op="fuse" oor:type="oor:string-list"><value></value></prop></item>
+<item oor:path="/org.openoffice.Office.Linguistic/ServiceManager/HyphenatorList"><prop oor:name="pt-PT" oor:op="fuse" oor:type="oor:string-list"><value></value></prop></item>
+<item oor:path="/org.openoffice.Office.Linguistic/ServiceManager/LastFoundGrammarCheckers"><prop oor:name="en-AU" oor:op="fuse" oor:type="oor:string-list"><value><it>org.libreoffice.comp.pyuno.Lightproof.en</it></value></prop></item>
+<item oor:path="/org.openoffice.Office.Linguistic/ServiceManager/LastFoundGrammarCheckers"><prop oor:name="en-BS" oor:op="fuse" oor:type="oor:string-list"><value><it>org.libreoffice.comp.pyuno.Lightproof.en</it></value></prop></item>
+<item oor:path="/org.openoffice.Office.Linguistic/ServiceManager/LastFoundGrammarCheckers"><prop oor:name="en-BZ" oor:op="fuse" oor:type="oor:string-list"><value><it>org.libreoffice.comp.pyuno.Lightproof.en</it></value></prop></item>
+<item oor:path="/org.openoffice.Office.Linguistic/ServiceManager/LastFoundGrammarCheckers"><prop oor:name="en-CA" oor:op="fuse" oor:type="oor:string-list"><value><it>org.libreoffice.comp.pyuno.Lightproof.en</it></value></prop></item>
+<item oor:path="/org.openoffice.Office.Linguistic/ServiceManager/LastFoundGrammarCheckers"><prop oor:name="en-GB" oor:op="fuse" oor:type="oor:string-list"><value><it>org.libreoffice.comp.pyuno.Lightproof.en</it></value></prop></item>
+<item oor:path="/org.openoffice.Office.Linguistic/ServiceManager/LastFoundGrammarCheckers"><prop oor:name="en-GH" oor:op="fuse" oor:type="oor:string-list"><value><it>org.libreoffice.comp.pyuno.Lightproof.en</it></value></prop></item>
+<item oor:path="/org.openoffice.Office.Linguistic/ServiceManager/LastFoundGrammarCheckers"><prop oor:name="en-IE" oor:op="fuse" oor:type="oor:string-list"><value><it>org.libreoffice.comp.pyuno.Lightproof.en</it></value></prop></item>
+<item oor:path="/org.openoffice.Office.Linguistic/ServiceManager/LastFoundGrammarCheckers"><prop oor:name="en-IL" oor:op="fuse" oor:type="oor:string-list"><value><it>org.libreoffice.comp.pyuno.Lightproof.en</it></value></prop></item>
+<item oor:path="/org.openoffice.Office.Linguistic/ServiceManager/LastFoundGrammarCheckers"><prop oor:name="en-IN" oor:op="fuse" oor:type="oor:string-list"><value><it>org.libreoffice.comp.pyuno.Lightproof.en</it></value></prop></item>
+<item oor:path="/org.openoffice.Office.Linguistic/ServiceManager/LastFoundGrammarCheckers"><prop oor:name="en-JM" oor:op="fuse" oor:type="oor:string-list"><value><it>org.libreoffice.comp.pyuno.Lightproof.en</it></value></prop></item>
+<item oor:path="/org.openoffice.Office.Linguistic/ServiceManager/LastFoundGrammarCheckers"><prop oor:name="en-NA" oor:op="fuse" oor:type="oor:string-list"><value><it>org.libreoffice.comp.pyuno.Lightproof.en</it></value></prop></item>
+<item oor:path="/org.openoffice.Office.Linguistic/ServiceManager/LastFoundGrammarCheckers"><prop oor:name="en-NZ" oor:op="fuse" oor:type="oor:string-list"><value><it>org.libreoffice.comp.pyuno.Lightproof.en</it></value></prop></item>
+<item oor:path="/org.openoffice.Office.Linguistic/ServiceManager/LastFoundGrammarCheckers"><prop oor:name="en-PH" oor:op="fuse" oor:type="oor:string-list"><value><it>org.libreoffice.comp.pyuno.Lightproof.en</it></value></prop></item>
+<item oor:path="/org.openoffice.Office.Linguistic/ServiceManager/LastFoundGrammarCheckers"><prop oor:name="en-TT" oor:op="fuse" oor:type="oor:string-list"><value><it>org.libreoffice.comp.pyuno.Lightproof.en</it></value></prop></item>
+<item oor:path="/org.openoffice.Office.Linguistic/ServiceManager/LastFoundGrammarCheckers"><prop oor:name="en-US" oor:op="fuse" oor:type="oor:string-list"><value><it>org.libreoffice.comp.pyuno.Lightproof.en</it></value></prop></item>
+<item oor:path="/org.openoffice.Office.Linguistic/ServiceManager/LastFoundGrammarCheckers"><prop oor:name="en-ZA" oor:op="fuse" oor:type="oor:string-list"><value><it>org.libreoffice.comp.pyuno.Lightproof.en</it></value></prop></item>
+<item oor:path="/org.openoffice.Office.Linguistic/ServiceManager/LastFoundGrammarCheckers"><prop oor:name="en-ZW" oor:op="fuse" oor:type="oor:string-list"><value><it>org.libreoffice.comp.pyuno.Lightproof.en</it></value></prop></item>
+<item oor:path="/org.openoffice.Office.Linguistic/ServiceManager/LastFoundGrammarCheckers"><prop oor:name="pt-BR" oor:op="fuse" oor:type="oor:string-list"><value><it>org.libreoffice.comp.pyuno.Lightproof.pt_BR</it></value></prop></item>
+<item oor:path="/org.openoffice.Office.Linguistic/ServiceManager/SpellCheckerList"><prop oor:name="en-AU" oor:op="fuse" oor:type="oor:string-list"><value></value></prop></item>
+<item oor:path="/org.openoffice.Office.Linguistic/ServiceManager/SpellCheckerList"><prop oor:name="en-BS" oor:op="fuse" oor:type="oor:string-list"><value></value></prop></item>
+<item oor:path="/org.openoffice.Office.Linguistic/ServiceManager/SpellCheckerList"><prop oor:name="en-BZ" oor:op="fuse" oor:type="oor:string-list"><value></value></prop></item>
+<item oor:path="/org.openoffice.Office.Linguistic/ServiceManager/SpellCheckerList"><prop oor:name="en-CA" oor:op="fuse" oor:type="oor:string-list"><value></value></prop></item>
+<item oor:path="/org.openoffice.Office.Linguistic/ServiceManager/SpellCheckerList"><prop oor:name="en-GB" oor:op="fuse" oor:type="oor:string-list"><value></value></prop></item>
+<item oor:path="/org.openoffice.Office.Linguistic/ServiceManager/SpellCheckerList"><prop oor:name="en-GH" oor:op="fuse" oor:type="oor:string-list"><value></value></prop></item>
+<item oor:path="/org.openoffice.Office.Linguistic/ServiceManager/SpellCheckerList"><prop oor:name="en-IE" oor:op="fuse" oor:type="oor:string-list"><value></value></prop></item>
+<item oor:path="/org.openoffice.Office.Linguistic/ServiceManager/SpellCheckerList"><prop oor:name="en-IL" oor:op="fuse" oor:type="oor:string-list"><value></value></prop></item>
+<item oor:path="/org.openoffice.Office.Linguistic/ServiceManager/SpellCheckerList"><prop oor:name="en-IN" oor:op="fuse" oor:type="oor:string-list"><value></value></prop></item>
+<item oor:path="/org.openoffice.Office.Linguistic/ServiceManager/SpellCheckerList"><prop oor:name="en-JM" oor:op="fuse" oor:type="oor:string-list"><value></value></prop></item>
+<item oor:path="/org.openoffice.Office.Linguistic/ServiceManager/SpellCheckerList"><prop oor:name="en-MW" oor:op="fuse" oor:type="oor:string-list"><value></value></prop></item>
+<item oor:path="/org.openoffice.Office.Linguistic/ServiceManager/SpellCheckerList"><prop oor:name="en-NA" oor:op="fuse" oor:type="oor:string-list"><value></value></prop></item>
+<item oor:path="/org.openoffice.Office.Linguistic/ServiceManager/SpellCheckerList"><prop oor:name="en-NZ" oor:op="fuse" oor:type="oor:string-list"><value></value></prop></item>
+<item oor:path="/org.openoffice.Office.Linguistic/ServiceManager/SpellCheckerList"><prop oor:name="en-PH" oor:op="fuse" oor:type="oor:string-list"><value></value></prop></item>
+<item oor:path="/org.openoffice.Office.Linguistic/ServiceManager/SpellCheckerList"><prop oor:name="en-TT" oor:op="fuse" oor:type="oor:string-list"><value></value></prop></item>
+<item oor:path="/org.openoffice.Office.Linguistic/ServiceManager/SpellCheckerList"><prop oor:name="en-US" oor:op="fuse" oor:type="oor:string-list"><value></value></prop></item>
+<item oor:path="/org.openoffice.Office.Linguistic/ServiceManager/SpellCheckerList"><prop oor:name="en-ZA" oor:op="fuse" oor:type="oor:string-list"><value></value></prop></item>
+<item oor:path="/org.openoffice.Office.Linguistic/ServiceManager/SpellCheckerList"><prop oor:name="en-ZW" oor:op="fuse" oor:type="oor:string-list"><value></value></prop></item>
+<item oor:path="/org.openoffice.Office.Linguistic/ServiceManager/SpellCheckerList"><prop oor:name="pt-BR" oor:op="fuse" oor:type="oor:string-list"><value></value></prop></item>
+<item oor:path="/org.openoffice.Office.Linguistic/ServiceManager/SpellCheckerList"><prop oor:name="pt-PT" oor:op="fuse" oor:type="oor:string-list"><value></value></prop></item>
+<item oor:path="/org.openoffice.Office.Linguistic/ServiceManager/ThesaurusList"><prop oor:name="en-AU" oor:op="fuse" oor:type="oor:string-list"><value></value></prop></item>
+<item oor:path="/org.openoffice.Office.Linguistic/ServiceManager/ThesaurusList"><prop oor:name="en-BS" oor:op="fuse" oor:type="oor:string-list"><value></value></prop></item>
+<item oor:path="/org.openoffice.Office.Linguistic/ServiceManager/ThesaurusList"><prop oor:name="en-BZ" oor:op="fuse" oor:type="oor:string-list"><value></value></prop></item>
+<item oor:path="/org.openoffice.Office.Linguistic/ServiceManager/ThesaurusList"><prop oor:name="en-CA" oor:op="fuse" oor:type="oor:string-list"><value></value></prop></item>
+<item oor:path="/org.openoffice.Office.Linguistic/ServiceManager/ThesaurusList"><prop oor:name="en-GB" oor:op="fuse" oor:type="oor:string-list"><value></value></prop></item>
+<item oor:path="/org.openoffice.Office.Linguistic/ServiceManager/ThesaurusList"><prop oor:name="en-GH" oor:op="fuse" oor:type="oor:string-list"><value></value></prop></item>
+<item oor:path="/org.openoffice.Office.Linguistic/ServiceManager/ThesaurusList"><prop oor:name="en-IE" oor:op="fuse" oor:type="oor:string-list"><value></value></prop></item>
+<item oor:path="/org.openoffice.Office.Linguistic/ServiceManager/ThesaurusList"><prop oor:name="en-IL" oor:op="fuse" oor:type="oor:string-list"><value></value></prop></item>
+<item oor:path="/org.openoffice.Office.Linguistic/ServiceManager/ThesaurusList"><prop oor:name="en-IN" oor:op="fuse" oor:type="oor:string-list"><value></value></prop></item>
+<item oor:path="/org.openoffice.Office.Linguistic/ServiceManager/ThesaurusList"><prop oor:name="en-JM" oor:op="fuse" oor:type="oor:string-list"><value></value></prop></item>
+<item oor:path="/org.openoffice.Office.Linguistic/ServiceManager/ThesaurusList"><prop oor:name="en-MW" oor:op="fuse" oor:type="oor:string-list"><value></value></prop></item>
+<item oor:path="/org.openoffice.Office.Linguistic/ServiceManager/ThesaurusList"><prop oor:name="en-NA" oor:op="fuse" oor:type="oor:string-list"><value></value></prop></item>
+<item oor:path="/org.openoffice.Office.Linguistic/ServiceManager/ThesaurusList"><prop oor:name="en-NZ" oor:op="fuse" oor:type="oor:string-list"><value></value></prop></item>
+<item oor:path="/org.openoffice.Office.Linguistic/ServiceManager/ThesaurusList"><prop oor:name="en-PH" oor:op="fuse" oor:type="oor:string-list"><value></value></prop></item>
+<item oor:path="/org.openoffice.Office.Linguistic/ServiceManager/ThesaurusList"><prop oor:name="en-TT" oor:op="fuse" oor:type="oor:string-list"><value></value></prop></item>
+<item oor:path="/org.openoffice.Office.Linguistic/ServiceManager/ThesaurusList"><prop oor:name="en-US" oor:op="fuse" oor:type="oor:string-list"><value></value></prop></item>
+<item oor:path="/org.openoffice.Office.Linguistic/ServiceManager/ThesaurusList"><prop oor:name="en-ZA" oor:op="fuse" oor:type="oor:string-list"><value></value></prop></item>
+<item oor:path="/org.openoffice.Office.Linguistic/ServiceManager/ThesaurusList"><prop oor:name="en-ZW" oor:op="fuse" oor:type="oor:string-list"><value></value></prop></item>
+<item oor:path="/org.openoffice.Office.Linguistic/ServiceManager/ThesaurusList"><prop oor:name="pt-BR" oor:op="fuse" oor:type="oor:string-list"><value></value></prop></item>
+<item oor:path="/org.openoffice.Office.Linguistic/ServiceManager/ThesaurusList"><prop oor:name="pt-PT" oor:op="fuse" oor:type="oor:string-list"><value></value></prop></item>
+<item oor:path="/org.openoffice.Office.Logging/Settings"><node oor:name="unopkg" oor:op="replace"><prop oor:name="LogLevel" oor:op="fuse"><value>2147483647</value></prop><prop oor:name="DefaultHandler" oor:op="fuse"><value>com.sun.star.logging.FileHandler</value></prop><node oor:name="HandlerSettings"><prop oor:name="FileURL" oor:op="fuse"><value>$(userurl)/$(loggername).log</value></prop></node><prop oor:name="DefaultFormatter" oor:op="fuse"><value>com.sun.star.logging.PlainTextFormatter</value></prop><node oor:name="FormatterSettings"></node></node></item>
+<item oor:path="/org.openoffice.Office.Paths/Paths/org.openoffice.Office.Paths:NamedPath['Temp']"><prop oor:name="WritePath" oor:op="fuse"><value>file:///Z:/Temp</value></prop></item>
+<item oor:path="/org.openoffice.Office.Paths/Paths/org.openoffice.Office.Paths:NamedPath['Work']"><prop oor:name="WritePath" oor:op="fuse"><value>DEFAULT--WORK--PATH</value></prop></item>
+<item oor:path="/org.openoffice.Office.Views/Windows"><node oor:name="SplitWindow0" oor:op="replace"><prop oor:name="Visible" oor:op="fuse"><value xsi:nil="true"/></prop><node oor:name="UserData"><prop oor:name="UserItem" oor:op="fuse" oor:type="xs:string"><value>V1,2,0</value></prop></node><prop oor:name="WindowState" oor:op="fuse"><value xsi:nil="true"/></prop></node></item>
+<item oor:path="/org.openoffice.Office.Views/Windows"><node oor:name="SplitWindow1" oor:op="replace"><prop oor:name="Visible" oor:op="fuse"><value xsi:nil="true"/></prop><node oor:name="UserData"><prop oor:name="UserItem" oor:op="fuse" oor:type="xs:string"><value>V1,2,0</value></prop></node><prop oor:name="WindowState" oor:op="fuse"><value xsi:nil="true"/></prop></node></item>
+<item oor:path="/org.openoffice.Office.Views/Windows"><node oor:name="SplitWindow2" oor:op="replace"><prop oor:name="Visible" oor:op="fuse"><value xsi:nil="true"/></prop><node oor:name="UserData"><prop oor:name="UserItem" oor:op="fuse" oor:type="xs:string"><value>V1,2,0</value></prop></node><prop oor:name="WindowState" oor:op="fuse"><value xsi:nil="true"/></prop></node></item>
+<item oor:path="/org.openoffice.Office.Views/Windows"><node oor:name="SplitWindow3" oor:op="replace"><prop oor:name="Visible" oor:op="fuse"><value xsi:nil="true"/></prop><node oor:name="UserData"><prop oor:name="UserItem" oor:op="fuse" oor:type="xs:string"><value>V1,2,0</value></prop></node><prop oor:name="WindowState" oor:op="fuse"><value xsi:nil="true"/></prop></node></item>
+<item oor:path="/org.openoffice.Office.Writer/Layout/Other"><prop oor:name="ApplyCharUnit" oor:op="fuse"><value>false</value></prop></item>
+<item oor:path="/org.openoffice.Setup/L10N"><prop oor:name="ooLocale" oor:op="fuse"><value>pt-BR</value></prop></item>
+<item oor:path="/org.openoffice.Setup/L10N"><prop oor:name="ooSetupSystemLocale" oor:op="fuse"><value>pt-BR</value></prop></item>
+<item oor:path="/org.openoffice.Setup/Office/Factories/org.openoffice.Setup:Factory['com.sun.star.frame.StartModule']"><prop oor:name="ooSetupFactoryWindowAttributes" oor:op="fuse"><value>83,105,1424,722;1;1;0,0,0,0;</value></prop></item>
+<item oor:path="/org.openoffice.Setup/Office/Factories/org.openoffice.Setup:Factory['com.sun.star.sheet.SpreadsheetDocument']"><prop oor:name="ooSetupFactoryWindowAttributes" oor:op="fuse"><value>0,23,1024,745;1;,,,;</value></prop></item>
+<item oor:path="/org.openoffice.Setup/Office/Factories/org.openoffice.Setup:Factory['com.sun.star.text.TextDocument']"><prop oor:name="ooSetupFactoryWindowAttributes" oor:op="fuse"><value>0,23,1024,745;1;,,,;</value></prop></item>
+<item oor:path="/org.openoffice.Setup/Office"><prop oor:name="LastCompatibilityCheckID" oor:op="fuse"><value>e19e193f88cd6c0525a17fb7a176ed8e6a3e2aa1</value></prop></item>
+<item oor:path="/org.openoffice.Setup/Office"><prop oor:name="OfficeRestartInProgress" oor:op="fuse"><value>true</value></prop></item>
+<item oor:path="/org.openoffice.Setup/Office"><prop oor:name="ooSetupInstCompleted" oor:op="fuse"><value>true</value></prop></item>
+</oor:items>

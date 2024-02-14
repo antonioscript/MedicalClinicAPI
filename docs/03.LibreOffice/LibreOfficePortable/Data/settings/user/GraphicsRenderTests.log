@@ -1,0 +1,48 @@
+Graphics Backend used: gdi
+Passed Tests: 73
+Quirky Tests: 31
+Failed Tests: 0
+Skipped Tests: 5
+
+---Name of the tests that failed---
+No test has been failed.
+
+---Name of the tests that were Quirky---
+testDashedLine
+testLinearGradient
+testLinearGradientSteps
+testRadialGradient
+testDrawDropShapeAAWithPolyline
+testDrawDropShapeAAWithPolygon
+testHalfEllipseWithPolyLine
+testHalfEllipseAAWithPolyLine
+testHalfEllipseAAWithPolyLineB2D
+testHalfEllipseWithPolygon
+testHalfEllipseAAWithPolygon
+testClosedBezierWithPolyline
+testClosedBezierWithPolygon
+testFilledAsymmetricalDropShape
+testTextDrawing
+testDrawRectangleOnSize1028WithPixel
+testDrawRectangleOnSize4096WithPixel
+testDrawRectangleOnSize1028WithLine
+testDrawRectangleOnSize4096WithLine
+testDrawRectangleOnSize1028WithPolyLine
+testDrawRectangleOnSize4096WithPolyLine
+testDrawRectangleOnSize1028WithPolygon
+testDrawRectangleOnSize4096WithPolygon
+testDrawRectangleOnSize1028WithPolyLineB2D
+testDrawRectangleOnSize4096WithPolyLineB2D
+testDrawRectangleOnSize1028WithPolyPolygon
+testDrawRectangleOnSize4096WithPolyPolygon
+testDrawRectangleOnSize1028WithPolyPolygonB2D
+testDrawRectangleOnSize4096WithPolygonPolygonB2D
+testDrawOpenBezierWithPolyLine
+testDrawOpenBezierWithPolyLineB2D
+
+---Name of the tests that were Skipped---
+testDrawBitmap32bpp
+testDrawTransformedBitmap32bpp
+testDrawBitmapExWithAlpha32bpp
+testDrawMask32bpp
+testDrawBlend32bpp
