@@ -38,7 +38,19 @@ namespace MedicalClinic.Application.Features.Appointments.Commands
             var fileName = "FirstDoc.docx";
             var saveAspath = @"C:\Projects\MedicalClinicAPI\docs\2.DocumentProcessor\01.MedicalPrescriptionsPDF\";
 
-            var result = await _documentProcessor.CreateDocumentMedicalPrescription(templateFilePath, fileName, saveAspath);
+            // Palavras para substituição
+            string doctorName = "Dr. John Doe";
+            string patientName = "Jane Doe";
+            string consultValue = "$100.00";
+
+
+            var documentProperties = new Dictionary<string, string>();
+            documentProperties.Add("MD_DOCTOR_NAME", doctorName);
+            documentProperties.Add("MD_PATIENT_NAME", patientName);
+            documentProperties.Add("MD_VALOR", consultValue);
+
+
+            var result = await _documentProcessor.CreateDocumentMedicalPrescription(templateFilePath, fileName, saveAspath, documentProperties);
 
             return Result<string>.Success(result);
         }

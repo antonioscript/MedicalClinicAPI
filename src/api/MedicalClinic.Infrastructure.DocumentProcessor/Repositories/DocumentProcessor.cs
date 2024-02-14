@@ -3,6 +3,7 @@ using DocumentFormat.OpenXml.Wordprocessing;
 using DocXToPdfConverter;
 using MedicalClinic.Application.Interfaces.Shared;
 using MedicalClinic.Infrastructure.DocumentProcessor.Messages;
+using OpenXmlPowerTools;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,7 +16,7 @@ namespace MedicalClinic.Infrastructure.DocumentProcessor.Repositories
 {
     public class DocumentProcessor : Message, IDocumentProcessor
     {
-        public async Task<string> CreateDocumentMedicalPrescription(string templateFilePath, string fileName, string saveAsPath)
+        public async Task<string> CreateDocumentPdf(string templateFilePath, string fileName, string saveAsPath, Dictionary<string, string> documentProperties)
         {
 
             if (!File.Exists(templateFilePath))
@@ -33,25 +34,21 @@ namespace MedicalClinic.Infrastructure.DocumentProcessor.Repositories
                 throw new ArgumentException(String.Format(MESSAGE_WORD_DOCUMENT_EXTENSION, fileName));
             }
 
-
             string savePathDoc = saveAsPath + fileName;
 
             File.Copy(templateFilePath, savePathDoc, true);
 
-            // Palavras para substituição
-            string doctorName = "Dr. John Doe";
-            string patientName = "Jane Doe";
-            string consultValue = "$100.00";
+            
+            //Replace Properties
+            foreach (var documentProperty in documentProperties) 
+            {
+                await ReplaceTextInWordDocument(savePathDoc, documentProperty.Key, documentProperty.Value);
+            }
 
-            // Realiza as substituições no novo documento
-            ReplaceTextInWordDocument(savePathDoc, "MD_DOCTOR_NAME", doctorName);
-            ReplaceTextInWordDocument(savePathDoc, "MD_PATIENT_NAME", patientName);
-            ReplaceTextInWordDocument(savePathDoc, "MD_VALOR", consultValue);
-
-            //PDF
+            //Export As PDF
             string fileNameWithoutExtension = Path.GetFileNameWithoutExtension(fileName);
             var savePathPDf = $"{saveAsPath}{fileNameWithoutExtension}.pdf";
-            await CreateNewPdfMedicalPrescription(savePathDoc, savePathPDf);
+            await ExportAsPdf(savePathDoc, savePathPDf);
 
             //Delete DOC
             File.Delete(savePathDoc);
@@ -60,7 +57,7 @@ namespace MedicalClinic.Infrastructure.DocumentProcessor.Repositories
             return string.Format(MESSAGE_WORD_DOCUMENT_SUCCESS, savePathPDf);
         }
 
-        private void ReplaceTextInWordDocument(string documentPath, string placeholder, string replacement)
+        private async Task ReplaceTextInWordDocument(string documentPath, string placeholder, string replacement)
         {
             using (WordprocessingDocument wordDocument = WordprocessingDocument.Open(documentPath, true))
             {
@@ -75,7 +72,7 @@ namespace MedicalClinic.Infrastructure.DocumentProcessor.Repositories
             }
         }
 
-        private async Task CreateNewPdfMedicalPrescription(string templatePathInput, string templatePathOut)
+        private async Task ExportAsPdf(string templatePathInput, string templatePathOut)
         {
             string locationOfLibreOfficeSoffice = @"C:\Projects\MedicalClinicAPI\docs\03.LibreOffice\LibreOfficePortable\App\libreoffice\program\soffice.exe";
 
