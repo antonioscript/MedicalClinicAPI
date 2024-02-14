@@ -8,7 +8,7 @@ namespace MedicalClinic.Application.Interfaces.Shared
 {
     public interface IDocumentProcessor
     {
-        Task<string> CreateDocumentMedicalPrescription(string templateFilePath, string fileName, string saveAsPath, Dictionary<string, string> documentProperties);
+        Task<string> CreateDocumentPdf(string templateFilePath, string fileName, string saveAsPath, Dictionary<string, string> documentProperties);
 
     }
 }
