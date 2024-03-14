@@ -16,7 +16,7 @@ namespace MedicalClinic.Infrastructure.DocumentProcessor.Repositories
 {
     public class DocumentProcessor : Message, IDocumentProcessor
     {
-        public async Task<string> CreateDocumentPdf(string templateFilePath, string fileName, string saveAsPath, Dictionary<string, string> documentProperties)
+        public async Task<string> CreateDocumentPdf(string templateFilePath, string fileName, string saveAsPath, Dictionary<string, string> documentProperties, string textFooter)
         {
 
             if (!File.Exists(templateFilePath))
@@ -45,6 +45,9 @@ namespace MedicalClinic.Infrastructure.DocumentProcessor.Repositories
                 await ReplaceTextInWordDocument(savePathDoc, documentProperty.Key, documentProperty.Value);
             }
 
+            //Inserir rodapé
+            await InsertFooter(savePathDoc, textFooter);
+
             //Export As PDF
             string fileNameWithoutExtension = Path.GetFileNameWithoutExtension(fileName);
             var savePathPDf = $"{saveAsPath}{fileNameWithoutExtension}.pdf";
@@ -72,9 +75,50 @@ namespace MedicalClinic.Infrastructure.DocumentProcessor.Repositories
             }
         }
 
-        private async Task ExportAsPdf(string templatePathInput, string templatePathOut)
+        private async Task InsertFooter (string documentPath, string textFooter)
         {
+            using (WordprocessingDocument wordDoc = WordprocessingDocument.Open(documentPath, true))
+            {
+                // Obter a seção atual (pode haver várias seções no documento)
+                SectionProperties sectionProperties = wordDoc.MainDocumentPart.Document.Body.Elements<SectionProperties>().FirstOrDefault();
+
+                // Criar um novo rodapé
+                FooterPart footerPart = wordDoc.MainDocumentPart.AddNewPart<FooterPart>();
+                string footerPartId = wordDoc.MainDocumentPart.GetIdOfPart(footerPart);
+
+                // Adicionar conteúdo ao rodapé
+                var paragraph = new Paragraph(new Run(new Text(textFooter)))
+                {
+                    ParagraphProperties = new ParagraphProperties(new Justification() { Val = JustificationValues.Center })
+                };
+                var footer = new Footer(paragraph);
+                footer.Save(footerPart);
+
+                // Vincular o rodapé à seção
+                if (sectionProperties == null)
+                {
+                    sectionProperties = new SectionProperties();
+                    wordDoc.MainDocumentPart.Document.Body.Append(sectionProperties);
+                }
+
+                FooterReference footerReference = new FooterReference() { Type = HeaderFooterValues.Default, Id = footerPartId };
+                sectionProperties.InsertAt(footerReference, 0);
+
+                wordDoc.MainDocumentPart.Document.Save();
+            }
+        }
+
+        private async Task<string> ExportAsPdf(string templatePathInput, string templatePathOut)
+        {
+
+            // Caminho do novo documento
+            string templatePathInput2 = @"C:\Projects\MedicalClinicAPI\docs\2.DocumentProcessor\01.MedicalPrescriptionsPDF\FirstDoc.docx";
+            //string templatePathInput2 = @"C:\Projects\Análises\WordProcessor\MedicalPrescriptions\NewDocument.docx";
+            //string templatePathOut2 = @"C:\Projects\Análises\WordProcessor\MedicalPrescriptions\NewDocument.pdf";
+            string templatePathOut2 = @"C:\Projects\MedicalClinicAPI\docs\2.DocumentProcessor\01.MedicalPrescriptionsPDF\FirstDoc.pdf";
+
             string locationOfLibreOfficeSoffice = @"C:\Projects\MedicalClinicAPI\docs\03.LibreOffice\LibreOfficePortable\App\libreoffice\program\soffice.exe";
+            //string locationOfLibreOfficeSoffice = @"C:\Projects\Análises\WordProcessor\LibreOfficePortable\App\libreoffice\program\soffice.exe";
 
             var placeholders = new Placeholders();
 
@@ -85,12 +129,13 @@ namespace MedicalClinic.Infrastructure.DocumentProcessor.Repositories
             placeholders.TablePlaceholderEndTag = "==";
             placeholders.ImagePlaceholderStartTag = "++";
             placeholders.ImagePlaceholderEndTag = "++";
-
             // initialize report generator
-            var reportGenerator = new ReportGenerator(locationOfLibreOfficeSoffice);
+            var test = new ReportGenerator(locationOfLibreOfficeSoffice);
 
             // convert DOCX to PDF
-            reportGenerator.Convert(templatePathInput, templatePathOut, placeholders);
+            test.Convert(templatePathInput2, templatePathOut2, placeholders);
+
+            return templatePathOut2;
         }
     }
 }

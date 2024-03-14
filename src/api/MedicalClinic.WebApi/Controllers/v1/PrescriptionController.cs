@@ -2,6 +2,7 @@
 using MedicalClinic.Application.DTOs.Prescription;
 using MedicalClinic.Application.Features.Prescriptions.Commands;
 using MedicalClinic.Application.Features.Prescriptions.Queries;
+using MedicalClinic.Application.Features.Prescriptions.SpecificCommands;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -77,6 +78,13 @@ namespace MedicalClinic.WebApi.Controllers.v1
         public async Task<IActionResult> Delete(int id)
         {
             return Ok(await _mediator.Send(new DeletePrescriptionCommand { Id = id }));
+        }
+
+        [HttpPost("ExportPrescriptionAsPDF")]
+        [AllowAnonymous]
+        public async Task<IActionResult> PostPdf(CreatePdfPrescriptionCommand command)
+        {
+            return Ok(await _mediator.Send(command));
         }
     }
 }
