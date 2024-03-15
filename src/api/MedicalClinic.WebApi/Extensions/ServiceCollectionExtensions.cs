@@ -14,6 +14,7 @@ namespace MedicalClinic.WebApi.Extensions
         {
             services.AddScoped<IAppointmentRules, AppointmentRules>();
             services.AddScoped<ISpecialtyRules, SpecialtyRules>();
+            services.AddScoped<IPrescriptionRules, PrescriptionRules>();
             services.AddScoped<IDocumentProcessor, DocumentProcessor>();
         }
 
