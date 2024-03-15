@@ -33,7 +33,7 @@ namespace MedicalClinic.Application.Features.Prescriptions.Commands
 
                 if (result == null)
                 {
-                    return Result<int>.Fail(string.Format(SharedResource.MESSAGE_PRESCRIPTION_EXISTS, command.Id));
+                    return Result<int>.Fail(string.Format(SharedResource.MESSAGE_PRESCRIPTION_NOT_FOUND, command.Id));
                 }
                 else
                 {

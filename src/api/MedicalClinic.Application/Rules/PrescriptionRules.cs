@@ -1,6 +1,7 @@
 ﻿using MedicalClinic.Application.Constants;
 using MedicalClinic.Application.Interfaces.Repositories.Entities;
 using MedicalClinic.Application.Interfaces.Rules;
+using MedicalClinic.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace MedicalClinic.Application.Rules
@@ -24,17 +25,10 @@ namespace MedicalClinic.Application.Rules
         }
 
        
-        public async Task<Dictionary<string, string>> GetPropertiesMedicalPrescriptionPdf(int appointmentId)
+        public async Task<Dictionary<string, string>> GetPropertiesMedicalPrescriptionPdf(Appointment appointment)
         {
-            var appointment = await _appointmentRepository.Entities
-                .Where(a => a.Id == appointmentId)
-                .Include(a => a.Patient)
-                .Include(a => a.Doctor)
-                .AsNoTracking()
-                .FirstOrDefaultAsync();
-
             var prescription = await _prescriptionRepository.Entities
-                .Where(p => p.AppointmentId == appointmentId)
+                .Where(p => p.AppointmentId == appointment.Id)
                 .AsNoTracking()
                 .FirstOrDefaultAsync();
 
@@ -81,18 +75,18 @@ namespace MedicalClinic.Application.Rules
             return documentProperties;
         }
 
-        public async Task<string> GetFooterMedicalPrescriptionPdf(int appointmentId)
+        public string GetFooterMedicalPrescriptionPdf(Appointment appointment)
         {
-            var appointment = await _appointmentRepository.Entities
-                .Where(a => a.Id == appointmentId)
-                .Include(a => a.Doctor)
-                .AsNoTracking()
-                .FirstOrDefaultAsync();
-
             string doctorName = $"{appointment.Doctor.FirstName} {appointment.Doctor.LastName}";
             string doctorCrm = appointment.Doctor.Crm;
 
             return $"{PrescriptionConstants.AcronymDoctor} {doctorName} - {PrescriptionConstants.CrmDoctor} {doctorCrm}";
+        }
+
+        public string GetDocumentNameForPrescription(Appointment appointment)
+        {
+            var randomNumber = new Random();
+            return $"{appointment.Id}-{appointment.Patient.Id}-{randomNumber.Next(100000000, 999999999)}.docx";
         }
     }
 }
