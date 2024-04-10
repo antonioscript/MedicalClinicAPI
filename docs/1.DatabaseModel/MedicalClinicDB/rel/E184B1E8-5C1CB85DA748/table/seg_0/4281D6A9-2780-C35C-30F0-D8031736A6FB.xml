@@ -1,0 +1,108 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="4281D6A9-2780-C35C-30F0-D8031736A6FB" schemaObject="6B374BDA-32BE-BB34-9CFF-AFA5E6292D1F" name="DocumentParameter">
+<createdBy>Antônio Rocha</createdBy>
+<createdTime>2024-03-21 00:54:16 UTC</createdTime>
+<commentInRDBMS><![CDATA[Keeps the output settings for PDF documents]]></commentInRDBMS>
+<ownerDesignName>MedicalClinicDB</ownerDesignName>
+<ordsAlias>table_14</ordsAlias>
+<beforeCreate><![CDATA[GO
+IF EXISTS(SELECT * FROM sys.sysobjects WHERE NAME = '{table}' AND xtype = 'U')
+BEGIN
+	DROP TABLE {schema}.{table};
+END
+GO]]></beforeCreate>
+<shouldGeneratescript>true</shouldGeneratescript>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="DocumentParameterId" id="65D2660A-98C5-635C-2E35-6892784A3E99">
+<createdBy>Antônio Rocha</createdBy>
+<createdTime>2024-03-21 00:55:47 UTC</createdTime>
+<commentInRDBMS><![CDATA[Identificador único da tabela DocumentConfiguration]]></commentInRDBMS>
+<ownerDesignName>MedicalClinicDB</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<identityColumn>true</identityColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="LocalizationDocumentInput" id="C661B017-6EE4-9AE5-0F1C-546297562C4D">
+<createdBy>Antônio Rocha</createdBy>
+<createdTime>2024-03-21 00:58:27 UTC</createdTime>
+<commentInRDBMS><![CDATA[Location of the input template for document creation]]></commentInRDBMS>
+<ownerDesignName>MedicalClinicDB</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>200</dataTypeSize>
+<ownDataTypeParameters>200,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="LocalizationDocumentOutput" id="07F4DE36-AAA9-D36A-FC44-1A0437B40493">
+<createdBy>Antônio Rocha</createdBy>
+<createdTime>2024-03-21 00:58:58 UTC</createdTime>
+<commentInRDBMS><![CDATA[Location of the newly generated document]]></commentInRDBMS>
+<ownerDesignName>MedicalClinicDB</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>200</dataTypeSize>
+<ownDataTypeParameters>200,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="LocalizationLibreOffice" id="EA8875E0-3848-FC71-F1C1-9D155EA01F7E">
+<createdBy>Antônio Rocha</createdBy>
+<createdTime>2024-03-21 00:59:15 UTC</createdTime>
+<commentInRDBMS><![CDATA[Location of the Libre Office configuration file]]></commentInRDBMS>
+<ownerDesignName>MedicalClinicDB</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>200</dataTypeSize>
+<ownDataTypeParameters>200,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DocumentType" id="1AC1ECFA-FA80-0B27-1B94-66C7D201C458">
+<createdBy>Antônio Rocha</createdBy>
+<createdTime>2024-03-21 01:01:53 UTC</createdTime>
+<commentInRDBMS><![CDATA[Type of document:
+0: Prescription
+1: Procedures]]></commentInRDBMS>
+<ownerDesignName>MedicalClinicDB</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT042</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="C2307D61-8396-7CD6-B55B-B68A711C9EA9" name="PK_DocumentParameter">
+<createdBy>Antônio Rocha</createdBy>
+<createdTime>2024-03-21 00:55:47 UTC</createdTime>
+<ownerDesignName>MedicalClinicDB</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="65D2660A-98C5-635C-2E35-6892784A3E99"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="16C3988A-AD03-F3C3-DBA3-4A3876C08D45" name="UK_DocumentParameter">
+<createdBy>Antônio Rocha</createdBy>
+<createdTime>2024-03-21 01:07:59 UTC</createdTime>
+<ownerDesignName>MedicalClinicDB</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="C661B017-6EE4-9AE5-0F1C-546297562C4D"/>
+<colUsage columnID="07F4DE36-AAA9-D36A-FC44-1A0437B40493"/>
+<colUsage columnID="EA8875E0-3848-FC71-F1C1-9D155EA01F7E"/>
+<colUsage columnID="1AC1ECFA-FA80-0B27-1B94-66C7D201C458"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

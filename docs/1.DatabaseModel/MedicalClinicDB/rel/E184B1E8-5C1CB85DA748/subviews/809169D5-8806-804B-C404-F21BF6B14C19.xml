@@ -38,6 +38,10 @@
 <hideElementsInCurrentOnly>false</hideElementsInCurrentOnly>
 <bounds x="869" y="469" width="235" height="259"/>
 </OView>
+<OView class="oracle.dbtools.crest.swingui.relational.TVTable" oid="4281D6A9-2780-C35C-30F0-D8031736A6FB" otype="Table" vid="35E11A83-30E1-E175-B9CE-175EFECDE04B">
+<hideElementsInCurrentOnly>false</hideElementsInCurrentOnly>
+<bounds x="1890" y="426" width="277" height="140"/>
+</OView>
 <OView class="oracle.dbtools.crest.swingui.relational.TVTable" oid="496775D9-AA41-1F21-491E-22A71E9E3FC7" otype="Table" vid="793B912F-BAF8-FB55-6F12-B3538776131C">
 <hideElementsInCurrentOnly>false</hideElementsInCurrentOnly>
 <bounds x="143" y="352" width="233" height="169"/>

@@ -67,6 +67,7 @@ namespace MedicalClinic.Infrastructure.MedicalClinic.Infrastructure.DbContexts
             builder.ApplyConfiguration(new MedicationConfiguration());
             builder.ApplyConfiguration(new ForwardingConfiguration());
             builder.ApplyConfiguration(new CanceledAppointmentConfiguration());
+            builder.ApplyConfiguration(new DocumentParameterConfiguration());
 
         }
     }
