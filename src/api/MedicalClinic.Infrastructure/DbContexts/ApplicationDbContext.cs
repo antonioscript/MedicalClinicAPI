@@ -5,10 +5,11 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using MedicalClinic.Domain.Entities;
 using System.Data;
 using MedicalClinic.Infrastructure.EntitiesConfiguration;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace MedicalClinic.Infrastructure.MedicalClinic.Infrastructure.DbContexts
 {
-    public partial class ApplicationDbContext : DbContext
+    public partial class ApplicationDbContext :  IdentityDbContext//DbContext
     {
         public ApplicationDbContext()
         {
