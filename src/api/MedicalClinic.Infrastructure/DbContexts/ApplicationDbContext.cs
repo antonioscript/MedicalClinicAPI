@@ -6,6 +6,7 @@ using MedicalClinic.Domain.Entities;
 using System.Data;
 using MedicalClinic.Infrastructure.EntitiesConfiguration;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using MedicalClinic.Application.DTOs.Identity;
 
 namespace MedicalClinic.Infrastructure.MedicalClinic.Infrastructure.DbContexts
 {
@@ -36,6 +37,7 @@ namespace MedicalClinic.Infrastructure.MedicalClinic.Infrastructure.DbContexts
         public virtual DbSet<Prescription> Prescriptions { get; set; } = null!;
         public virtual DbSet<Medication> Medications { get; set; } = null!;
         public virtual DbSet<Forwarding> Forwardings { get; set; } = null!;
+        public virtual DbSet<RefreshToken> RefreshTokens { get; set; } = null!;
         //public virtual DbSet<CanceledAppointment> CanceledAppointments { get; set; } = null!;
 
 

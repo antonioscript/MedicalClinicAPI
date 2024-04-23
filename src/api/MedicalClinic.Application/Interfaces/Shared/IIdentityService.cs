@@ -13,6 +13,7 @@ namespace MedicalClinic.Application.Interfaces.Shared
     {
         Task<Result<UserResponse>> Register(RegisterRequest request);
         Task<Result<UserResponse>> SignIn(LoginRequest request);
-        Task<string> GenerateToken(IdentityUser user);
+        Task<TokenResponse> GenerateToken(IdentityUser user);
+        Task<Result<UserResponse>> GetTokenByRefresh(string token);
     }
 }

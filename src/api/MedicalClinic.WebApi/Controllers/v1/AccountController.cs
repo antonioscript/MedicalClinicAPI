@@ -3,6 +3,7 @@ using MedicalClinic.Application.Interfaces.Shared;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.IdentityModel.Tokens;
 
 namespace MedicalClinic.WebApi.Controllers.v1
 {
@@ -28,6 +29,14 @@ namespace MedicalClinic.WebApi.Controllers.v1
         public async Task<IActionResult> Login([FromBody] LoginRequest request)
         {
             return Ok(await _identityService.SignIn(request));
+        }
+
+        [HttpPost("RefreshToken")]
+        [AllowAnonymous]
+        public async Task<IActionResult> GetTokenByRefreshToken(RefreshTokenRequest refreshToken)
+        {
+            var token = await _identityService.GetTokenByRefresh(refreshToken.RefreshToken);
+            return Ok(token);
         }
     }
 }

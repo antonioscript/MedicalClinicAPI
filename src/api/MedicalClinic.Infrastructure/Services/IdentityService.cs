@@ -1,10 +1,11 @@
 ﻿using MedicalClinic.Application.DTOs.Identity;
-using MedicalClinic.Application.DTOs.Settings;
 using MedicalClinic.Application.Exceptions;
 using MedicalClinic.Application.Interfaces.Shared;
+using MedicalClinic.Infrastructure.MedicalClinic.Infrastructure.DbContexts;
 using MedicalClinic.Infrastructure.Shared.Results;
 using MedicalClinic.Resource.Resources;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
@@ -12,7 +13,6 @@ using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
 using System.Text.Json;
-using System.Threading.Tasks;
 
 namespace MedicalClinic.Infrastructure.Services
 {
@@ -20,13 +20,16 @@ namespace MedicalClinic.Infrastructure.Services
     {
         private readonly UserManager<IdentityUser> _userManager;
         private readonly IConfiguration _configuration;
+        private readonly ApplicationDbContext _applicationDbContext;
         public IdentityService(
                 UserManager<IdentityUser> userManager,
-                IConfiguration configuration
+                IConfiguration configuration,
+                ApplicationDbContext applicationDbContext
             )
         {
             _userManager = userManager;
             _configuration = configuration;
+            _applicationDbContext = applicationDbContext;
         }
         public async Task<Result<UserResponse>> Register(RegisterRequest request)
         {
@@ -50,14 +53,13 @@ namespace MedicalClinic.Infrastructure.Services
             {
                 //Generate the token
                 var token = await GenerateToken(newUser);
-                var refreshToken = GenerateRefreshToken(newUser);
 
                 var userResponse = new UserResponse()
                 {
                     Username = request.Name,
                     Email = request.Email,
-                    Token = token,
-                    RefreshToken = refreshToken.Token
+                    Token = token.Token,
+                    RefreshToken = token.RefreshToken
                 };
                 return Result<UserResponse>.Success(userResponse);
             }
@@ -85,20 +87,19 @@ namespace MedicalClinic.Infrastructure.Services
             }
 
             var token = await GenerateToken(user);
-            var refreshToken = GenerateRefreshToken(user);
 
             var userResponse = new UserResponse()
             {
                 Username = user.UserName,
                 Email = user.Email,
-                Token = token,
-                RefreshToken = refreshToken.Token
+                Token = token.Token,
+                RefreshToken = token.RefreshToken
             };
 
             return Result<UserResponse>.Success(userResponse);
         }
 
-        public async Task<string> GenerateToken(IdentityUser user)
+        public async Task<TokenResponse> GenerateToken(IdentityUser user)
         {
             var jwtTokenHandler = new JwtSecurityTokenHandler();
             var key = Encoding.UTF8.GetBytes(_configuration.GetSection("JwtConfig:Secret").Value);
@@ -122,7 +123,83 @@ namespace MedicalClinic.Infrastructure.Services
             var token = jwtTokenHandler.CreateToken(tokenDescriptor);
             var tokenString = jwtTokenHandler.WriteToken(token);
 
-            return tokenString;
+            var refreshTokenGenerate = GenerateRefreshToken(user);
+
+            var refreshToken = new RefreshToken()
+            {
+                JwtId = token.Id,
+                Token = refreshTokenGenerate.Token,
+                AddedDate = DateTime.UtcNow,
+                ExpiryDate = DateTime.UtcNow.AddMonths(6),
+                IsRevoked = false,
+                IsUsed = false, 
+                UserId = user.Id
+            };
+
+            await _applicationDbContext.RefreshTokens.AddAsync(refreshToken);
+            await _applicationDbContext.SaveChangesAsync();
+
+            var tokenResponse = new TokenResponse()
+            {
+                Token = tokenString,
+                RefreshToken = refreshTokenGenerate.Token
+            };
+
+            return tokenResponse;
+        }
+
+        public async Task<Result<UserResponse>> GetTokenByRefresh(string token)
+        {
+            var refreshToken = await _applicationDbContext.RefreshTokens
+                .FirstOrDefaultAsync(r => r.Token == token);
+
+            var user = await _userManager.FindByIdAsync(refreshToken.UserId);
+
+            var newToken = await GenerateToken(user);
+            var newRefreshToken = GenerateRefreshToken(user);
+
+            var userResponse = new UserResponse()
+            {
+                Username = user.UserName,
+                Email = user.Email,
+                Token = newToken.Token,
+                RefreshToken = newToken.RefreshToken
+            };
+
+            return Result<UserResponse>.Success(userResponse);
+        }
+
+        private RefreshToken DecodeRefreshToken(string token)
+        {
+            var hashDecrypted = DecryptString("0d3W3raEDMm5QqayEG2s4eiPHVHX9mvzRscjLe6YCh0GbpLYcQ", token);
+
+            var refreshToken = JsonSerializer.Deserialize<RefreshToken>(hashDecrypted);
+
+            return refreshToken;
+        }
+
+        private string DecryptString(string key, string cipherText)
+        {
+            byte[] iv = new byte[16];
+            byte[] buffer = Convert.FromBase64String(cipherText);
+
+            using (Aes aes = Aes.Create())
+            {
+                aes.Key = Encoding.UTF8.GetBytes(key);
+                aes.IV = iv;
+                ICryptoTransform decryptor = aes.CreateDecryptor(aes.Key, aes.IV);
+
+                using (MemoryStream memoryStream = new MemoryStream(buffer))
+                {
+                    using (CryptoStream cryptoStream = new CryptoStream((Stream)memoryStream, decryptor, CryptoStreamMode.Read))
+                    {
+                        using (StreamReader streamReader = new StreamReader((Stream)cryptoStream))
+                        {
+                            return streamReader.ReadToEnd();
+                        }
+                    }
+                }
+            }
         }
 
         private RefreshToken GenerateRefreshToken(IdentityUser user)
@@ -142,7 +219,7 @@ namespace MedicalClinic.Infrastructure.Services
         private string EncryptString(int length)
         {
             var random = new Random();
-            var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYX1234567890abcdefghijklmnopqrstuvwxyz_";
+            var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYX1234567890abcdefghijklmnopqrstuvwxyz";
 
             return new string(Enumerable.Repeat(chars, length)
                 .Select(s => s[random.Next(s.Length)])
