@@ -1,5 +1,5 @@
-﻿using MediatR;
-using MedicalClinic.Application.DTOs.Identity;
+﻿using MedicalClinic.Application.DTOs.Identity;
+using MedicalClinic.Application.DTOs.Settings;
 using MedicalClinic.Application.Exceptions;
 using MedicalClinic.Application.Interfaces.Shared;
 using MedicalClinic.Infrastructure.Shared.Results;
@@ -7,12 +7,9 @@ using MedicalClinic.Resource.Resources;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
-using System;
-using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
-using System.Linq;
-using System.Runtime.ConstrainedExecution;
 using System.Security.Claims;
+using System.Security.Cryptography;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
@@ -53,12 +50,14 @@ namespace MedicalClinic.Infrastructure.Services
             {
                 //Generate the token
                 var token = await GenerateToken(newUser);
+                var refreshToken = GenerateRefreshToken(newUser);
 
                 var userResponse = new UserResponse()
                 {
                     Username = request.Name,
                     Email = request.Email,
-                    Token = token
+                    Token = token,
+                    RefreshToken = refreshToken.Token
                 };
                 return Result<UserResponse>.Success(userResponse);
             }
@@ -86,12 +85,14 @@ namespace MedicalClinic.Infrastructure.Services
             }
 
             var token = await GenerateToken(user);
+            var refreshToken = GenerateRefreshToken(user);
 
             var userResponse = new UserResponse()
             {
                 Username = user.UserName,
                 Email = user.Email,
-                Token = token
+                Token = token,
+                RefreshToken = refreshToken.Token
             };
 
             return Result<UserResponse>.Success(userResponse);
@@ -121,7 +122,31 @@ namespace MedicalClinic.Infrastructure.Services
             var token = jwtTokenHandler.CreateToken(tokenDescriptor);
             var tokenString = jwtTokenHandler.WriteToken(token);
 
-            return jwtTokenHandler.WriteToken(token);
+            return tokenString;
+        }
+
+        private RefreshToken GenerateRefreshToken(IdentityUser user)
+        {
+            var refreshToken = new RefreshToken
+            {
+                UserId = user.Id,
+                // ExpiryDate = DateTime.UtcNow.AddMinutes(int.Parse(_configuration.GetSection("JwtConfig:Secret").Value)),
+                ExpiryDate = DateTime.UtcNow.AddMinutes(2160),
+                AddedDate = DateTime.UtcNow,
+                Token = EncryptString(23)
+            };
+
+            return refreshToken;
+        }
+
+        private string EncryptString(int length)
+        {
+            var random = new Random();
+            var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYX1234567890abcdefghijklmnopqrstuvwxyz_";
+
+            return new string(Enumerable.Repeat(chars, length)
+                .Select(s => s[random.Next(s.Length)])
+                .ToArray());
         }
     }
 }

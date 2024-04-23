@@ -9,5 +9,7 @@ namespace MedicalClinic.Application.DTOs.Settings
     public class JwtConfig
     {
         public string Secret { get; set; }
+        public int DurationInMinutes { get; set; }
+        public int RefreshTokenExpireInMinutes { get; set; }
     }
 }
