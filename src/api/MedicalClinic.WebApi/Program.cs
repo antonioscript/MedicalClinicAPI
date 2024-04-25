@@ -92,13 +92,9 @@ builder.Services.AddAuthentication(options =>
         };
     });
 
-
 builder.Services.AddRepositories();
-
 builder.Services.AddSystemBusinessRules();
-
 builder.Services.AddEssentials();
-
 
 //builder.Services.AddMediatR(Assembly.GetExecutingAssembly());
 builder.Services.AddMediatR(AppDomain.CurrentDomain.GetAssemblies());

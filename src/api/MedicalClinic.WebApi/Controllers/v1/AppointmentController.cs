@@ -20,7 +20,7 @@ namespace MedicalClinic.WebApi.Controllers.v1
         }
 
         [HttpGet]
-        [AllowAnonymous]
+        [Authorize]
         public async Task<IActionResult> GetAll()
         {
             var results = await _mediator.Send(new GetAllAppointmentQuery());
