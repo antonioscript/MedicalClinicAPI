@@ -48,6 +48,9 @@ namespace MedicalClinic.Resource.Resources
         public const string MESSAGE_IDENTITY_USER_NOT_FOUND = "No user was found with the email '{0}'";
         public const string MESSAGE_IDENTITY_PASSWORD_INVALID = "The password is incorrect";
 
+        public const string MESSAGE_GENERAL_NOT_AUTHORIZED = "You are not logged in, log in or create registration to access all the resources";
+        public const string MESSAGE_GENERAL_NOT_AUTHORIZED_RESOURCE = "You are not authorized to access this resources";
+
 
 
     }
