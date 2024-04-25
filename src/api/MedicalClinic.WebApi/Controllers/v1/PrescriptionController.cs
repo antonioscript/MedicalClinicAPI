@@ -80,12 +80,12 @@ namespace MedicalClinic.WebApi.Controllers.v1
             return Ok(await _mediator.Send(new DeletePrescriptionCommand { Id = id }));
         }
 
-        [HttpPost("ExportPrescriptionAsPDF")]
-        [AllowAnonymous]
-        public async Task<IActionResult> PostPdf(CreatePdfPrescriptionCommand command)
-        {
-            return Ok(await _mediator.Send(command));
-        }
+        //[HttpPost("ExportPrescriptionAsPDF")]
+        //[AllowAnonymous]
+        //public async Task<IActionResult> PostPdf(CreatePdfPrescriptionCommand command)
+        //{
+        //    return Ok(await _mediator.Send(command));
+        //}
     }
 }
 
