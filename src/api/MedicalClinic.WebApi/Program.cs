@@ -22,6 +22,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlSer
 builder.Services.Configure<JwtConfig>(builder.Configuration.GetSection("JwtConfig"));
 
 //Adicionar Autenticação***
+#region Authentication
 builder.Services.AddAuthentication(options =>
 {
     options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -91,6 +92,7 @@ builder.Services.AddAuthentication(options =>
             },
         };
     });
+#endregion
 
 builder.Services.AddRepositories();
 builder.Services.AddSystemBusinessRules();
@@ -114,7 +116,6 @@ options =>
     options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
 });
 
-
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -124,7 +125,11 @@ var app = builder.Build();
 
 // Configure the HTTP request pipeline.
 app.UseSwagger();
-app.UseSwaggerUI();
+app.UseSwaggerUI(o =>
+{
+    //Collaps all Swagger UI groups
+    o.DocExpansion(Swashbuckle.AspNetCore.SwaggerUI.DocExpansion.None);
+});
 
 app.UseSwaggerUI(options =>
 {
@@ -138,11 +143,9 @@ app.UseCors("AllowAll");
 
 //Incluir Autenticação***
 app.UseAuthentication();
-
 app.UseAuthorization();
 
 app.MapControllers();
-
 app.UseMiddleware<ErrorHandlerMiddleware>();
 
 app.Run();
