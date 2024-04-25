@@ -1,6 +1,9 @@
 ﻿using MedicalClinic.Application.DTOs.Identity;
 using MedicalClinic.Application.Exceptions;
+using MedicalClinic.Application.Interfaces.Repositories;
+using MedicalClinic.Application.Interfaces.Repositories.Entities;
 using MedicalClinic.Application.Interfaces.Shared;
+using MedicalClinic.Domain.Entities.Identity;
 using MedicalClinic.Infrastructure.MedicalClinic.Infrastructure.DbContexts;
 using MedicalClinic.Infrastructure.Shared.Results;
 using MedicalClinic.Resource.Resources;
@@ -20,16 +23,19 @@ namespace MedicalClinic.Infrastructure.Services
     {
         private readonly UserManager<IdentityUser> _userManager;
         private readonly IConfiguration _configuration;
-        private readonly ApplicationDbContext _applicationDbContext;
+        private readonly IRefreshTokenRepository _refreshTokenRepository;
+        private readonly IUnitOfWork _unitOfWork;
         public IdentityService(
                 UserManager<IdentityUser> userManager,
                 IConfiguration configuration,
-                ApplicationDbContext applicationDbContext
+                IRefreshTokenRepository refreshTokenRepository,
+                IUnitOfWork unitOfWork
             )
         {
             _userManager = userManager;
             _configuration = configuration;
-            _applicationDbContext = applicationDbContext;
+            _refreshTokenRepository = refreshTokenRepository;
+            _unitOfWork = unitOfWork;
         }
         public async Task<Result<UserResponse>> Register(RegisterRequest request)
         {
@@ -136,8 +142,10 @@ namespace MedicalClinic.Infrastructure.Services
                 UserId = user.Id
             };
 
-            await _applicationDbContext.RefreshTokens.AddAsync(refreshToken);
-            await _applicationDbContext.SaveChangesAsync();
+            var cancellationToken = new CancellationToken();
+
+            await _refreshTokenRepository.AddAsync(refreshToken);
+            await _unitOfWork.Commit(cancellationToken);
 
             var tokenResponse = new TokenResponse()
             {
@@ -150,7 +158,7 @@ namespace MedicalClinic.Infrastructure.Services
 
         public async Task<Result<UserResponse>> GetTokenByRefresh(string token)
         {
-            var refreshToken = await _applicationDbContext.RefreshTokens
+            var refreshToken = await _refreshTokenRepository.Entities
                 .FirstOrDefaultAsync(r => r.Token == token);
 
             var user = await _userManager.FindByIdAsync(refreshToken.UserId);

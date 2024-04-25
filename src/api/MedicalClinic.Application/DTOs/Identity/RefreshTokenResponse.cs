@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MedicalClinic.Application.DTOs.Identity
 {
-    public class RefreshToken
+    public class RefreshTokenResponse
     {
         public int Id { get; set; }
 

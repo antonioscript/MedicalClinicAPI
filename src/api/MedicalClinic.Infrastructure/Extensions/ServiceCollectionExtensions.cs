@@ -28,6 +28,7 @@ namespace MedicalClinic.Infrastructure.Extensions
             services.AddTransient<IMedicationRepository, MedicationRepository>();
             services.AddTransient<IForwardingRepository, ForwardingRepository>();
             services.AddTransient<ICanceledAppointmentRepository, CanceledAppointmentRepository>();
+            services.AddTransient<IRefreshTokenRepository, RefreshTokenRepository>();
         }
     }
 }
