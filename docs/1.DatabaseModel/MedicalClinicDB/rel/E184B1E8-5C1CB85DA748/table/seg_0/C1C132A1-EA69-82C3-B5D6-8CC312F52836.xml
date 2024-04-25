@@ -1,0 +1,119 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="C1C132A1-EA69-82C3-B5D6-8CC312F52836" schemaObject="6B374BDA-32BE-BB34-9CFF-AFA5E6292D1F" name="RefreshTokens ">
+<createdBy>asilva</createdBy>
+<createdTime>2024-04-25 00:42:34 UTC</createdTime>
+<commentInRDBMS><![CDATA[he RefreshTokens table is designed to store information related to refresh tokens used in token-based authentication systems]]></commentInRDBMS>
+<ownerDesignName>MedicalClinicDB</ownerDesignName>
+<ordsAlias>table_14</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="Id" id="AA740F82-2872-6F3F-A256-F61BD637C1B3">
+<createdBy>asilva</createdBy>
+<createdTime>2024-04-25 00:44:00 UTC</createdTime>
+<commentInRDBMS><![CDATA[An auto-incremented integer serving as the primary key for the table]]></commentInRDBMS>
+<ownerDesignName>MedicalClinicDB</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<identityColumn>true</identityColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="UserId " id="8E8B9D84-180F-362C-398A-FAF0B8F9981C">
+<createdBy>asilva</createdBy>
+<createdTime>2024-04-25 00:54:14 UTC</createdTime>
+<commentInRDBMS><![CDATA[A string representing the unique identifier of the user associated with the refresh token.]]></commentInRDBMS>
+<ownerDesignName>MedicalClinicDB</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT037</logicalDatatype>
+<dataTypeSize>MAX</dataTypeSize>
+<ownDataTypeParameters>MAX,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Token" id="9465D5C0-CFF1-0CD2-CFB6-3D755D387E31">
+<createdBy>asilva</createdBy>
+<createdTime>2024-04-25 00:54:31 UTC</createdTime>
+<commentInRDBMS><![CDATA[A string storing the refresh token itself.]]></commentInRDBMS>
+<ownerDesignName>MedicalClinicDB</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT037</logicalDatatype>
+<dataTypeSize>MAX</dataTypeSize>
+<ownDataTypeParameters>MAX,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="JwtId " id="8D1CDACE-133A-562E-C69B-7DD69A7EF9EF">
+<createdBy>asilva</createdBy>
+<createdTime>2024-04-25 00:54:55 UTC</createdTime>
+<commentInRDBMS><![CDATA[ A string representing the unique identifier of the associated JWT (JSON Web Token).]]></commentInRDBMS>
+<ownerDesignName>MedicalClinicDB</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT037</logicalDatatype>
+<dataTypeSize>MAX</dataTypeSize>
+<ownDataTypeParameters>MAX,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="IsUsed " id="73F2C7ED-BB96-7DB1-C52F-07C886E5D735">
+<createdBy>asilva</createdBy>
+<createdTime>2024-04-25 00:55:12 UTC</createdTime>
+<commentInRDBMS><![CDATA[A boolean flag indicating whether the refresh token has been used.]]></commentInRDBMS>
+<ownerDesignName>MedicalClinicDB</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT034</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="IsRevoked " id="3BA91198-0096-4885-7719-909B3619ED97">
+<createdBy>asilva</createdBy>
+<createdTime>2024-04-25 00:55:21 UTC</createdTime>
+<commentInRDBMS><![CDATA[A boolean flag indicating whether the refresh token has been revoked.]]></commentInRDBMS>
+<ownerDesignName>MedicalClinicDB</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT034</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="AddedDate " id="054D2EC5-35CE-97A6-5F86-03F39ED7D9E6">
+<createdBy>asilva</createdBy>
+<createdTime>2024-04-25 00:55:39 UTC</createdTime>
+<commentInRDBMS><![CDATA[A datetime value representing the date and time when the refresh token was added to the database]]></commentInRDBMS>
+<ownerDesignName>MedicalClinicDB</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>91229484-D19C-D458-8647-333C7FFE7B60</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ExpiryDate " id="AB08FCAC-62F0-A6FA-BD9F-7C4B6BC40C9F">
+<createdBy>asilva</createdBy>
+<createdTime>2024-04-25 00:56:08 UTC</createdTime>
+<commentInRDBMS><![CDATA[A datetime value representing the expiration date and time of the refresh token.]]></commentInRDBMS>
+<ownerDesignName>MedicalClinicDB</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>91229484-D19C-D458-8647-333C7FFE7B60</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="837EC27F-5DBA-EB8E-3CD3-6CB5A6BCCE1F" name="PK_RefreshTokens">
+<createdBy>asilva</createdBy>
+<createdTime>2024-04-25 00:44:00 UTC</createdTime>
+<ownerDesignName>MedicalClinicDB</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="AA740F82-2872-6F3F-A256-F61BD637C1B3"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

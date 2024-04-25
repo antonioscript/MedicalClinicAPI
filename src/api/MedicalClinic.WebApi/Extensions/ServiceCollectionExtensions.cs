@@ -2,6 +2,7 @@
 using MedicalClinic.Application.Interfaces.Shared;
 using MedicalClinic.Application.Rules;
 using MedicalClinic.Infrastructure.DocumentProcessor.Repositories;
+using MedicalClinic.Infrastructure.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Localization;
 using Microsoft.OpenApi.Models;
@@ -16,6 +17,7 @@ namespace MedicalClinic.WebApi.Extensions
             services.AddScoped<ISpecialtyRules, SpecialtyRules>();
             services.AddScoped<IPrescriptionRules, PrescriptionRules>();
             services.AddScoped<IDocumentProcessor, DocumentProcessor>();
+            services.AddScoped<IIdentityService, IdentityService>();
         }
 
         public static void AddEssentials(this IServiceCollection services)
@@ -34,6 +36,33 @@ namespace MedicalClinic.WebApi.Extensions
                     Version = "v1",
                     Title = "MedicalClinic - WebApi",
                     Description = "This API is responsible for providing the necessary services for a Medical Clinic System.",
+                });
+                c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+                {
+                    Name = "Authorization",
+                    In = ParameterLocation.Header,
+                    Type = SecuritySchemeType.ApiKey,
+                    Scheme = "Bearer",
+                    BearerFormat = "JWT",
+                    Description = "Input your Bearer token in this format - Bearer {your token here} to access this API",
+
+                });
+                c.AddSecurityRequirement(new OpenApiSecurityRequirement
+                {
+                    {
+                        new OpenApiSecurityScheme
+                        {
+                            Reference = new OpenApiReference
+                            {
+                                Type = ReferenceType.SecurityScheme,
+                                Id = "Bearer",
+                            },
+                            Scheme = "oauth2",
+                            Name = "Bearer",
+                            In = ParameterLocation.Header,
+
+                        }, new List<string>()
+                    },
                 });
             });
         }

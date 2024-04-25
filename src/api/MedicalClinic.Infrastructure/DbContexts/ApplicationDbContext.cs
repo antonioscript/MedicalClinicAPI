@@ -1,14 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata;
+﻿using Microsoft.EntityFrameworkCore;
 using MedicalClinic.Domain.Entities;
-using System.Data;
 using MedicalClinic.Infrastructure.EntitiesConfiguration;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using MedicalClinic.Domain.Entities.Identity;
 
 namespace MedicalClinic.Infrastructure.MedicalClinic.Infrastructure.DbContexts
 {
-    public partial class ApplicationDbContext : DbContext
+    public partial class ApplicationDbContext :  IdentityDbContext//DbContext
     {
         public ApplicationDbContext()
         {
@@ -35,6 +33,7 @@ namespace MedicalClinic.Infrastructure.MedicalClinic.Infrastructure.DbContexts
         public virtual DbSet<Prescription> Prescriptions { get; set; } = null!;
         public virtual DbSet<Medication> Medications { get; set; } = null!;
         public virtual DbSet<Forwarding> Forwardings { get; set; } = null!;
+        public virtual DbSet<RefreshToken> RefreshTokens { get; set; } = null!;
         //public virtual DbSet<CanceledAppointment> CanceledAppointments { get; set; } = null!;
 
 
@@ -67,6 +66,7 @@ namespace MedicalClinic.Infrastructure.MedicalClinic.Infrastructure.DbContexts
             builder.ApplyConfiguration(new MedicationConfiguration());
             builder.ApplyConfiguration(new ForwardingConfiguration());
             builder.ApplyConfiguration(new CanceledAppointmentConfiguration());
+            builder.ApplyConfiguration(new RefreshTokenConfiguration());
 
         }
     }
