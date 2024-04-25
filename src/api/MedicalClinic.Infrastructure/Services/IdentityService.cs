@@ -169,46 +169,12 @@ namespace MedicalClinic.Infrastructure.Services
             return Result<UserResponse>.Success(userResponse);
         }
 
-        private RefreshToken DecodeRefreshToken(string token)
-        {
-            var hashDecrypted = DecryptString("0d3W3raEDMm5QqayEG2s4eiPHVHX9mvzRscjLe6YCh0GbpLYcQ", token);
-
-            var refreshToken = JsonSerializer.Deserialize<RefreshToken>(hashDecrypted);
-
-            return refreshToken;
-        }
-
-        private string DecryptString(string key, string cipherText)
-        {
-            byte[] iv = new byte[16];
-            byte[] buffer = Convert.FromBase64String(cipherText);
-
-            using (Aes aes = Aes.Create())
-            {
-                aes.Key = Encoding.UTF8.GetBytes(key);
-                aes.IV = iv;
-                ICryptoTransform decryptor = aes.CreateDecryptor(aes.Key, aes.IV);
-
-                using (MemoryStream memoryStream = new MemoryStream(buffer))
-                {
-                    using (CryptoStream cryptoStream = new CryptoStream((Stream)memoryStream, decryptor, CryptoStreamMode.Read))
-                    {
-                        using (StreamReader streamReader = new StreamReader((Stream)cryptoStream))
-                        {
-                            return streamReader.ReadToEnd();
-                        }
-                    }
-                }
-            }
-        }
-
         private RefreshToken GenerateRefreshToken(IdentityUser user)
         {
             var refreshToken = new RefreshToken
             {
                 UserId = user.Id,
-                // ExpiryDate = DateTime.UtcNow.AddMinutes(int.Parse(_configuration.GetSection("JwtConfig:Secret").Value)),
-                ExpiryDate = DateTime.UtcNow.AddMinutes(2160),
+                ExpiryDate = DateTime.UtcNow.AddMinutes(int.Parse(_configuration.GetSection("JwtConfig:RefreshTokenExpireInMinutes").Value)),
                 AddedDate = DateTime.UtcNow,
                 Token = EncryptString(23)
             };
