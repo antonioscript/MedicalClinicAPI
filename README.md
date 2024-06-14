@@ -33,3 +33,17 @@ Atualmente esse é o modelo do banco de dados mais recente da aplicação:
 ## Visualização da API
 Para visualizar a API, foi escolhida a utilização do Swagger, uma ferramenta que oferece uma interface intuitiva sem a necessidade de instalar ferramentas adicionais para testar e executar a aplicação. Além disso, o Swagger simplifica o processo de documentação, gerando automaticamente a documentação a partir do código-fonte da aplicação.
 
+![image](https://github.com/antonioscript/MedicalClinicAPI/assets/10932478/b028353a-311f-4617-b82a-be685b1ced85)
+<sub>Data da última atualização: *15/06/2024*</sub>
+
+## ORM
+Para fazer a comunicação da aplicação com o banco de dados, o framework escolhido foi o Entity Framework Core, que é um framework da própria Microsoft, que facilita bastante a integração usando objetos do .NET. Além de ser responsável pelo relacionamento com o banco, o Entity Framewok Core conta com um recurso muito rico, chamado LINQ. Que permite escrever queries SQL usando C# de forma simples, aumentando assim a performance e produtividade no desenvolvimento.
+
+## Arquitetura de Código
+A arquitetura de código escolhida foi a arquitetura 'Clean Architecture', que é um tipo de arquitetura bastante moderna, que foi idealizada pelo Uncle Bob. O objetivo dessa arquitetura é promover a separação de preocupações e a manutenção da independência entre as diferentes camadas da aplicação, divindido-as entre: Domínio, Aplicação, Infraestrutura e Apresentação.
+
+No projeto a Clean Architecture foi adaptada dessa forma:
+
+![image](https://github.com/antonioscript/MedicalClinicAPI/assets/10932478/e9edfc5f-3d60-4cb7-bab9-65dbc2d0e2d9)
+
+Onde podemos visualizar as camadas de domínio, aplicação, infraestrutura e apresentação. 
