@@ -44,6 +44,29 @@ A arquitetura de código escolhida foi a arquitetura 'Clean Architecture', que �
 
 No projeto a Clean Architecture foi adaptada dessa forma:
 
-![image](https://github.com/antonioscript/MedicalClinicAPI/assets/10932478/e9edfc5f-3d60-4cb7-bab9-65dbc2d0e2d9)
+![image](https://github.com/antonioscript/MedicalClinicAPI/assets/10932478/4c23a8b1-7784-4aef-b1c4-658035e2e09d)
 
 Onde podemos visualizar as camadas de domínio, aplicação, infraestrutura e apresentação. 
+
+### Domain
+Na cama de domínio, no centro da arquitetura, estão as entidades. As entidades representam os conceitos centrais da aplicação, é a unidade básica do sistema. 
+
+![image](https://github.com/antonioscript/MedicalClinicAPI/assets/10932478/5476a828-62e1-47a9-89ff-20c7e56338f5)
+
+Além das entidades, também temos os Enums dessas entidades, que são objetos auxiliares de dados específicos das entidades.
+
+### Infrastructure
+Como o próprio nome já diz, na infraestrutura alocamos tudo aquilo que é essencial para a estrutura do sistema, como as configurações do banco, extensões, os repositórios e tudo aquilo que é compartilhado para toda a API.
+
+![image](https://github.com/antonioscript/MedicalClinicAPI/assets/10932478/3acbe4ac-331d-4120-b896-83794c9c74bb)
+
+
+### Application
+Para a camada de aplicação estão as regras de negócio e tudo aquilo que é responsável para a lógica do sistema. Na cama de aplicação estão presentes os casos de usos, os handlers, os DTOs e  as regras de negócio.
+
+![image](https://github.com/antonioscript/MedicalClinicAPI/assets/10932478/4b36a2f6-e6cb-4bfb-9c87-6a5162846a55)
+
+### Presentation
+E para a cama de apresentação, está presente tudo aquilo que faz a ligação dos dados entre servidor e cliente, que no caso da API, são os Controllers, responsáveis por forneceer os endpoints da aplicação.
+
+![image](https://github.com/antonioscript/MedicalClinicAPI/assets/10932478/d319e8eb-db3b-4c27-a42b-13d2088e8c4a)
