@@ -175,10 +175,12 @@ namespace MedicalClinic.Infrastructure.Repositories.Entities
 Para a confirmação de uma ação de escrita no banco de dados, foi utilizado o padrão "Unit of Work". Este padrão é amplamente empregado em aplicações modernas, onde seu objetivo é assegurar que todas as alterações sejam realizadas com sucesso ou que nenhuma seja aplicada em caso de falha.
 
 Ele monitora essas operações e assegura que, ao final do processo, todas as alterações sejam confirmadas (commitadas) ou revertidas (roll back) em conjunto.
+
+
 ![image](https://github.com/antonioscript/MedicalClinicAPI/assets/10932478/c3d98875-6fc1-4019-b59f-168c0506d3b7)
 
 
-Na API esse padrão foi utilizado criando uma interface onde reune os métodos que servirão par confirmar ou reverter as transações.
+</br>Na API esse padrão foi utilizado criando uma interface onde reune os métodos que servirão par confirmar ou reverter as transações.
 
 ``` csharp
 public interface IUnitOfWork 
