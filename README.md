@@ -70,3 +70,35 @@ Para a camada de aplicação estão as regras de negócio e tudo aquilo que é r
 E para a cama de apresentação, está presente tudo aquilo que faz a ligação dos dados entre servidor e cliente, que no caso da API, são os Controllers, responsáveis por forneceer os endpoints da aplicação.
 
 ![image](https://github.com/antonioscript/MedicalClinicAPI/assets/10932478/d319e8eb-db3b-4c27-a42b-13d2088e8c4a)
+
+## Repository Pattern
+Um dos Design Patterns utilizado na aplicação foi o Repository Pattern, que consiste em separar as camadas de acesso dos dados e a lógica de negócios, proporcionando uma abstração na fonte dos dados, fazendo que a camada da lógica de negócios seja independente das outras camadas.
+
+Para o projeto em questão, foi utilizado uma interface abstrata, usando os conceitos de Generics. Onde essa interface consiste em abstrair métodos genéricos que serão utilizados por todas as entidades da API. Esses métodos consistem nas aplicações básicas como Create, Read, Update e Delete. 
+
+``` Csharp
+namespace MedicalClinic.Application.Interfaces.Repositories
+{
+    public interface IRepositoryAsync<T> where T : class
+    {
+        IQueryable<T> Entities { get; }
+
+        Task<T> GetByIdAsync(int id);
+
+        Task<List<T>> GetAllAsync();
+
+        Task<List<T>> GetPagedReponseAsync(int pageNumber, int pageSize);
+
+        Task<T> AddAsync(T entity);
+
+        Task UpdateAsync(T entity);
+
+        Task DeleteAsync(T entity);
+    }
+}
+```
+<sub>*src\api\MedicalClinic.Application\Interfaces\Repositories\IRepositoryAsync.cs*. [Visualize aqui](https://github.com/antonioscript/MedicalClinicAPI/blob/master/src/api/MedicalClinic.Application/Interfaces/Repositories/IRepositoryAsync.cs)</sub>
+
+O objetivo de se utilizar o Repository Pattern vai além do simples fato de reduzir a duplicidade de código, ele oculta os detalhes de como os dados são persistidos e recuperados, sem que a lógica de negócios conheça os detalhes da implementação, tornando assim o código mais flexível. 
+
+Para a invocação do repositório, cada entidade herda as configurações da classe abstrata genérica. Que também é o lugar de criar um método específico daquela entidade em questão:
