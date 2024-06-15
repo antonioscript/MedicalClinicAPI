@@ -74,7 +74,7 @@ E para a cama de apresentação, está presente tudo aquilo que faz a ligação 
 ## Repository Pattern
 Um dos Design Patterns utilizado na aplicação foi o Repository Pattern, que consiste em separar as camadas de acesso dos dados e a lógica de negócios, proporcionando uma abstração na fonte dos dados, fazendo que a camada da lógica de negócios seja independente das outras camadas.
 
-Para o projeto em questão, foi utilizado uma interface abstrata, usando os conceitos de Generics. Onde essa interface consiste em abstrair métodos genéricos que serão utilizados por todas as entidades da API. Esses métodos consistem nas aplicações básicas como Create, Read, Update e Delete. 
+Para o projeto em questão, foi utilizado uma interface abstrata, usando os conceitos de Generics, onde essa interface consiste em abstrair métodos genéricos que serão utilizados por todas as entidades da API. Esses métodos consistem nas aplicações básicas como Create, Read, Update e Delete. 
 
 ``` Csharp
 namespace MedicalClinic.Application.Interfaces.Repositories
@@ -101,4 +101,67 @@ namespace MedicalClinic.Application.Interfaces.Repositories
 
 O objetivo de se utilizar o Repository Pattern vai além do simples fato de reduzir a duplicidade de código, ele oculta os detalhes de como os dados são persistidos e recuperados, sem que a lógica de negócios conheça os detalhes da implementação, tornando assim o código mais flexível. 
 
-Para a invocação do repositório, cada entidade herda as configurações da classe abstrata genérica. Que também é o lugar de criar um método específico daquela entidade em questão:
+Para a invocação do repositório, cada entidade herda as configurações da classe interface genérica, que também é o um lugar de criar algum método específico daquela entidade em questão:
+
+``` csharp
+public interface IDoctorRepository : IRepositoryAsync<Doctor>
+{
+}
+```
+
+<sub>*src\api\MedicalClinic.Application\Interfaces\Repositories\Entities\IRefreshTokenRepository.cs*. [Visualize aqui](https://github.com/antonioscript/MedicalClinicAPI/blob/master/src/api/MedicalClinic.Application/Interfaces/Repositories/Entities/IRefreshTokenRepository.cs)</sub>
+
+E para a implementação dessa interface, que é onde de fato ocorre a lógica de acesso ao banco de dados, foi criado uma classe de repositório com os detalhes dessa aplicação:
+
+``` csharp
+namespace MedicalClinic.Infrastructure.Repositories.Entities
+{
+    public class DoctorRepository : IDoctorRepository
+    {
+        private readonly IRepositoryAsync<Doctor> _repository;
+        public DoctorRepository(IRepositoryAsync<Doctor> repository)
+        {
+            _repository = repository;
+        }
+
+        public IQueryable<Doctor> Entities => _repository.Entities.Where(c => !c.DeletedAt.HasValue);
+
+        public async Task<Doctor> AddAsync(Doctor entity)
+        {
+            return await _repository.AddAsync(entity);
+        }
+
+        public async Task DeleteAsync(Doctor entity)
+        {
+            entity.DeletedAt = DateTime.Now;
+            entity.IsEnabled = false;
+            await _repository.UpdateAsync(entity);
+        }
+
+        public async Task<List<Doctor>> GetAllAsync()
+        {
+            return await _repository.GetAllAsync();
+        }
+
+        public async Task<Doctor> GetByIdAsync(int id)
+        {
+            var register = await _repository.GetByIdAsync(id);
+            register = register != null && register.DeletedAt.HasValue ? null : register;
+            return register;
+        }
+
+        public async Task<List<Doctor>> GetPagedReponseAsync(int pageNumber, int pageSize)
+        {
+            return await _repository.GetPagedReponseAsync(pageNumber, pageSize);
+        }
+
+        public async Task UpdateAsync(Doctor entity)
+        {
+            await _repository.UpdateAsync(entity);
+        }
+
+    }
+}
+```
+
+<sub>*src\api\MedicalClinic.Infrastructure\Repositories\Entities\DoctorRepository.cs*. [Visualize aqui](https://github.com/antonioscript/MedicalClinicAPI/blob/master/src/api/MedicalClinic.Infrastructure/Repositories/Entities/DoctorRepository.cs)</sub>
