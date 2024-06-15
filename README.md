@@ -282,8 +282,74 @@ namespace MedicalClinic.Application.Features.Doctors.Queries
 ```
 <sub>*src\api\MedicalClinic.Application\Features\Doctors\Queries\GetDoctorByIdQuery.cs*. [Visualize aqui](https://github.com/antonioscript/MedicalClinicAPI/blob/master/src/api/MedicalClinic.Application/Features/Doctors/Queries/GetDoctorByIdQuery.cs)</sub>
 
-C:\Projects\MedicalClinicAPI\
 
+Com a utilização do CQRS o Controller fica muito mais limpo e legível, sem a necessidade de quaquer linha adicional de código, uma vez que a lógica da aplicação não se encontra mais no Controller, que fica apenas responsável por ser uma meio necessário para se chegar até os comandos da aplicação. Com isso também ocultamos da camada de apresentação quais são os repositórios ou métodos responsáveis pelo acesso ao banco de dados, tornando nosso construtor limpo de qualquer refeência de repositório.
+
+
+```
+namespace MedicalClinic.WebApi.Controllers.v1
+{
+    [Route("api/[controller]")]
+    [ApiController]
+    public class DoctorController : ControllerBase
+    {
+        private readonly IMediator _mediator;
+
+        public DoctorController(IMediator mediator)
+        {
+            _mediator = mediator;
+        }
+
+        [HttpGet]
+        [AllowAnonymous]
+        public async Task<IActionResult> GetAll()
+        {
+            var results = await _mediator.Send(new GetAllDoctorQuery());
+            return Ok(results);
+        }
+
+
+        [HttpPost]
+        [AllowAnonymous]
+        public async Task<IActionResult> Post(CreateDoctorCommand command)
+        {
+            return Ok(await _mediator.Send(command));
+        }
+
+       //...
+
+        // PUT api/<controller>/5
+        [HttpPut("{id}")]
+        [AllowAnonymous]
+        public async Task<IActionResult> Put(int id, UpdateDoctorCommand command)
+        {
+            if (id != command.Id)
+            {
+                return BadRequest();
+            }
+            return Ok(await _mediator.Send(command));
+        }
+
+        // DELETE api/<controller>/5
+        [HttpDelete("{id}")]
+        [AllowAnonymous]
+        public async Task<IActionResult> Delete(int id)
+        {
+            return Ok(await _mediator.Send(new DeleteDoctorCommand { Id = id }));
+        }
+    }
+}
+```
+
+<sub>*src\api\MedicalClinic.WebApi\Controllers\v1\DoctorController.cs*. [Visualize aqui](https://github.com/antonioscript/MedicalClinicAPI/blob/master/src/api/MedicalClinic.WebApi/Controllers/v1/DoctorController.cs)</sub>
+
+
+## Imeditor
+
+![image](https://github.com/antonioscript/MedicalClinicAPI/assets/10932478/e1885928-f7b6-4748-86a6-66670e66ff57)
+
+
+Link do pacote: https://www.nuget.org/packages/MediatR/
 
 ## Unit of Work
 Para a confirmação de uma ação de escrita no banco de dados, foi utilizado o padrão "Unit of Work". Este padrão é amplamente empregado em aplicações modernas, onde seu objetivo é assegurar que todas as alterações sejam realizadas com sucesso ou que nenhuma seja aplicada em caso de falha.
