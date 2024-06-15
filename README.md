@@ -99,6 +99,8 @@ namespace MedicalClinic.Application.Interfaces.Repositories
 ```
 <sub>*src\api\MedicalClinic.Application\Interfaces\Repositories\IRepositoryAsync.cs*. [Visualize aqui](https://github.com/antonioscript/MedicalClinicAPI/blob/master/src/api/MedicalClinic.Application/Interfaces/Repositories/IRepositoryAsync.cs)</sub>
 
+
+
 O objetivo de se utilizar o Repository Pattern vai além do simples fato de reduzir a duplicidade de código, ele oculta os detalhes de como os dados são persistidos e recuperados, sem que a lógica de negócios conheça os detalhes da implementação, tornando assim o código mais flexível. 
 
 Para a invocação do repositório, cada entidade herda as configurações da classe interface genérica, que também é o um lugar de criar algum método específico daquela entidade em questão:
@@ -110,6 +112,8 @@ public interface IDoctorRepository : IRepositoryAsync<Doctor>
 ```
 
 <sub>*src\api\MedicalClinic.Application\Interfaces\Repositories\Entities\IRefreshTokenRepository.cs*. [Visualize aqui](https://github.com/antonioscript/MedicalClinicAPI/blob/master/src/api/MedicalClinic.Application/Interfaces/Repositories/Entities/IRefreshTokenRepository.cs)</sub>
+
+
 
 E para a implementação dessa interface, que é onde de fato ocorre a lógica de acesso ao banco de dados, foi criado uma classe de repositório com os detalhes dessa aplicação:
 
@@ -165,3 +169,115 @@ namespace MedicalClinic.Infrastructure.Repositories.Entities
 ```
 
 <sub>*src\api\MedicalClinic.Infrastructure\Repositories\Entities\DoctorRepository.cs*. [Visualize aqui](https://github.com/antonioscript/MedicalClinicAPI/blob/master/src/api/MedicalClinic.Infrastructure/Repositories/Entities/DoctorRepository.cs)</sub>
+
+
+## Unit of Work
+Para a confirmação de uma ação de escrita no banco de dados, foi utilizado o padrão "Unit of Work". Este padrão é amplamente empregado em aplicações modernas, onde seu objetivo é assegurar que todas as alterações sejam realizadas com sucesso ou que nenhuma seja aplicada em caso de falha.
+
+Ele monitora essas operações e assegura que, ao final do processo, todas as alterações sejam confirmadas (commitadas) ou revertidas (roll back) em conjunto.
+![image](https://github.com/antonioscript/MedicalClinicAPI/assets/10932478/c3d98875-6fc1-4019-b59f-168c0506d3b7)
+
+
+Na API esse padrão foi utilizado criando uma interface onde reune os métodos que servirão par confirmar ou reverter as transações.
+
+``` csharp
+public interface IUnitOfWork 
+{
+    public bool HasChanges { get; }
+
+    Task<int> Commit(CancellationToken cancellationToken);
+
+    Task Rollback();
+}
+```
+<sub>*src\api\MedicalClinic.Application\Interfaces\Repositories\IUnitOfWork.cs*. [Visualize aqui](https://github.com/antonioscript/MedicalClinicAPI/blob/master/src/api/MedicalClinic.Application/Interfaces/Repositories/IUnitOfWork.cs)</sub>
+
+
+
+E a sua implementação acontece utilizando uma classe que implementa os métodos da interface. 
+
+``` csharp
+namespace MedicalClinic.Infrastructure.Repositories
+{
+    public class UnitOfWork : IUnitOfWork
+    {
+        private readonly ApplicationDbContext _dbContext;
+        private bool disposed;
+
+        public bool HasChanges => _dbContext != null ? _dbContext.HasChanges : false;
+
+        public UnitOfWork(ApplicationDbContext dbContext)
+        {
+            _dbContext = dbContext ?? throw new ArgumentNullException(nameof(dbContext));
+        }
+
+        public async Task<int> Commit(CancellationToken cancellationToken)
+        {
+            return await _dbContext.SaveChangesAsync(cancellationToken);
+        }
+
+        public Task Rollback()
+        {
+            throw new NotImplementedException();
+        }
+    }
+}
+
+```
+<sub>*src\api\MedicalClinic.Infrastructure\Repositories\UnitOfWork.cs*. [Visualize aqui](https://github.com/antonioscript/MedicalClinicAPI/blob/master/src/api/MedicalClinic.Infrastructure/Repositories/UnitOfWork.cs)</sub>
+
+O método de 'commit' é chamado na aplicação ao final de cada transação ou operação no código, logo abaixo está o exemplo de uma operação simples de atualização:
+
+
+``` csharp
+//...
+
+public async Task<Result<int>> Handle(UpdateDoctorCommand command, CancellationToken cancellationToken)
+{
+    var register = await _repository.GetByIdAsync(command.Id);
+
+    if (register == null)
+    {
+        return Result<int>.Fail(string.Format(SharedResource.MESSAGE_DOCTOR_NOT_FOUND, command.Id));
+    }
+    else
+    {
+        var registerExists = await _repository.Entities
+            .Where(d => d.Id != command.Id && d.Crm == command.Crm)
+            .AsNoTracking()
+            .FirstOrDefaultAsync();
+
+        if (registerExists != null)
+        {
+            return Result<int>.Fail(string.Format(SharedResource.MESSAGE_DOCTOR_EXISTS, command.Crm));
+        }
+        else
+        {
+            register.SpecialtyId = command.SpecialtyId;
+            register.Crm = command.Crm;
+
+            register.FirstName = command.FirstName ?? register.FirstName;
+            register.LastName = command.LastName ?? register.LastName;
+            register.Phone = command.Phone ?? register.Phone;
+            register.Email = command.Email ?? register.Email;
+            register.AddressLineOne = command.AddressLineOne ?? register.AddressLineOne;
+            register.AddressLineTwo = command.AddressLineTwo ?? register.AddressLineTwo;
+
+            register.IsEnabled = command.IsEnabled;
+
+            await _repository.UpdateAsync(register);
+            await _unitOfWork.Commit(cancellationToken); //Comita as alterações no banco
+            return Result<int>.Success(register.Id);
+        }
+    }
+    //...
+}
+
+```
+
+<sub>*src\api\MedicalClinic.Application\Features\Doctors\Command\UpdateDoctorCommand.cs
+*. [Visualize aqui](https://github.com/antonioscript/MedicalClinicAPI/blob/master/src/api/MedicalClinic.Application/Features/Doctors/Command/UpdateDoctorCommand.cs)</sub>
+
+
+
+
