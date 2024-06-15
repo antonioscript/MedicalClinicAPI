@@ -170,6 +170,120 @@ namespace MedicalClinic.Infrastructure.Repositories.Entities
 
 <sub>*src\api\MedicalClinic.Infrastructure\Repositories\Entities\DoctorRepository.cs*. [Visualize aqui](https://github.com/antonioscript/MedicalClinicAPI/blob/master/src/api/MedicalClinic.Infrastructure/Repositories/Entities/DoctorRepository.cs)</sub>
 
+## CQRS (Command Query Responsibility Segregation)
+Um outro padrão de arquitetura utilizado foi o CQRS, que consiste em separar as interações com o banco de dados em operações de leitura e escrita, os chamados 'commands' e 'queries'. 
+
+No entanto, o padão CQRS é mais recomendado em APIs robustas e de grande porte, como podemos ver na própria documentação da Microsoft:
+> "Nas arquiteturas tradicionais, o mesmo modelo de dados é usado para consultar e atualizar um banco de dados. É simples e funciona bem para operações CRUD básicas. Em aplicativos mais complexos, no entanto, essa abordagem pode se tornar complicada"
+> — *[Microsoft Documentation](https://learn.microsoft.com/pt-br/azure/architecture/patterns/cqrs)*
+
+![image](https://github.com/antonioscript/AutomativeRepairAPI/assets/10932478/2ca4dbbd-2887-41b1-af11-09e1ff0c7aa5)
+
+Por mais que o projeto em questão seja uma API de pequeno porte, a escolha em utilizar esse padrão foi simplesmente para experimentar e simular como funcionaria a arquitetura em .NET em relação a grandes solicitações e acessos por parte da API. 
+
+Na aplicação, os commands e queries foram alocados na camada de aplicação, no diretório de features (casos de uso), que são as lógicas de negócios da API. Para operações de escrita os métodos foram organizados em commands e os métodos de leitura em queries:
+
+![image](https://github.com/antonioscript/MedicalClinicAPI/assets/10932478/6becffca-9dbc-4447-99cf-8237203af31b)
+
+Todos os métodos, sejam de escrita ou de leitura, devem fazer parte de uma única classe, para evitar um acoplamento desnecessário. Logo abaixo há um exemplo de um método de escrita (command), nesse caso um POST, responsável por criar um novo médico no banco de dados:
+
+```csharp
+namespace MedicalClinic.Application.Features.Doctors.Commands
+{
+    public partial class CreateDoctorCommand : IRequest<Result<int>>
+    {
+        public int SpecialtyId { get; set; }
+        public string Crm { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; } 
+
+        public string Phone { get; set; } 
+        public string? Email { get; set; }
+        public string? AddressLineOne { get; set; }
+        public string? AddressLineTwo { get; set; }
+
+        public bool IsEnabled { get; set; }
+    }
+
+
+    public class CreateDoctorCommandHandler : IRequestHandler<CreateDoctorCommand, Result<int>>
+    {
+        private readonly IDoctorRepository _repository;
+        private readonly IMapper _mapper;
+        private IUnitOfWork _unitOfWork { get; set; }
+
+        public CreateDoctorCommandHandler(IDoctorRepository repository, IUnitOfWork unitOfWork, IMapper mapper)
+        {
+            _repository = repository;
+            _unitOfWork = unitOfWork;
+            _mapper = mapper;
+        }
+
+        public async Task<Result<int>> Handle(CreateDoctorCommand request, CancellationToken cancellationToken)
+        {
+            var registerExists = await _repository.Entities
+               .Where(d => d.Crm == request.Crm)
+               .AsNoTracking()
+               .FirstOrDefaultAsync();
+
+            if (registerExists != null)
+            {
+                return Result<int>.Fail(string.Format(SharedResource.MESSAGE_DOCTOR_EXISTS, request.Crm));
+            }
+
+            var register = _mapper.Map<Doctor>(request);
+            await _repository.AddAsync(register);
+            await _unitOfWork.Commit(cancellationToken);
+            return Result<int>.Success(register.Id);
+        }
+    }
+}
+
+```
+<sub>*src\api\MedicalClinic.Application\Features\Doctors\Command\CreateDcotorCommand.cs*. [Visualize aqui](https://github.com/antonioscript/MedicalClinicAPI/blob/master/src/api/MedicalClinic.Application/Features/Doctors/Command/CreateDcotorCommand.cs)</sub>
+
+<br>
+<br>
+<br>
+E logo abaixo um exemplo de uma consulta (query), que retorna um médico a partir de um ID especificado:
+
+```csharp
+namespace MedicalClinic.Application.Features.Doctors.Queries
+{
+    public class GetDoctorByIdQuery : IRequest<Result<DoctorResponse>>
+    {
+        public int Id { get; set; }
+
+        public class GetCompetitorCompanyByIdQueryHandler : IRequestHandler<GetDoctorByIdQuery, Result<DoctorResponse>>
+        {
+            private readonly IDoctorRepository _repository;
+            private readonly IMapper _mapper;
+
+            public GetCompetitorCompanyByIdQueryHandler(IDoctorRepository repository, IMapper mapper)
+            {
+                _repository = repository;
+                _mapper = mapper;
+            }
+
+            public async Task<Result<DoctorResponse>> Handle(GetDoctorByIdQuery query, CancellationToken cancellationToken)
+            {
+                var result = await _repository.Entities
+                    .Where(d => d.Id == query.Id)
+                    .Include(d => d.Specialty)
+                    .AsNoTracking()
+                    .FirstOrDefaultAsync();
+
+                var mappedCompetitorCompany = _mapper.Map<DoctorResponse>(result);
+                return Result<DoctorResponse>.Success(mappedCompetitorCompany);
+            }
+        }
+    }
+}
+```
+<sub>*src\api\MedicalClinic.Application\Features\Doctors\Queries\GetDoctorByIdQuery.cs*. [Visualize aqui](https://github.com/antonioscript/MedicalClinicAPI/blob/master/src/api/MedicalClinic.Application/Features/Doctors/Queries/GetDoctorByIdQuery.cs)</sub>
+
+C:\Projects\MedicalClinicAPI\
+
 
 ## Unit of Work
 Para a confirmação de uma ação de escrita no banco de dados, foi utilizado o padrão "Unit of Work". Este padrão é amplamente empregado em aplicações modernas, onde seu objetivo é assegurar que todas as alterações sejam realizadas com sucesso ou que nenhuma seja aplicada em caso de falha.
