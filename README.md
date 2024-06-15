@@ -286,7 +286,7 @@ namespace MedicalClinic.Application.Features.Doctors.Queries
 Com a utilização do CQRS o Controller fica muito mais limpo e legível, sem a necessidade de quaquer linha adicional de código, uma vez que a lógica da aplicação não se encontra mais no Controller, que fica apenas responsável por ser uma meio necessário para se chegar até os comandos da aplicação. Com isso também ocultamos da camada de apresentação quais são os repositórios ou métodos responsáveis pelo acesso ao banco de dados, tornando nosso construtor limpo de qualquer refeência de repositório.
 
 
-```
+``` csharp
 namespace MedicalClinic.WebApi.Controllers.v1
 {
     [Route("api/[controller]")]
@@ -344,9 +344,9 @@ namespace MedicalClinic.WebApi.Controllers.v1
 <sub>*src\api\MedicalClinic.WebApi\Controllers\v1\DoctorController.cs*. [Visualize aqui](https://github.com/antonioscript/MedicalClinicAPI/blob/master/src/api/MedicalClinic.WebApi/Controllers/v1/DoctorController.cs)</sub>
 
 
-## Imeditor
+## Mediator Pattern
 
-![image](https://github.com/antonioscript/MedicalClinicAPI/assets/10932478/e1885928-f7b6-4748-86a6-66670e66ff57)
+![image](https://github.com/antonioscript/MedicalClinicAPI/assets/10932478/6246e9a4-48cc-4dcb-8638-3d96aae8f8cf)
 
 
 Link do pacote: https://www.nuget.org/packages/MediatR/
