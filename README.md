@@ -489,4 +489,12 @@ public async Task<Result<int>> Handle(UpdateDoctorCommand command, CancellationT
 
 
 
+## Segurança
+
+
+
+
+
+
+
 
