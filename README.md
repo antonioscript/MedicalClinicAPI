@@ -13,6 +13,22 @@ The project is currently under development. You can follow all new features, upd
 ![image](https://github.com/antonioscript/MedicalClinicAPI/assets/10932478/f294da84-e682-48c9-aa38-6ab729b05de9)
 
 # Funcionalidades
+
+## Cadastro de Especialidades
+Um dos cadastros essenciais da aplicação é o cadastro de especialidades. São as especialidades que informam quais são as áreas de atuação da Clínica Médica.
+
+No cadastro de especilidades deve ser informado o nome da especialidade, o valor da consulta, bem como a duração médida da consulta (que será usada em cálculos posterioroes para o agendamento adequeado)
+
+![image](https://github.com/antonioscript/MedicalClinicAPI/assets/10932478/17df3dd1-f680-4a67-99db-36a88ba24fab)
+
+
+## Cadastro de Médicos
+Após o cadastro de médicos, o próximo cadastro da aplicação é o cadastro de Médicos
+
+
+
+
+
 # Arquitetura
 A arquitetura deste projeto consiste em uma API Rest desenvolvida com o framework .NET na versão 6, utilizando o banco de dados SQL Server e Docker para facilitar a implantação e o gerenciamento de contêineres.
 
