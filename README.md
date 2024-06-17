@@ -345,11 +345,38 @@ namespace MedicalClinic.WebApi.Controllers.v1
 
 
 ## Mediator Pattern
+No projeto, também foi utilizado um outro padrão de projeto chamado Mediator. Este padrão é utilizado para definir um objeto que encapsula a forma como um conjunto de objetos interage, em vez de os objetos comunicarem-se diretamente uns com os outros, eles se comunicam através do mediador, que sabe como coordenar e gerenciar essas interações.
 
 ![image](https://github.com/antonioscript/MedicalClinicAPI/assets/10932478/6246e9a4-48cc-4dcb-8638-3d96aae8f8cf)
 
+Na API, o mediador ajuda a manter a organização e a clareza na comunicação entre os componentes. Em vez de cada parte do sistema ter que conhecer todas as outras, elas só precisavam saber como interagir com o mediador. Isso deixou o código mais limpo, mais fácil de manter e menos suscetível a erros.
 
-Link do pacote: https://www.nuget.org/packages/MediatR/
+Um bom exemplo onde podemos observar melhor essa interação acontecendo, é através dos Controllers:
+
+``` csharp
+[Route("api/[controller]")]
+[ApiController]
+public class DoctorController : ControllerBase
+{
+    private readonly IMediator _mediator;
+
+    public DoctorController(IMediator mediator)
+    {
+        _mediator = mediator;
+    }
+
+    [HttpGet]
+    [AllowAnonymous]
+    public async Task<IActionResult> GetAll()
+    {
+        var results = await _mediator.Send(new GetAllDoctorQuery());
+        return Ok(results);
+    }
+
+    //...
+```
+<sub>*src\api\MedicalClinic.WebApi\Controllers\v1\DoctorController.cs*. [Visualize aqui](https://github.com/antonioscript/MedicalClinicAPI/blob/master/src/api/MedicalClinic.WebApi/Controllers/v1/DoctorController.cs)</sub>
+
 
 ## Unit of Work
 Para a confirmação de uma ação de escrita no banco de dados, foi utilizado o padrão "Unit of Work". Este padrão é amplamente empregado em aplicações modernas, onde seu objetivo é assegurar que todas as alterações sejam realizadas com sucesso ou que nenhuma seja aplicada em caso de falha.
