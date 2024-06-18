@@ -38,6 +38,10 @@ The project is currently under development. You can follow all new features, upd
   - [Unit of Work](#Unit-of-Work)
 
 # Features
+A fim de facilitar o entendimento da aplicação, foi criado um diagrama mostrando o principal um dos principais fluxos da Aplicação, que será discutido posteriormente:
+</br>
+</br>
+</br>
 ![image](https://github.com/antonioscript/MedicalClinicAPI/assets/10932478/9bc21b92-cc31-4d20-b926-f506c8065602)
 
 
