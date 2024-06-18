@@ -40,7 +40,7 @@ Para que um atendimento seja realizado é necessário também que os pacientes e
 ![image](https://github.com/antonioscript/MedicalClinicAPI/assets/10932478/f50317cd-44d3-4adc-bc2a-3f1972d7606a)
 
 ## Agendamento
-Após os cadastros relacionados ao médico e o paciente estarem preenchidos, inicia-se então o agendamento com as informações do paciente, médico, data de agendamento, o status do agendamento (que pode ser agendado, confirmado, cancelado e concluído) e observação. 
+Após os cadastros relacionados ao médico e o paciente estarem preenchidos, inicia-se então o agendamento com as informações do paciente, médico, data de agendamento, o status do agendamento (que pode ser agendado, confirmado, cancelado e concluído) e observação. No agendamento também existe um campo opcional de encaminhamento, que é quando um médico de uma outra consulta faz o encaminhamento do paciente.  
 
 Exemplo de respota de um agendamento:
 
@@ -95,9 +95,62 @@ Exemplo de respota de um agendamento:
 }
 ``` 
 
-## 
+## Cancelar Agendamento
+Para os agendamentos que são cancelados, existe uma tabela onde é armanezada todos os agendamentos que foram cancelados e também o motivo do cancelamento. Ao fazer isso, a API atribui atuomaticamente o status de 'Cancelado' para o agendamento.
+
+![image](https://github.com/antonioscript/MedicalClinicAPI/assets/10932478/fbdc8ce7-0d5f-42b0-ae16-a8d71ba0290d)
 
 
+## Prescrição Médica
+Marcado um agendamento, inicia-se a consulta, que é o coração do sistema. Na consulta após os relatos e análise do paciente, o médico cria uma prescrição. A prescrição é todo o resumo da consulta, bem como orientações médicas e remédios aconselhados para o paciente. Após uma prescrição ser gerada, o agendamento recebe o status de 'Concluído' automaticamente.
+
+
+Exemplo de um JSON de uma prescrição médica:
+
+```JSON
+{
+  "data": {
+    "id": 1,
+    "appointmentId": 1,
+    "appointment": null,
+    "observation": "Discovered elevated blood pressure during examination. Recommend monitoring and lifestyle changes.",
+    "medications": [
+      {
+        "id": 1,
+        "prescriptionId": 1,
+        "name": "Ibuprofen",
+        "substituteOne": "Acetaminophen",
+        "substituteTwo": "Naproxen",
+        "instruction": "Take one tablet every 6 hours with food."
+      }
+    ],
+    "forwardings": [
+      {
+        "id": 1,
+        "prescriptionId": 1,
+        "specialtyId": 1,
+        "specialty": {
+          "id": 1,
+          "name": "Cardiology",
+          "description": "Deals with disorders of the heart and blood vessels.",
+          "consultationValue": 250,
+          "appointmentDuration": 0,
+          "isEnabled": true
+        },
+        "observation": "Forwarded prescription to cardiology for further evaluation."
+      }
+    ]
+  },
+  "failed": false,
+  "message": null,
+  "succeeded": true,
+  "errors": null
+}
+```
+
+Na consulta médica podemos perceber que existe o campo de observação, que é o local adequado para o médico descrever o parecer geral do paciente, ou seja, os sintomas e problemas que o paciente está enfrentando e temos também as medicações, que são os remédios recomendados pelo médico. Perceba que para cada medicação existem campos opcionais de remédios substituos, para o caso de medicamentos similares que contém o mesmo efeito, que são os casos dos medicamentos genéricos. 
+
+E por último, informações relativas a um possível encaminhamento, caso o médico perceba que o paciente precisa de uma outra especialidade para tratar o problema. 
 
 
 # Arquitetura
