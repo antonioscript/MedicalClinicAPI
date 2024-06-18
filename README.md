@@ -41,7 +41,7 @@ The project is currently under development. You can follow all new features, upd
 ## Database Design
 ![image](https://github.com/antonioscript/MedicalClinicAPI/assets/10932478/f294da84-e682-48c9-aa38-6ab729b05de9)
 
-# Funcionalidades
+# Features
 
 ## Cadastro de Especialidades
 Um dos cadastros essenciais da aplicação é o cadastro de especialidades. São as especialidades que informam quais são as áreas de atuação da Clínica Médica.
