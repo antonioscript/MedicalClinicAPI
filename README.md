@@ -37,10 +37,6 @@ The project is currently under development. You can follow all new features, upd
   - [Mediator Pattern](#Mediator-Pattern)
   - [Unit of Work](#Unit-of-Work)
 
-
-## Database Design
-![image](https://github.com/antonioscript/MedicalClinicAPI/assets/10932478/f294da84-e682-48c9-aa38-6ab729b05de9)
-
 # Features
 
 ## Cadastro de Especialidades
