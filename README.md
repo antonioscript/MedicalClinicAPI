@@ -153,18 +153,21 @@ Na consulta médica podemos perceber que existe o campo de observação, que é 
 E por último, informações relativas a um possível encaminhamento, caso o médico perceba que o paciente precisa de uma outra especialidade para tratar o problema. 
 
 
-## Exames
+## Cadastro de Exames
+Um outro cadastro que pode acontecer em paralelo com o fluxo de agendamento é o cadastro de exames. Os exames são outro tipo de serviço que existe na clínica, além das consultas que acontecem por padrão com os médicos. Que engloba os exames laboratoriais e de imagem que os pacientes podem precisar realizar como parte de seu tratamento ou diagnóstico, ou apenas de forma isolada. 
 
 ![image](https://github.com/antonioscript/MedicalClinicAPI/assets/10932478/6aab06a2-7c2c-4433-8db2-fc03adf4d2e6)
 
-
-
-## Técnicos
+## Cadastro de Técnicos
+Para realizar os exames, é preciso de um técnico cadastrado. O cadastro de técnicos no sistema é essencial para garantir que os exames sejam realizados por profissionais capacitados e registrados. Os técnicos são responsáveis por operar os equipamentos, coletar amostras, e realizar procedimentos específicos de cada exame.
 
 ![image](https://github.com/antonioscript/MedicalClinicAPI/assets/10932478/7653cfaa-4267-4747-a6af-978e29406dfa)
 
-
 ## Procedimentos
+Os procedimentos são de fato a realização do exame, feita pelo técnico junto com o paciente. No procedimento contém as informações do paciente, do técnico , do exame, data de realização daquele exame e uma observação geral sobre o procedimento.
+
+Exemplo de Resposta de um procedimento: 
+
 
 ``` JSON
 {
@@ -219,8 +222,6 @@ E por último, informações relativas a um possível encaminhamento, caso o mé
   "errors": null
 }
 ``` 
-
-
 
 # Arquitetura
 A arquitetura deste projeto consiste em uma API Rest desenvolvida com o framework .NET na versão 6, utilizando o banco de dados SQL Server e Docker para facilitar a implantação e o gerenciamento de contêineres.
