@@ -50,19 +50,19 @@ No cadastro de especialidades deve ser informado o nome da especialidade, o valo
 ## Cadastro de Médicos
 Após o cadastro de especialidades, o próximo cadastro da aplicação é o cadastro de Médicos. 
 
-![image](https://github.com/antonioscript/MedicalClinicAPI/assets/10932478/327ff8ac-e15f-4159-b81b-3fa9d3475646)
+</br>![image](https://github.com/antonioscript/MedicalClinicAPI/assets/10932478/327ff8ac-e15f-4159-b81b-3fa9d3475646)
 
 Para o cadastro de um médico, é inserido a especialidade do médico, nome e sobrenome, endereço, e o CRM (Código do Conselho Regional de Medicina), que trata-se de um identificador único de cada médico. 
 
 ## Cadastro de Disponibilidade Médica 
 Um outro cadastro importante que está associado aos médicos, é o cadastro de disponibilidade. Nesse cadastro são inseridas informações relativas ao turno de trabalho dos médicos, como o dia da semana e o horário de atendimento.
 
-![image](https://github.com/antonioscript/MedicalClinicAPI/assets/10932478/48c17b56-7eeb-4fdf-aad3-007392400b7b)
+</br>![image](https://github.com/antonioscript/MedicalClinicAPI/assets/10932478/48c17b56-7eeb-4fdf-aad3-007392400b7b)
 
 ## Cadastro de Pacientes
-Para que um atendimento seja realizado é necessário também que os pacientes estejam cadastrados. As informações de entrada dos pacientes são: plano de saúde (se o paciente tiver), nome e sobrenome, documento, data de aniversário, telefone, email e endereço
+Para que um atendimento seja realizado é necessário também que os pacientes estejam cadastrados. As informações de entrada dos pacientes são: plano de saúde (se o paciente tiver), nome e sobrenome, documento, data de aniversário, telefone, email e endereço.
 
-![image](https://github.com/antonioscript/MedicalClinicAPI/assets/10932478/f50317cd-44d3-4adc-bc2a-3f1972d7606a)
+</br>![image](https://github.com/antonioscript/MedicalClinicAPI/assets/10932478/f50317cd-44d3-4adc-bc2a-3f1972d7606a)
 
 ## Agendamento
 Após os cadastros relacionados ao médico e o paciente estarem preenchidos, inicia-se então o agendamento com as informações do paciente, médico, data de agendamento, o status do agendamento (que pode ser agendado, confirmado, cancelado e concluído) e observação. No agendamento também existe um campo opcional de encaminhamento, que é quando um médico de uma outra consulta faz o encaminhamento do paciente.  
@@ -123,7 +123,7 @@ Exemplo de respota de um agendamento:
 ## Cancelar Agendamento
 Para os agendamentos que são cancelados, existe uma tabela onde é armanezada todos os agendamentos que foram cancelados e também o motivo do cancelamento. Ao fazer isso, a API atribui atuomaticamente o status de 'Cancelado' para o agendamento.
 
-![image](https://github.com/antonioscript/MedicalClinicAPI/assets/10932478/fbdc8ce7-0d5f-42b0-ae16-a8d71ba0290d)
+</br>![image](https://github.com/antonioscript/MedicalClinicAPI/assets/10932478/fbdc8ce7-0d5f-42b0-ae16-a8d71ba0290d)
 
 
 ## Prescrição Médica
@@ -181,12 +181,12 @@ E por último, informações relativas a um possível encaminhamento, caso o mé
 ## Cadastro de Exames
 Um outro cadastro que pode acontecer em paralelo com o fluxo de agendamento é o cadastro de exames. Os exames são outro tipo de serviço que existe na clínica, além das consultas que acontecem por padrão com os médicos. Que engloba os exames laboratoriais e de imagem que os pacientes podem precisar realizar como parte de seu tratamento ou diagnóstico, ou apenas de forma isolada. 
 
-![image](https://github.com/antonioscript/MedicalClinicAPI/assets/10932478/6aab06a2-7c2c-4433-8db2-fc03adf4d2e6)
+</br>![image](https://github.com/antonioscript/MedicalClinicAPI/assets/10932478/6aab06a2-7c2c-4433-8db2-fc03adf4d2e6)
 
 ## Cadastro de Técnicos
 Para realizar os exames, é preciso de um técnico cadastrado. O cadastro de técnicos no sistema é essencial para garantir que os exames sejam realizados por profissionais capacitados e registrados. Os técnicos são responsáveis por operar os equipamentos, coletar amostras, e realizar procedimentos específicos de cada exame.
 
-![image](https://github.com/antonioscript/MedicalClinicAPI/assets/10932478/7653cfaa-4267-4747-a6af-978e29406dfa)
+</br>![image](https://github.com/antonioscript/MedicalClinicAPI/assets/10932478/7653cfaa-4267-4747-a6af-978e29406dfa)
 
 ## Procedimentos
 Os procedimentos são de fato a realização do exame, feita pelo técnico junto com o paciente. No procedimento contém as informações do paciente, do técnico , do exame, data de realização daquele exame e uma observação geral sobre o procedimento.
