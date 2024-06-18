@@ -8,6 +8,35 @@ MedicalClinicAPI is a RESTful API designed to manage medical clinic operations a
 The project is currently under development. You can follow all new features, updates, and implementations by clicking here: </br>
 [Project Repository](https://github.com/users/antonioscript/projects/2?pane=info)
 
+# Índice
+- [Features](#features)
+  - [Cadastro de Especialidades](#Cadastro-de-Especialidades)
+  - [Cadastro de Médicos](#Cadastro-de-Médicos)
+  - [Cadastro de Disponibilidade Médica](#Cadastro-de-Disponibilidade-Médica)
+  - [Cadastro de Pacientes](#Cadastro-de-Pacientes)
+  - [Agendamento](#Agendamento)
+  - [Cancelar Agendamento](#Cancelar-Agendamento)
+  - [Prescrição Médica](#Prescrição-Médica)
+  - [Cadastro de Exames](#Cadastro-de-Exames)
+  - [Cadastro de Técnicos](#Cadastro-de-Técnicos)
+  - [Procedimentos](#Procedimentos)
+    
+- [Arquitetura](#arquitetura)
+  - [Banco de Dados](#Banco-de-Dados)
+  - [Abordagem Database First](#Abordagem-Database-First)
+  - [Modelo do Banco de Dados](#Modelo-do-Banco-de-Dados)
+  - [Visualização da API](#Visualização-da-API)
+  - [ORM](#ORM)
+  - [Arquitetura de Código](#Arquitetura-de-Código)
+     - [Domain](#Domain)
+     - [Infrastructure](#Infrastructure)
+     - [Application](#Application)
+     - [Presentation](#Presentation)
+  - [Repository Pattern](#Repository-Pattern)
+  - [CQRS (Command Query Responsibility Segregation)](#CQRS-(Command-Query-Responsibility-Segregation))
+  - [Mediator Pattern](#Mediator-Pattern)
+  - [Unit of Work](#Unit-of-Work)
+
 
 ## Database Design
 ![image](https://github.com/antonioscript/MedicalClinicAPI/assets/10932478/f294da84-e682-48c9-aa38-6ab729b05de9)
