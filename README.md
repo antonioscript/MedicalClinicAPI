@@ -33,7 +33,7 @@ The project is currently under development. You can follow all new features, upd
      - [Application](#Application)
      - [Presentation](#Presentation)
   - [Repository Pattern](#Repository-Pattern)
-  - [CQRS (Command Query Responsibility Segregation)](#CQRS-(Command-Query-Responsibility-Segregation))
+  - [CQRS (Command Query Responsibility Segregation)](#cqrs-command-query-responsibility-segregation)
   - [Mediator Pattern](#Mediator-Pattern)
   - [Unit of Work](#Unit-of-Work)
 
