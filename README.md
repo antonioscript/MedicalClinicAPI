@@ -764,7 +764,10 @@ Para criação de um novo usuário fornecemos o nome, email e senha.
 
 </br>
 </br>
-![image](https://github.com/antonioscript/MedicalClinicAPI/assets/10932478/43ef048e-29be-4242-a5e8-d1aff9acd601)
+
+![image](https://github.com/antonioscript/MedicalClinicAPI/assets/10932478/139a1594-c1e7-4f0f-9143-a80242060d40)
+
+
 
 Este token contém informações específicas sobre o usuário e suas permissões, permitindo acesso seguro a recursos protegidos na API. O token é gerado com uma chave secreta única e deve ser incluído em todas as solicitações subsequentes como forma de autenticação.
 
