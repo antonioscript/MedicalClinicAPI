@@ -1,12 +1,12 @@
 # MedicalClinicAPI
-MedicalClinicAPI is a RESTful API designed to manage medical clinic operations and patient records. It provides a comprehensive set of endpoints to handle patient information, doctor details, appointment scheduling, medical history, prescriptions, and more
+Desenvolvimento de uma API utilizando o framework .NET, concebida para simular e gerir operações de clínicas médicas e registos de pacientes. Fornece um conjunto de funcionalidades para lidar com informações do paciente, detalhes do médico, agendamento de consultas, histórico médico, prescrições e muito mais. 
+
 <p align="center">
   <img src="https://github.com/antonioscript/MedicalClinicAPI/assets/10932478/90cb77bb-f55d-455d-acf7-516608ad97dd.png" alt="Medical Clinic">
 </p>
 
-## Keep Up With the Latest Updates on This Project
-The project is currently under development. You can follow all new features, updates, and implementations by clicking here: </br>
-[Project Repository](https://github.com/users/antonioscript/projects/2?pane=info)
+## Acompanhe as últimas atualizações sobre este projeto
+O projeto está atualmente em desenvolvimento, para acompanhar as novas features o que está sendo desenvolvido no momento, basta clicar [aqui](https://github.com/users/antonioscript/projects/2?pane=info)
 
 # Índice
 - [Features](#features)
