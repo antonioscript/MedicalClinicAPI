@@ -10,10 +10,10 @@ namespace MedicalClinic.Application.DTOs.Insurance
 {
     public class InsuranceResponse
     {
-        public InsuranceResponse()
-        {
-            Patients = new HashSet<PatientResponse>();
-        }
+        //public InsuranceResponse()
+        //{
+        //    Patients = new HashSet<PatientResponse>();
+        //}
 
         public int Id { get; set; }
         public string Name { get; set; } = null!;
@@ -25,6 +25,6 @@ namespace MedicalClinic.Application.DTOs.Insurance
 
         public bool IsEnabled { get; set; }
 
-        public virtual ICollection<PatientResponse> Patients { get; set; }
+        //public virtual ICollection<PatientResponse> Patients { get; set; }
     }
 }

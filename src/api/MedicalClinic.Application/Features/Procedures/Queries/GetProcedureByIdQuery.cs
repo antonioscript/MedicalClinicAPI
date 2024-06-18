@@ -27,6 +27,8 @@ namespace MedicalClinic.Application.Features.Procedures.Queries
                 var result = await _repository.Entities
                     .Where(d => d.Id == query.Id)
                     .Include(a => a.Exam)
+                    .Include(b => b.Technician)
+                    .Include(b => b.Patient)
                     .AsNoTracking()
                     .FirstOrDefaultAsync();
 

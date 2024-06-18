@@ -4,10 +4,10 @@ namespace MedicalClinic.Application.DTOs.Exam
 {
     public class ExamResponse
     {
-        public ExamResponse()
-        {
-            Procedures = new HashSet<ProcedureResponse>();
-        }
+        //public ExamResponse()
+        //{
+        //    Procedures = new HashSet<ProcedureResponse>();
+        //}
 
         public int Id { get; set; }
 
@@ -17,6 +17,6 @@ namespace MedicalClinic.Application.DTOs.Exam
 
         public bool IsEnabled { get; set; }
 
-        public virtual ICollection<ProcedureResponse> Procedures { get; set; }
+        //public virtual ICollection<ProcedureResponse> Procedures { get; set; }
     }
 }

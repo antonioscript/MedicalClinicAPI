@@ -35,6 +35,9 @@ namespace MedicalClinic.Application.Features.Procedures.Queries
         public async Task<PaginatedResult<ProcedureResponse>> Handle(GetAllPagedProcedureQuery request, CancellationToken cancellationToken)
         {
             var paginatedList = await _repository.Entities
+                .Include(b => b.Technician)
+                .Include(b => b.Patient)
+                .Include(b => b.Exam)
                 .Where(b => b.IsEnabled)
                 .AsNoTracking()
                 .ToPaginatedListAsync(request.PageNumber, request.PageSize);
