@@ -153,6 +153,14 @@ Na consulta médica podemos perceber que existe o campo de observação, que é 
 E por último, informações relativas a um possível encaminhamento, caso o médico perceba que o paciente precisa de uma outra especialidade para tratar o problema. 
 
 
+## Exames
+
+## Técnicos
+
+## Procedimentos
+
+
+
 # Arquitetura
 A arquitetura deste projeto consiste em uma API Rest desenvolvida com o framework .NET na versão 6, utilizando o banco de dados SQL Server e Docker para facilitar a implantação e o gerenciamento de contêineres.
 
