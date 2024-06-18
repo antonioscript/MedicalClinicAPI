@@ -335,7 +335,7 @@ namespace MedicalClinic.Application.Interfaces.Repositories
 <sub>*src\api\MedicalClinic.Application\Interfaces\Repositories\IRepositoryAsync.cs*. [Visualize aqui](https://github.com/antonioscript/MedicalClinicAPI/blob/master/src/api/MedicalClinic.Application/Interfaces/Repositories/IRepositoryAsync.cs)</sub>
 </br>
 </br>
-
+</br>
 
 O objetivo de se utilizar o Repository Pattern vai além do simples fato de reduzir a duplicidade de código, ele oculta os detalhes de como os dados são persistidos e recuperados, sem que a lógica de negócios conheça os detalhes da implementação, tornando assim o código mais flexível. 
 
@@ -348,7 +348,9 @@ public interface IDoctorRepository : IRepositoryAsync<Doctor>
 ```
 
 <sub>*src\api\MedicalClinic.Application\Interfaces\Repositories\Entities\IRefreshTokenRepository.cs*. [Visualize aqui](https://github.com/antonioscript/MedicalClinicAPI/blob/master/src/api/MedicalClinic.Application/Interfaces/Repositories/Entities/IRefreshTokenRepository.cs)</sub>
-
+</br>
+</br>
+</br>
 
 
 E para a implementação dessa interface, que é onde de fato ocorre a lógica de acesso ao banco de dados, foi criado uma classe de repositório com os detalhes dessa aplicação:
@@ -517,7 +519,9 @@ namespace MedicalClinic.Application.Features.Doctors.Queries
 }
 ```
 <sub>*src\api\MedicalClinic.Application\Features\Doctors\Queries\GetDoctorByIdQuery.cs*. [Visualize aqui](https://github.com/antonioscript/MedicalClinicAPI/blob/master/src/api/MedicalClinic.Application/Features/Doctors/Queries/GetDoctorByIdQuery.cs)</sub>
-
+</br>
+</br>
+</br>
 
 Com a utilização do CQRS o Controller fica muito mais limpo e legível, sem a necessidade de quaquer linha adicional de código, uma vez que a lógica da aplicação não se encontra mais no Controller, que fica apenas responsável por ser uma meio necessário para se chegar até os comandos da aplicação. Com isso também ocultamos da camada de apresentação quais são os repositórios ou métodos responsáveis pelo acesso ao banco de dados, tornando nosso construtor limpo de qualquer refeência de repositório.
 
@@ -636,7 +640,9 @@ public interface IUnitOfWork
 }
 ```
 <sub>*src\api\MedicalClinic.Application\Interfaces\Repositories\IUnitOfWork.cs*. [Visualize aqui](https://github.com/antonioscript/MedicalClinicAPI/blob/master/src/api/MedicalClinic.Application/Interfaces/Repositories/IUnitOfWork.cs)</sub>
-
+</br>
+</br>
+</br>
 
 
 E a sua implementação acontece utilizando uma classe que implementa os métodos da interface. 
@@ -670,6 +676,9 @@ namespace MedicalClinic.Infrastructure.Repositories
 
 ```
 <sub>*src\api\MedicalClinic.Infrastructure\Repositories\UnitOfWork.cs*. [Visualize aqui](https://github.com/antonioscript/MedicalClinicAPI/blob/master/src/api/MedicalClinic.Infrastructure/Repositories/UnitOfWork.cs)</sub>
+</br>
+</br>
+</br>
 
 O método de 'commit' é chamado na aplicação ao final de cada transação ou operação no código, logo abaixo está o exemplo de uma operação simples de atualização:
 
