@@ -40,11 +40,11 @@ The project is currently under development. You can follow all new features, upd
 # Features
 
 ## Cadastro de Especialidades
-Um dos cadastros essenciais da aplicação é o cadastro de especialidades. São as especialidades que informam quais são as áreas de atuação da Clínica Médica.
+Um dos cadastros essenciais da aplicação é o cadastro de especialidades. São as especialidades que informam quais são as áreas de atuação que Clínica Médica trabalha.
 
-No cadastro de especilidades deve ser informado o nome da especialidade, o valor da consulta, bem como a duração médida da consulta (que será usada em cálculos posterioroes para o agendamento adequeado)
+No cadastro de especialidades deve ser informado o nome da especialidade, o valor da consulta, bem como a duração médida da consulta (que será usada em cálculos posteriores para o agendamento adequeado).
 
-![image](https://github.com/antonioscript/MedicalClinicAPI/assets/10932478/17df3dd1-f680-4a67-99db-36a88ba24fab)
+</br>![image](https://github.com/antonioscript/MedicalClinicAPI/assets/10932478/17df3dd1-f680-4a67-99db-36a88ba24fab)
 
 
 ## Cadastro de Médicos
