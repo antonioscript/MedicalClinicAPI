@@ -23,10 +23,18 @@ No cadastro de especilidades deve ser informado o nome da especialidade, o valor
 
 
 ## Cadastro de Médicos
-Após o cadastro de médicos, o próximo cadastro da aplicação é o cadastro de Médicos
+Após o cadastro de especialidades, o próximo cadastro da aplicação é o cadastro de Médicos. 
 
+![image](https://github.com/antonioscript/MedicalClinicAPI/assets/10932478/327ff8ac-e15f-4159-b81b-3fa9d3475646)
 
+Para o cadastro de um médico, é inserido a especialidade do médico, nome e sobrenome, endereço, e o CRM (Código do Conselho Regional de Medicina), que trata-se de um identificador único de cada médico. 
 
+## Cadastro de Disponibilidade Médica 
+Um outro cadastro importante que está associado aos médicos, é o cadastro de disponibilidade. Nesse cadastro são inseridas informações relativas ao turno de trabalho dos médicos, como o dia da semana e o horário de atendimento.
+
+![image](https://github.com/antonioscript/MedicalClinicAPI/assets/10932478/48c17b56-7eeb-4fdf-aad3-007392400b7b)
+
+## Cadastro de Pacientes
 
 
 # Arquitetura
