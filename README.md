@@ -35,6 +35,13 @@ Um outro cadastro importante que está associado aos médicos, é o cadastro de 
 ![image](https://github.com/antonioscript/MedicalClinicAPI/assets/10932478/48c17b56-7eeb-4fdf-aad3-007392400b7b)
 
 ## Cadastro de Pacientes
+Para que um atendimento seja realizado é necessário também que os pacientes estejam cadastrados. As informações de entrada dos pacientes são: plano de saúde (se o paciente tiver), nome e sobrenome, documento, data de aniversário, telefone, email e endereço
+
+![image](https://github.com/antonioscript/MedicalClinicAPI/assets/10932478/f50317cd-44d3-4adc-bc2a-3f1972d7606a)
+
+## Agendamento
+Após os cadastros relacionados ao médico e o paciente estarem preenchidos, inicia-se então o agendamento
+
 
 
 # Arquitetura
