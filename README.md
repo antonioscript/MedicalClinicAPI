@@ -263,13 +263,13 @@ Essa abordagem foi escolhida para refletir a realidade das aplicações de grand
 Atualmente esse é o modelo do banco de dados mais recente da aplicação:
 
 ![image](https://github.com/antonioscript/MedicalClinicAPI/assets/10932478/6c57772b-0b09-4f2d-bd76-e3501731be5c)
-<sub>Data da última atualização: *15/06/2024*</sub>
+<sub>Data da última atualização: *18/06/2024*</sub>
 
 ## Visualização da API
 Para visualizar a API, foi escolhida a utilização do Swagger, uma ferramenta que oferece uma interface intuitiva sem a necessidade de instalar ferramentas adicionais para testar e executar a aplicação. Além disso, o Swagger simplifica o processo de documentação, gerando automaticamente a documentação a partir do código-fonte da aplicação.
 
 ![image](https://github.com/antonioscript/MedicalClinicAPI/assets/10932478/b028353a-311f-4617-b82a-be685b1ced85)
-<sub>Data da última atualização: *15/06/2024*</sub>
+<sub>Data da última atualização: *18/06/2024*</sub>
 
 ## ORM
 Para fazer a comunicação da aplicação com o banco de dados, o framework escolhido foi o Entity Framework Core, que é um framework da própria Microsoft, que facilita bastante a integração usando objetos do .NET. Além de ser responsável pelo relacionamento com o banco, o Entity Framewok Core conta com um recurso muito rico, chamado LINQ. Que permite escrever queries SQL usando C# de forma simples, aumentando assim a performance e produtividade no desenvolvimento.
@@ -333,7 +333,8 @@ namespace MedicalClinic.Application.Interfaces.Repositories
 }
 ```
 <sub>*src\api\MedicalClinic.Application\Interfaces\Repositories\IRepositoryAsync.cs*. [Visualize aqui](https://github.com/antonioscript/MedicalClinicAPI/blob/master/src/api/MedicalClinic.Application/Interfaces/Repositories/IRepositoryAsync.cs)</sub>
-
+</br>
+</br>
 
 
 O objetivo de se utilizar o Repository Pattern vai além do simples fato de reduzir a duplicidade de código, ele oculta os detalhes de como os dados são persistidos e recuperados, sem que a lógica de negócios conheça os detalhes da implementação, tornando assim o código mais flexível. 
