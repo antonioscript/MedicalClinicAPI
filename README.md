@@ -42,8 +42,9 @@ O projeto está atualmente em desenvolvimento, para acompanhar as novas features
     - [Login](#Login)
     - [Refresh Token](#Refresh-Token)
 
-</b>
 </br>
+</br>
+
 # Features
 A fim de facilitar o entendimento da aplicação, foi criado um diagrama mostrando o principal um dos principais fluxos da Aplicação, que será discutido posteriormente:
 </br>
