@@ -19,7 +19,7 @@ O projeto está atualmente em desenvolvimento, para acompanhar as novas features
   - [Prescrição Médica](#Prescrição-Médica)
   - [Cadastro de Exames](#Cadastro-de-Exames)
   - [Cadastro de Técnicos](#Cadastro-de-Técnicos)
-  - [Procedimentos](#Procedimentos)
+  - [Procedimentos Laboratoriais](#Procedimentos-Laboratoriais)
     
 - [Arquitetura](#arquitetura)
   - [Banco de Dados](#Banco-de-Dados)
@@ -36,6 +36,11 @@ O projeto está atualmente em desenvolvimento, para acompanhar as novas features
   - [CQRS (Command Query Responsibility Segregation)](#cqrs-command-query-responsibility-segregation)
   - [Mediator Pattern](#Mediator-Pattern)
   - [Unit of Work](#Unit-of-Work)
+  - [Segurança](#Segurança)
+    - [JWT (JSON Web Tokens)](#jwt-json-web-tokens)
+    - [Access Token](#Access-Token)
+    - [Login](#Login)
+    - [Refresh Token](#Refresh-Token)
 
 # Features
 A fim de facilitar o entendimento da aplicação, foi criado um diagrama mostrando o principal um dos principais fluxos da Aplicação, que será discutido posteriormente:
@@ -194,7 +199,7 @@ Para realizar os exames, é preciso de um técnico cadastrado. O cadastro de té
 
 </br>![image](https://github.com/antonioscript/MedicalClinicAPI/assets/10932478/7653cfaa-4267-4747-a6af-978e29406dfa)
 
-## Procedimentos
+## Procedimentos Laboratoriais
 Os procedimentos são de fato a realização do exame, feita pelo técnico junto com o paciente. No procedimento contém as informações do paciente, do técnico , do exame, data de realização daquele exame e uma observação geral sobre o procedimento.
 
 Exemplo de Resposta de um procedimento: 
@@ -741,11 +746,43 @@ public async Task<Result<int>> Handle(UpdateDoctorCommand command, CancellationT
 
 
 ## Segurança
+Neste projeto, foi implementado uma série de medidas e práticas de segurança para proteger a API e os dados dos usuários. Utilizamos tecnologias e padrões reconhecidos no mercado, como JWT (JSON Web Tokens) para autenticação e autorização, e o Identity Server para gerenciamento centralizado de identidades e acessos.
+
+### JWT (JSON Web Tokens)
+Para autenticação e autorização da API, foi utilizado uma padrão bastante utilizado no mercado que é o JWT (Jason Web Tokens), que define uma maneira compacta e segura de transmitir informações entre partes como um objeto JSON.
+
+No contexto deste projeto, o JWT token desempenha um papel fundamental na segurança e autenticação dos usuários. Quando um usuário realiza o login com suas credenciais, um token JWT é gerado e assinado com uma chave secreta única. Esse token é então enviado de volta ao cliente e deve ser incluído em todas as solicitações subsequentes como uma forma de autenticação.
+
+### Identity Server
+Em sintonia com o padrão JWT, foi utilizado o Identity Server, um framework que faz parte do ecossistema .NET, servindo como uma solução para implementar autenticação e autorização centralizada em aplicações modernas. Ele é compatível com os padrões de segurança como OAuth 3.0 e OpenID Connect, facilitando a integração com diversos tipos de aplicações e serviços. As tabelas relacionadas ao usuários e outros métodos da API, são orquestrados através desse framework.
+
+### Access Token
+Para criação de um novo usuário fornecemos o nome, email e senha.
+</br>
+</br>
+</br>
+![image](https://github.com/antonioscript/MedicalClinicAPI/assets/10932478/43ef048e-29be-4242-a5e8-d1aff9acd601)
+
+Este token contém informações específicas sobre o usuário e suas permissões, permitindo acesso seguro a recursos protegidos na API. O token é gerado com uma chave secreta única e deve ser incluído em todas as solicitações subsequentes como forma de autenticação.
+
+### Login
+O processo de login é essencial para que os usuários autentiquem-se na aplicação utilizando suas credenciais previamente cadastradas. Após a verificação das credenciais, um token de Acesso (Access Token) é gerado e retornado ao cliente. Esse token é então utilizado para autorizar e acessar recursos protegidos na API. 
+</br>
+</br>
+</br>
+
+![image](https://github.com/antonioscript/MedicalClinicAPI/assets/10932478/ea320eb9-d898-42a2-ad47-ce07f110af5c)
 
 
+## Refresh Token
+Junto com o Access Token, um Refresh Token também pode ser retornado no processo de login. O Refresh Token é um token de longa duração que permite ao cliente obter um novo Access Token sem a necessidade de fornecer novamente as credenciais do usuário. Este mecanismo ajuda a minimizar o tempo de expiração dos tokens e proporciona uma experiência contínua para o usuário, sem a necessidade frequente de realizar login.
 
+</br>
+</br>
+</br>
 
+![image](https://github.com/antonioscript/MedicalClinicAPI/assets/10932478/eb2a6aee-bd2c-4761-be14-c4040cef98c0)
 
-
+<b>Observação</b>:  Embora a API inclua métodos de autenticação, os endpoints estão configurados para permitir acesso livre durante os testes de usabilidade e para facilitar o entendimento das aplicações.
 
 
