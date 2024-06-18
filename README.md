@@ -38,6 +38,8 @@ The project is currently under development. You can follow all new features, upd
   - [Unit of Work](#Unit-of-Work)
 
 # Features
+![image](https://github.com/antonioscript/MedicalClinicAPI/assets/10932478/9bc21b92-cc31-4d20-b926-f506c8065602)
+
 
 ## Cadastro de Especialidades
 Um dos cadastros essenciais da aplicação é o cadastro de especialidades. São as especialidades que informam quais são as áreas de atuação que Clínica Médica trabalha.
