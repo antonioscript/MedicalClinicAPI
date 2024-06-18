@@ -6,7 +6,7 @@ Desenvolvimento de uma API utilizando o framework .NET, concebida para simular e
 </p>
 
 ## Acompanhe as últimas atualizações sobre este projeto
-O projeto está atualmente em desenvolvimento, para acompanhar as novas features o que está sendo desenvolvido no momento, basta clicar [aqui](https://github.com/users/antonioscript/projects/2?pane=info)
+O projeto está atualmente em desenvolvimento, para acompanhar as novas features o que está sendo desenvolvido no momento, basta clicar [aqui](https://github.com/users/antonioscript/projects/2?pane=info).
 
 # Índice
 - [Features](#features)
