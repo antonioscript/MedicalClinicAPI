@@ -762,6 +762,7 @@ Em sintonia com o padrão JWT, foi utilizado o Identity Server, um framework que
 ### Access Token
 Para criação de um novo usuário fornecemos o nome, email e senha.
 </br>
+</br>
 
 ![image](https://github.com/antonioscript/MedicalClinicAPI/assets/10932478/139a1594-c1e7-4f0f-9143-a80242060d40)
 
@@ -772,12 +773,14 @@ Este token contém informações específicas sobre o usuário e suas permissõe
 ### Login
 O processo de login é essencial para que os usuários autentiquem-se na aplicação utilizando suas credenciais previamente cadastradas. Após a verificação das credenciais, um token de Acesso (Access Token) é gerado e retornado ao cliente. Esse token é então utilizado para autorizar e acessar recursos protegidos na API. 
 </br>
+</br>
 
 ![image](https://github.com/antonioscript/MedicalClinicAPI/assets/10932478/ea320eb9-d898-42a2-ad47-ce07f110af5c)
 
 
 ## Refresh Token
 Junto com o Access Token, um Refresh Token também pode ser retornado no processo de login. O Refresh Token é um token de longa duração que permite ao cliente obter um novo Access Token sem a necessidade de fornecer novamente as credenciais do usuário. Este mecanismo ajuda a minimizar o tempo de expiração dos tokens e proporciona uma experiência contínua para o usuário, sem a necessidade frequente de realizar login.
+</br>
 </br>
 
 ![image](https://github.com/antonioscript/MedicalClinicAPI/assets/10932478/eb2a6aee-bd2c-4761-be14-c4040cef98c0)
