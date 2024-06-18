@@ -46,52 +46,52 @@ Exemplo de respota de um agendamento:
 
 ``` JSON
 {
-	"data": {
-		"id": 1,
-		"requestingDoctorId": null,
-		"requestingDoctor": null,
-		"patientId": 1,
-		"patient": {
-			"id": 1,
-			"insuranceId": 1,
-			"insurance": null,
-			"insuranceType": 1,
-			"firstName": "John",
-			"lastName": "Doe",
-			"document": "123456789",
-			"dateOfBirth": "1990-05-15T00:00:00",
-			"gender": 1,
-			"phoneOne": "+1 (123) 456-7890",
-			"phoneTwo": "+1 (987) 654-3210",
-			"email": "john.doe@email.com",
-			"addressLineOne": "123 Main Street",
-			"addressLineTwo": "Apt 4B",
-			"isEnabled": true
-		},
-		"doctorId": 1,
-		"doctor": {
-			"id": 1,
-			"specialtyId": 1,
-			"specialty": null,
-			"crm": "12345",
-			"firstName": "John",
-			"lastName": "Smith",
-			"phone": "+1 (123) 456-7890",
-			"email": "john.smith@email.com",
-			"addressLineOne": "123 Main Street",
-			"addressLineTwo": "Apt 4B",
-			"isEnabled": true,
-			"availabilities": []
-		},
-		"appointmentDate": "2023-01-15T09:00:00",
-		"status": 1,
-		"observation": "Regular check-up",
-		"isEnabled": true
-	},
-	"failed": false,
-	"message": null,
-	"succeeded": true,
-	"errors": null
+  "data": {
+    "id": 1,
+    "requestingDoctorId": null,
+    "requestingDoctor": null,
+    "patientId": 1,
+    "patient": {
+      "id": 1,
+      "insuranceId": 1,
+      "insurance": null,
+      "insuranceType": 1,
+      "firstName": "John",
+      "lastName": "Doe",
+      "document": "123456789",
+      "dateOfBirth": "1990-05-15T00:00:00",
+      "gender": 1,
+      "phoneOne": "+1 (123) 456-7890",
+      "phoneTwo": "+1 (987) 654-3210",
+      "email": "john.doe@email.com",
+      "addressLineOne": "123 Main Street",
+      "addressLineTwo": "Apt 4B",
+      "isEnabled": true
+    },
+    "doctorId": 1,
+    "doctor": {
+      "id": 1,
+      "specialtyId": 1,
+      "specialty": null,
+      "crm": "12345",
+      "firstName": "John",
+      "lastName": "Smith",
+      "phone": "+1 (123) 456-7890",
+      "email": "john.smith@email.com",
+      "addressLineOne": "123 Main Street",
+      "addressLineTwo": "Apt 4B",
+      "isEnabled": true,
+      "availabilities": []
+    },
+    "appointmentDate": "2023-01-15T09:00:00",
+    "status": 1,
+    "observation": "Regular check-up",
+    "isEnabled": true
+  },
+  "failed": false,
+  "message": null,
+  "succeeded": true,
+  "errors": null
 }
 ``` 
 
@@ -168,55 +168,55 @@ E por último, informações relativas a um possível encaminhamento, caso o mé
 
 ``` JSON
 {
-	"data": {
-		"id": 1,
-		"patientId": 1,
-		"patient": {
-			"id": 1,
-			"insuranceId": 1,
-			"insurance": null,
-			"insuranceType": 1,
-			"firstName": "John",
-			"lastName": "Doe",
-			"document": "123456789",
-			"dateOfBirth": "1990-05-15T00:00:00",
-			"gender": 1,
-			"phoneOne": "+1 (123) 456-7890",
-			"phoneTwo": "+1 (987) 654-3210",
-			"email": "john.doe@email.com",
-			"addressLineOne": "123 Main Street",
-			"addressLineTwo": "Apt 4B",
-			"isEnabled": true
-		},
-		"technicianId": 1,
-		"technician": {
-			"id": 1,
-			"firstName": "Robert",
-			"lastName": "Johnson",
-			"email": "robert.johnson@example.com",
-			"phone": "+1 (123) 456-7890",
-			"addressLineOne": "123 Main Street",
-			"addressLineTwo": "Apt 4B",
-			"insuranceType": 1,
-			"isEnabled": true
-		},
-		"examId": 1,
-		"exam": {
-			"id": 1,
-			"name": "Blood Test",
-			"description": "Basic blood analysis",
-			"value": 80.000000,
-			"isEnabled": true
-		},
-		"observation": "Routine blood test",
-		"procedureDate": "2024-01-20T17:37:12.357",
-		"status": 0,
-		"isEnabled": true
-	},
-	"failed": false,
-	"message": null,
-	"succeeded": true,
-	"errors": null
+  "data": {
+    "id": 1,
+    "patientId": 1,
+    "patient": {
+      "id": 1,
+      "insuranceId": 1,
+      "insurance": null,
+      "insuranceType": 1,
+      "firstName": "John",
+      "lastName": "Doe",
+      "document": "123456789",
+      "dateOfBirth": "1990-05-15T00:00:00",
+      "gender": 1,
+      "phoneOne": "+1 (123) 456-7890",
+      "phoneTwo": "+1 (987) 654-3210",
+      "email": "john.doe@email.com",
+      "addressLineOne": "123 Main Street",
+      "addressLineTwo": "Apt 4B",
+      "isEnabled": true
+    },
+    "technicianId": 1,
+    "technician": {
+      "id": 1,
+      "firstName": "Robert",
+      "lastName": "Johnson",
+      "email": "robert.johnson@example.com",
+      "phone": "+1 (123) 456-7890",
+      "addressLineOne": "123 Main Street",
+      "addressLineTwo": "Apt 4B",
+      "insuranceType": 1,
+      "isEnabled": true
+    },
+    "examId": 1,
+    "exam": {
+      "id": 1,
+      "name": "Blood Test",
+      "description": "Basic blood analysis",
+      "value": 80,
+      "isEnabled": true
+    },
+    "observation": "Routine blood test",
+    "procedureDate": "2024-01-20T17:37:12.357",
+    "status": 0,
+    "isEnabled": true
+  },
+  "failed": false,
+  "message": null,
+  "succeeded": true,
+  "errors": null
 }
 ``` 
 
