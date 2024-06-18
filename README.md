@@ -40,7 +40,63 @@ Para que um atendimento seja realizado é necessário também que os pacientes e
 ![image](https://github.com/antonioscript/MedicalClinicAPI/assets/10932478/f50317cd-44d3-4adc-bc2a-3f1972d7606a)
 
 ## Agendamento
-Após os cadastros relacionados ao médico e o paciente estarem preenchidos, inicia-se então o agendamento
+Após os cadastros relacionados ao médico e o paciente estarem preenchidos, inicia-se então o agendamento com as informações do paciente, médico, data de agendamento, o status do agendamento (que pode ser agendado, confirmado, cancelado e concluído) e observação. 
+
+Exemplo de respota de um agendamento:
+
+``` JSON
+{
+	"data": {
+		"id": 1,
+		"requestingDoctorId": null,
+		"requestingDoctor": null,
+		"patientId": 1,
+		"patient": {
+			"id": 1,
+			"insuranceId": 1,
+			"insurance": null,
+			"insuranceType": 1,
+			"firstName": "John",
+			"lastName": "Doe",
+			"document": "123456789",
+			"dateOfBirth": "1990-05-15T00:00:00",
+			"gender": 1,
+			"phoneOne": "+1 (123) 456-7890",
+			"phoneTwo": "+1 (987) 654-3210",
+			"email": "john.doe@email.com",
+			"addressLineOne": "123 Main Street",
+			"addressLineTwo": "Apt 4B",
+			"isEnabled": true
+		},
+		"doctorId": 1,
+		"doctor": {
+			"id": 1,
+			"specialtyId": 1,
+			"specialty": null,
+			"crm": "12345",
+			"firstName": "John",
+			"lastName": "Smith",
+			"phone": "+1 (123) 456-7890",
+			"email": "john.smith@email.com",
+			"addressLineOne": "123 Main Street",
+			"addressLineTwo": "Apt 4B",
+			"isEnabled": true,
+			"availabilities": []
+		},
+		"appointmentDate": "2023-01-15T09:00:00",
+		"status": 1,
+		"observation": "Regular check-up",
+		"isEnabled": true
+	},
+	"failed": false,
+	"message": null,
+	"succeeded": true,
+	"errors": null
+}
+``` 
+
+## 
+
 
 
 
