@@ -41,6 +41,10 @@ O projeto está atualmente em desenvolvimento, para acompanhar as novas features
     - [Access Token](#Access-Token)
     - [Login](#Login)
     - [Refresh Token](#Refresh-Token)
+  -[Como Executar a Aplicação](#Como-Executar-a-Aplicação)
+    - [Clone do Repositório](#Clone-do-Repositório)
+    - [Configurar o Projeto de Inicialização](#Configurar-o-Projeto-de-Inicialização)
+    - [Executar o Script SQL](#Executar-o-Script-SQL)
 
 </br>
 </br>
@@ -798,7 +802,7 @@ git clone https://github.com/antonioscript/MedicalClinicAPI
 ## Configurar o Projeto de Inicialização
 Caso o projeto da API não esteja configurado por padrão, é preciso que dentro da camada "Presentations", clique com o segundo botão e em seguida na opção: "Set as Startup Project"
 
-## Executar Script SQL
+## Executar o Script SQL
 
-E Exceutar o Script que está em
+E exceutar o Script de nome "script.sql" que está na raiz do repositório [aqui](https://github.com/antonioscript/MedicalClinicAPI/blob/master/script.sql).
 
