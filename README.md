@@ -787,4 +787,18 @@ Junto com o Access Token, um Refresh Token também pode ser retornado no process
 
 <b>Observação</b>:  Embora a API inclua métodos de autenticação, os endpoints estão configurados para permitir acesso livre durante os testes de usabilidade e para facilitar o entendimento das aplicações.
 
+# Como Executar a Aplicação
+
+## Clone do Repositório
+Para executar a aplicação, primeiro é preciso fazer o clone do repositório:
+``` Powershell
+git clone https://github.com/antonioscript/MedicalClinicAPI
+```
+
+## Configurar o Projeto de Inicialização
+Caso o projeto da API não esteja configurado por padrão, é preciso que dentro da camada "Presentations", clique com o segundo botão e em seguida na opção: "Set as Startup Project"
+
+## Executar Script SQL
+
+E Exceutar o Script que está em
 
