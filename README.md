@@ -41,7 +41,7 @@ O projeto está atualmente em desenvolvimento, para acompanhar as novas features
     - [Access Token](#Access-Token)
     - [Login](#Login)
     - [Refresh Token](#Refresh-Token)
-  -[Como Executar a Aplicação](#Como-Executar-a-Aplicação)
+- [Como Executar a Aplicação](#Como-Executar-a-Aplicação)
     - [Clone do Repositório](#Clone-do-Repositório)
     - [Configurar o Projeto de Inicialização](#Configurar-o-Projeto-de-Inicialização)
     - [Executar o Script SQL](#Executar-o-Script-SQL)
