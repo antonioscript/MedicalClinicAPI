@@ -139,7 +139,7 @@ Exemplo de resposta de um agendamento:
 ``` 
 
 ## Cancelar Agendamento
-Para os agendamentos que são cancelados, existe uma tabela onde é armanezada todos os agendamentos que foram cancelados e também o motivo do cancelamento. Ao fazer isso, a API atribui atuomaticamente o status de 'Cancelado' para o agendamento.
+Para os agendamentos que são cancelados, existe uma tabela onde é amarnezada  todos os agendamentos que foram cancelados e também o motivo do cancelamento. Ao fazer isso, a API atribui automaticamente o status de 'Cancelado' para o agendamento.
 
 </br>![image](https://github.com/antonioscript/MedicalClinicAPI/assets/10932478/fbdc8ce7-0d5f-42b0-ae16-a8d71ba0290d)
 
