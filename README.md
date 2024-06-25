@@ -191,7 +191,7 @@ Exemplo de um JSON de uma prescrição médica:
 }
 ```
 
-Na consulta médica podemos perceber que existe o campo de observação, que é o local adequado para o médico descrever o parecer geral do paciente, ou seja, os sintomas e problemas que o paciente está enfrentando e temos também as medicações, que são os remédios recomendados pelo médico. Perceba que para cada medicação existem campos opcionais de remédios substituos, para o caso de medicamentos similares que contém o mesmo efeito, que são os casos dos medicamentos genéricos. 
+Na consulta médica podemos perceber que existe o campo de observação, que é o local adequado para o médico descrever o parecer geral do paciente, ou seja, os sintomas e problemas que o paciente está enfrentando e temos também as medicações, que são os remédios recomendados pelo médico. Perceba que para cada medicação existem campos opcionais de remédios substitutos, para o caso de medicamentos similares que contém o mesmo efeito, que são os casos dos medicamentos genéricos. 
 
 E por último, informações relativas a um possível encaminhamento, caso o médico perceba que o paciente precisa de uma outra especialidade para tratar o problema. 
 
