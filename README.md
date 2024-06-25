@@ -645,7 +645,7 @@ Ele monitora essas operações e assegura que, ao final do processo, todas as al
 ![image](https://github.com/antonioscript/MedicalClinicAPI/assets/10932478/c3d98875-6fc1-4019-b59f-168c0506d3b7)
 
 
-</br>Na API esse padrão foi utilizado criando uma interface onde reune os métodos que servirão par confirmar ou reverter as transações.
+</br>Na API esse padrão foi utilizado criando uma interface onde reúne os métodos que servirão par confirmar ou reverter as transações.
 
 ``` csharp
 public interface IUnitOfWork 
