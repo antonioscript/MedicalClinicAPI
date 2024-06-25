@@ -429,7 +429,7 @@ namespace MedicalClinic.Infrastructure.Repositories.Entities
 ## CQRS (Command Query Responsibility Segregation)
 Um outro padrão de arquitetura utilizado foi o CQRS, que consiste em separar as interações com o banco de dados em operações de leitura e escrita, os chamados 'commands' e 'queries'. 
 
-No entanto, o padão CQRS é mais recomendado em APIs robustas e de grande porte, como podemos ver na própria documentação da Microsoft:
+No entanto, o padrão CQRS é mais recomendado em APIs robustas e de grande porte, como podemos ver na própria documentação da Microsoft:
 > "Nas arquiteturas tradicionais, o mesmo modelo de dados é usado para consultar e atualizar um banco de dados. É simples e funciona bem para operações CRUD básicas. Em aplicativos mais complexos, no entanto, essa abordagem pode se tornar complicada"
 > — *[Microsoft Documentation](https://learn.microsoft.com/pt-br/azure/architecture/patterns/cqrs)*
 
