@@ -293,7 +293,7 @@ Para visualizar a API, foi escolhida a utilização do Swagger, uma ferramenta q
 Para fazer a comunicação da aplicação com o banco de dados, o framework escolhido foi o Entity Framework Core, que é um framework da própria Microsoft, que facilita bastante a integração usando objetos do .NET. Além de ser responsável pelo relacionamento com o banco, o Entity Framewok Core conta com um recurso muito rico, chamado LINQ. Que permite escrever queries SQL usando C# de forma simples, aumentando assim a performance e produtividade no desenvolvimento.
 
 ## Arquitetura de Código
-A arquitetura de código escolhida foi a arquitetura 'Clean Architecture', que é um tipo de arquitetura bastante moderna, que foi idealizada pelo Uncle Bob. O objetivo dessa arquitetura é promover a separação de preocupações e a manutenção da independência entre as diferentes camadas da aplicação, divindido-as entre: Domínio, Aplicação, Infraestrutura e Apresentação.
+A arquitetura de código escolhida foi a arquitetura 'Clean Architecture', que é um tipo de arquitetura bastante moderna, que foi idealizada pelo Uncle Bob. O objetivo dessa arquitetura é promover a separação de preocupações e a manutenção da independência entre as diferentes camadas da aplicação, dividindo-as entre: Domínio, Aplicação, Infraestrutura e Apresentação.
 
 No projeto a Clean Architecture foi adaptada dessa forma:
 
