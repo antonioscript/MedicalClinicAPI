@@ -85,7 +85,7 @@ Para que um atendimento seja realizado é necessário também que os pacientes e
 ## Agendamento
 Após os cadastros relacionados ao médico e o paciente estarem preenchidos, inicia-se então o agendamento com as informações do paciente, médico, data de agendamento, o status do agendamento (que pode ser agendado, confirmado, cancelado e concluído) e observação. No agendamento também existe um campo opcional de encaminhamento, que é quando um médico de uma outra consulta faz o encaminhamento do paciente.  
 
-Exemplo de respota de um agendamento:
+Exemplo de resposta de um agendamento:
 
 ``` JSON
 {
