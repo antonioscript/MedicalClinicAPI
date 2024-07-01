@@ -302,7 +302,7 @@ No projeto a Clean Architecture foi adaptada dessa forma:
 Onde podemos visualizar as camadas de domínio, aplicação, infraestrutura e apresentação. 
 
 ### Domain
-Na cama de domínio, no centro da arquitetura, estão as entidades. As entidades representam os conceitos centrais da aplicação, é a unidade básica do sistema. 
+Na camada de domínio, no centro da arquitetura, estão as entidades. As entidades representam os conceitos centrais da aplicação, é a unidade básica do sistema. 
 
 ![image](https://github.com/antonioscript/MedicalClinicAPI/assets/10932478/5476a828-62e1-47a9-89ff-20c7e56338f5)
 
